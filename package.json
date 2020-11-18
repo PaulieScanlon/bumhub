@@ -1,0 +1,47 @@
+{
+  "name": "bah-bumhub",
+  "version": "1.0.0",
+  "description": "An advent calendar of GitHub \"bums\" repos",
+  "main": "index.js",
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "serve": "gatsby serve",
+    "start": "npm run develop",
+    "prettier": "prettier --config ./.prettierrc.js --ignore-path ./.prettierignore --write \"**/*.{json,js,ts,tsx}\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "netlify-lambda install"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettier",
+      "pre-push": ""
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PaulieScanlon/bah-bumhub.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PaulieScanlon/bah-bumhub/issues"
+  },
+  "homepage": "https://github.com/PaulieScanlon/bah-bumhub#readme",
+  "dependencies": {
+    "gatsby": "^2.26.1",
+    "gatsby-plugin-theme-ui": "^0.3.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-markdown": "^5.0.2",
+    "theme-ui": "^0.3.3"
+  },
+  "devDependencies": {
+    "@types/theme-ui": "^0.3.7",
+    "husky": "^4.3.0",
+    "netlify-lambda": "^2.0.1",
+    "prettier": "^2.1.2"
+  }
+}
