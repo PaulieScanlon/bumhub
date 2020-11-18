@@ -31,8 +31,11 @@
   },
   "homepage": "https://github.com/PaulieScanlon/bah-bumhub#readme",
   "dependencies": {
+    "@octokit/rest": "^18.0.9",
+    "dotenv": "^8.2.0",
     "gatsby": "^2.26.1",
     "gatsby-plugin-theme-ui": "^0.3.3",
+    "isomorphic-fetch": "^3.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-markdown": "^5.0.2",
