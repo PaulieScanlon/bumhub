@@ -1,56 +1,58 @@
-import React, { FunctionComponent, useEffect, useState } from 'react'
+import React, { Fragment, FunctionComponent, useEffect, useState } from 'react'
 import { Container, Divider, Heading, Text, Box, Spinner } from 'theme-ui'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 
 interface IBumsPageProps {
   data: any
 }
 
 const BumsPage: FunctionComponent<IBumsPageProps> = ({ data }) => {
-  const [readmeResponse, setReadmeResponse] = useState({ readme: null })
-
+  const [res, setRes] = useState({ data: null, error: null })
+  const [isLoading, setIsLoading] = useState(true)
   const {
     name,
-    description,
     owner: { login },
-    repo,
+    description,
   } = data.bums
 
   useEffect(() => {
-    fetch(`${process.env.GATSBY_API_URL}/github-readme`, {
+    fetch(`../../${process.env.GATSBY_API_URL}/github-readme`, {
       mode: 'no-cors',
       method: 'POST',
-      body: JSON.stringify({ owner: login, repo: repo }),
+      body: JSON.stringify({ owner: login, repo: name }),
     })
       .then((res) => res.text())
       .then((res) => {
-        setReadmeResponse(JSON.parse(res))
-      })
-      .catch((err) => {
-        console.error({ err })
+        setIsLoading(false)
+        setRes(JSON.parse(res))
       })
   }, [])
 
   return (
     <Container>
+      <Link to="/">Back</Link>
       <Heading as="h1" variant="styles.h1">
-        {name}
+        {`name: ${name}`}
       </Heading>
+      <Text>{`login: ${login}`}</Text>
       <Text>{description}</Text>
       <Divider />
-      {readmeResponse.readme ? (
-        <>
-          <Heading as="h4" variant="styles.h4">
-            Readme Response
-          </Heading>
-          <Box dangerouslySetInnerHTML={{ __html: readmeResponse.readme.data }} />
-        </>
-      ) : (
+      {isLoading ? (
         <Spinner />
-      )}
-      <pre>
-        <code>{JSON.stringify(data, null, 2)}</code>
-      </pre>
+      ) : res.error ? (
+        <Heading as="h4" variant="styles.h4">
+          {res.error}
+        </Heading>
+      ) : null}
+      {res.data ? (
+        <Fragment>
+          <Box dangerouslySetInnerHTML={{ __html: res.data }} />
+          <Divider />
+          {/* <pre>
+            <code>{JSON.stringify(data, null, 2)}</code>
+          </pre> */}
+        </Fragment>
+      ) : null}
     </Container>
   )
 }

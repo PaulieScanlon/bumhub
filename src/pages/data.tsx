@@ -10,7 +10,7 @@ const DataPage: FunctionComponent = () => {
 
   useEffect(() => {
     console.log('useEffect')
-    fetch(`${process.env.GATSBY_API_URL}/get-date`, {
+    fetch(`../${process.env.GATSBY_API_URL}/get-date`, {
       mode: 'no-cors',
       method: 'GET',
     })
@@ -22,7 +22,7 @@ const DataPage: FunctionComponent = () => {
         console.error(err)
       })
 
-    fetch(`${process.env.GATSBY_API_URL}/github-search`, {
+    fetch(`../${process.env.GATSBY_API_URL}/github-search`, {
       mode: 'no-cors',
       method: 'GET',
     })
@@ -36,13 +36,16 @@ const DataPage: FunctionComponent = () => {
 
     // This will probably go in the page template
     // owner.login =
-    const owner = 'yemyatthu1990'
-    const repo = 'Bum-Meme-Maker'
+    const owner = 'JakobBoedker'
+    const name = 'BumsOMeter'
 
-    fetch(`${process.env.GATSBY_API_URL}/github-readme`, {
+    // const owner = 'delight09'
+    // const name = 'gadgets'
+
+    fetch(`../${process.env.GATSBY_API_URL}/github-readme`, {
       mode: 'no-cors',
       method: 'POST',
-      body: JSON.stringify({ owner: owner, repo: repo }),
+      body: JSON.stringify({ owner: owner, repo: name }),
     })
       .then((res) => res.text())
       .then((res) => {
@@ -89,7 +92,7 @@ const DataPage: FunctionComponent = () => {
           </Heading>
           <Box as="ul">
             {octokitResponse.search.data.items
-              .sort((a, b) => b.stargazers_count - a.stargazers_count)
+              // .sort((a, b) => b.stargazers_count - a.stargazers_count)
               .map((item: any, index: number) => {
                 const { owner, name, full_name, description, stargazers_count, html_url, default_branch } = item
                 return (
