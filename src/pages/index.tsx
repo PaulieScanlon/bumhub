@@ -1,120 +1,92 @@
-import React, { FunctionComponent, useState, useEffect } from 'react'
-import { Container, Heading, Grid, Box, Spinner, Text, Divider } from 'theme-ui'
+import React, { FunctionComponent } from 'react'
+import { Container, Flex, Grid, Divider, Heading, Text, Card } from 'theme-ui'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 
 const IndexPage: FunctionComponent = () => {
-  const [dateResponse, setDateResponse] = useState({ date: null })
-  const [octokitResponse, setOctokitResponse] = useState({ search: null })
-  const [readmeResponse, setReadmeResponse] = useState({ readme: null })
+  // const data = useStaticQuery(graphql`
+  //   query BumsQuery {
+  //     allBums {
+  //       nodes {
+  //         id
+  //         name
+  //       }
+  //     }
+  //   }
+  // `)
 
-  useEffect(() => {
-    fetch(`${process.env.GATSBY_API_URL}/get-date`, {
-      mode: 'no-cors',
-      method: 'GET',
-    })
-      .then((res) => res.text())
-      .then((res) => {
-        setDateResponse(JSON.parse(res))
-      })
-      .catch((err) => {
-        console.error({ err })
-      })
-
-    fetch(`${process.env.GATSBY_API_URL}/github-search`, {
-      mode: 'no-cors',
-      method: 'GET',
-    })
-      .then((res) => res.text())
-      .then((res) => {
-        setOctokitResponse(JSON.parse(res))
-      })
-      .catch((err) => {
-        console.error({ err })
-      })
-
-    // This will probably go in the page template
-    // owner.login =
-    const owner = 'yemyatthu1990'
-    const repo = 'Bum-Meme-Maker'
-
-    fetch(`${process.env.GATSBY_API_URL}/github-readme`, {
-      mode: 'no-cors',
-      method: 'POST',
-      body: JSON.stringify({ owner: owner, repo: repo }),
-    })
-      .then((res) => res.text())
-      .then((res) => {
-        setReadmeResponse(JSON.parse(res))
-      })
-      .catch((err) => {
-        console.error({ err })
-      })
-  }, [])
+  const data = useStaticQuery(graphql`
+    query BumsQuery {
+      allSitePage(filter: { path: { regex: "//bums//" } }) {
+        nodes {
+          context {
+            name
+          }
+          path
+        }
+      }
+    }
+  `)
 
   return (
     <Container>
-      {dateResponse.date ? (
-        <>
-          <Heading as="h4" variant="styles.h4">
-            Date Response
-          </Heading>
-          <pre>
-            <code>{JSON.stringify(`${process.env.GATSBY_API_URL}/get-date`, null, 2)}</code>
-          </pre>
-          <pre>
-            <code>{JSON.stringify(dateResponse.date, null, 2)}</code>
-          </pre>
-        </>
-      ) : (
-        <Spinner />
-      )}
+      <Heading as="h1" variant="styles.h1">
+        BumHub
+      </Heading>
+      <Text>A list of GitHub repositories with "Bum" in the name</Text>
       <Divider />
-      {readmeResponse.readme ? (
-        <>
-          <Heading as="h4" variant="styles.h4">
-            Readme Response
-          </Heading>
-          <Box dangerouslySetInnerHTML={{ __html: readmeResponse.readme.data }} />
-        </>
-      ) : (
-        <Spinner />
-      )}
-      <Divider />
-      {octokitResponse.search ? (
-        <>
-          <Heading as="h4" variant="styles.h4">
-            Octokit Response
-          </Heading>
-          <Box as="ul">
-            {octokitResponse.search.data.items
-              .sort((a, b) => b.stargazers_count - a.stargazers_count)
-              .map((item: any, index: number) => {
-                const { owner, name, full_name, description, stargazers_count, html_url, default_branch } = item
-                return (
-                  <Grid key={index} as="li" sx={{ gridTemplateColumns: 'auto 1fr', gap: 2, mb: 2 }}>
-                    <Text>{index}</Text>
-                    <Box>
-                      <Text>{`owner.login: ${owner.login}`}</Text>
-                      <Text>{`name: ${name}`}</Text>
-                      <Text>{`full_name: ${full_name}`}</Text>
-                      <Text>{`description: ${description}`}</Text>
-                      <Text>{`stargazers_count: ${stargazers_count}`}</Text>
-                      <Text>{`html_url: ${html_url}`}</Text>
-                      <Text>{`default_branch: ${default_branch}`}</Text>
-                    </Box>
-                  </Grid>
-                )
-              })}
-          </Box>
-          <pre>
-            <code>{JSON.stringify(`${process.env.GATSBY_API_URL}/github-search`, null, 2)}</code>
-          </pre>
-          <pre>
-            <code>{JSON.stringify(octokitResponse.search, null, 2)}</code>
-          </pre>
-        </>
-      ) : (
-        <Spinner />
-      )}
+      <Grid
+        sx={{
+          gridTemplateColumns: ['1fr', '1fr 1fr 1fr'],
+          a: {
+            color: 'text',
+            display: 'flex',
+            flexDirection: 'column',
+            textDecoration: 'none',
+          },
+        }}
+      >
+        {data.allSitePage.nodes.map((node, index) => {
+          const {
+            path,
+            context: { name },
+          } = node
+
+          return (
+            <Link key={index} to={path}>
+              <Card sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+                <Flex
+                  sx={{
+                    flexDirection: 'column',
+                    flexGrow: 1,
+                  }}
+                >
+                  <Text>{index + 1}</Text>
+                  <Heading as="h3" variant="styles.h3">
+                    {name}
+                  </Heading>
+                </Flex>
+                <Flex sx={{ justifyContent: 'flex-end' }}>
+                  <Text sx={{ color: 'primary' }}>More details</Text>
+                </Flex>
+              </Card>
+            </Link>
+          )
+        })}
+      </Grid>
+      {/* <Box as="ul">
+        {data.allSitePage.nodes.map((node, index) => {
+          const {
+            path,
+            context: { name },
+          } = node
+
+          return (
+            <Box key={index} as="li">
+              <Link to={path}>{`${index + 1}-${name}`}</Link>
+            </Box>
+          )
+        })}
+      </Box> */}
     </Container>
   )
 }

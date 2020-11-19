@@ -106,3 +106,5 @@ dist
 
 # Gatsby
 public
+.env.development
+.env.production
