@@ -4,7 +4,7 @@ import { Container, Heading, Grid, Box, Spinner, Text, Divider } from 'theme-ui'
 const DataPage: FunctionComponent = () => {
   const [dateResponse, setDateResponse] = useState({ date: null })
   const [octokitResponse, setOctokitResponse] = useState({ search: null })
-  const [readmeResponse, setReadmeResponse] = useState({ readme: null })
+  const [readmeResponse, setReadmeResponse] = useState({ data: null, error: null })
 
   console.log('process.env.GATSBY_API_URL: ', process.env.GATSBY_API_URL)
 
@@ -36,25 +36,24 @@ const DataPage: FunctionComponent = () => {
 
     // This will probably go in the page template
     // owner.login =
-    const owner = 'JakobBoedker'
-    const name = 'BumsOMeter'
+    // const login = 'JakobBoedker'
+    // const name = 'BumsOMeter'
 
-    // const owner = 'delight09'
-    // const name = 'gadgets'
+    const login = 'PaulieScanlon'
+    const name = 'bah-bumhub'
 
-    fetch(`../${process.env.GATSBY_API_URL}/github-readme`, {
+    fetch(`../../${process.env.GATSBY_API_URL}/github-readme`, {
       mode: 'no-cors',
       method: 'POST',
-      body: JSON.stringify({ owner: owner, repo: name }),
+      body: JSON.stringify({ owner: login, repo: name }),
     })
       .then((res) => res.text())
       .then((res) => {
         setReadmeResponse(JSON.parse(res))
       })
-      .catch((err) => {
-        console.error({ err })
-      })
   }, [])
+
+  console.log(readmeResponse)
 
   return (
     <Container>
@@ -74,12 +73,12 @@ const DataPage: FunctionComponent = () => {
         <Spinner />
       )}
       <Divider />
-      {readmeResponse.readme ? (
+      {readmeResponse.data ? (
         <>
           <Heading as="h4" variant="styles.h4">
             Readme Response
           </Heading>
-          <Box dangerouslySetInnerHTML={{ __html: readmeResponse.readme.data }} />
+          <Box dangerouslySetInnerHTML={{ __html: readmeResponse.data }} />
         </>
       ) : (
         <Spinner />

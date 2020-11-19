@@ -1,4 +1,4 @@
-const { octokit } = require('../clients')
+const { octokit } = require('../../client')
 
 exports.handler = async (event, context, callback) => {
   const { data } = await octokit.request('GET /search/repositories', {
