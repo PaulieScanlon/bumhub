@@ -24,6 +24,19 @@ const IndexPage: FunctionComponent = () => {
           path
         }
       }
+      allBums {
+        nodes {
+          name
+          full_name
+          owner {
+            login
+          }
+          description
+          created_at
+          stargazers_count
+          language
+        }
+      }
     }
   `)
 
@@ -36,7 +49,7 @@ const IndexPage: FunctionComponent = () => {
       <Divider />
       <Grid
         sx={{
-          gridTemplateColumns: ['1fr', '1fr 1fr 1fr'],
+          gridTemplateColumns: ['1fr', '1fr 1fr'],
           a: {
             color: 'text',
             display: 'flex',
@@ -46,27 +59,40 @@ const IndexPage: FunctionComponent = () => {
         }}
       >
         {data.allSitePage.nodes.map((node, index) => {
+          const { path } = node
+
           const {
-            path,
-            context: { name },
-          } = node
+            name,
+            description,
+            owner: { login },
+            stargazers_count,
+            created_at,
+          } = data.allBums.nodes[index]
 
           return (
             <Link key={index} to={path}>
-              <Card sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+              <Card sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1, minHeight: '200px' }}>
                 <Flex
                   sx={{
                     flexDirection: 'column',
                     flexGrow: 1,
                   }}
                 >
-                  <Text>{index + 1}</Text>
-                  <Heading as="h3" variant="styles.h3">
+                  <Flex sx={{ justifyContent: 'space-between' }}>
+                    <Text>{`📅 ${index + 1}`}</Text>
+                    <Text>{`⭐ ${stargazers_count}`}</Text>
+                  </Flex>
+                  <Flex sx={{ justifyContent: 'space-between' }}>
+                    <Text>{`😶 ${login}`}</Text>
+                    <Text>{`🕑 ${created_at}`}</Text>
+                  </Flex>
+                  <Heading as="h2" variant="styles.h2">
                     {name}
                   </Heading>
+                  <Text>{description}</Text>
                 </Flex>
                 <Flex sx={{ justifyContent: 'flex-end' }}>
-                  <Text sx={{ color: 'primary' }}>More details</Text>
+                  <Text sx={{ color: 'primary' }}>{`More details ➡️`}</Text>
                 </Flex>
               </Card>
             </Link>
