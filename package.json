@@ -31,6 +31,7 @@
   },
   "homepage": "https://github.com/PaulieScanlon/bah-bumhub#readme",
   "dependencies": {
+    "@octokit/plugin-paginate-rest": "^2.6.0",
     "@octokit/rest": "^18.0.9",
     "dotenv": "^8.2.0",
     "gatsby": "^2.26.1",

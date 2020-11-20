@@ -1380,7 +1380,7 @@
     "@octokit/types" "^5.0.0"
     universal-user-agent "^6.0.0"
 
-"@octokit/plugin-paginate-rest@^2.2.0":
+"@octokit/plugin-paginate-rest@^2.2.0", "@octokit/plugin-paginate-rest@^2.6.0":
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/@octokit/plugin-paginate-rest/-/plugin-paginate-rest-2.6.0.tgz#03416396e7a227b268c5b827365238f620a9c5c1"
   integrity sha512-o+O8c1PqsC5++BHXfMZabRRsBIVb34tXPWyQLyp2IXq5MmkxdipS7TXM4Y9ldL1PzY9CTrCsn/lzFFJGM3oRRA==

@@ -45,7 +45,7 @@ const IndexPage: FunctionComponent = () => {
       <Heading as="h1" variant="styles.h1">
         BumHub
       </Heading>
-      <Text>A list of GitHub repositories with "Bum" in the name</Text>
+      <Text>A currated list of GitHub bums</Text>
       <Divider />
       <Grid
         sx={{
