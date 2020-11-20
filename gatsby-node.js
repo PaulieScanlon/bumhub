@@ -38,18 +38,26 @@ const included_repos = [
 module.exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
   const { createNode } = actions
 
-  const bums = ({ data } = await octokit.request('GET /search/repositories', {
-    q: 'bums in:name',
-    per_page: 100,
-    page: 1,
-  }))
+  const bums = await octokit.paginate(
+    'GET /search/repositories',
+    {
+      q: 'bums in:name,description',
+      per_page: 100,
+    },
+    (response, done) => {
+      if (response.data.length === response.data.total_count) {
+        done()
+      }
+      return response.data
+    },
+  )
 
   const owner = ({ data } = await octokit.request('GET /repos/{owner}/{repo}', {
     owner: 'pauliescanlon',
     repo: 'bah-bumhub',
   }))
 
-  const filtered = bums.data.items.filter((a) => included_repos.includes(a.name)).concat([owner.data])
+  const filtered = bums.filter((a) => included_repos.includes(a.name)).concat([owner.data])
 
   filtered.forEach((item, index) => {
     const { id } = item

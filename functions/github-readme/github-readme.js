@@ -22,7 +22,7 @@ exports.handler = (event, context, callback) => {
           'Access-Control-Allow-Origin': '*',
         },
         statusCode: 200,
-        body: JSON.stringify({ data }),
+        body: JSON.stringify({ readme: data }),
       })
     })
     .catch((err) => {

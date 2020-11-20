@@ -7,7 +7,7 @@ interface IBumsPageProps {
 }
 
 const BumsPage: FunctionComponent<IBumsPageProps> = ({ data }) => {
-  const [res, setRes] = useState({ data: null, error: null })
+  const [res, setRes] = useState({ readme: null, error: null })
   const [isLoading, setIsLoading] = useState(true)
   const {
     name,
@@ -44,9 +44,9 @@ const BumsPage: FunctionComponent<IBumsPageProps> = ({ data }) => {
           {res.error}
         </Heading>
       ) : null}
-      {res.data ? (
+      {res.readme ? (
         <Fragment>
-          <Box dangerouslySetInnerHTML={{ __html: res.data }} />
+          <Box dangerouslySetInnerHTML={{ __html: res.readme }} />
           <Divider />
           {/* <pre>
             <code>{JSON.stringify(data, null, 2)}</code>
