@@ -1,5 +1,3 @@
-const { Octokit } = require('@octokit/rest')
-const fetch = require('isomorphic-fetch')
 const { octokit } = require('./client')
 
 // docs
