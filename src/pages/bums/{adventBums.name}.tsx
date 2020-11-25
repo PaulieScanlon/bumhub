@@ -15,7 +15,7 @@ const BumsPage: FunctionComponent<IBumsPageProps> = ({ data }) => {
     name,
     owner: { login },
     description,
-  } = data.bums
+  } = data.adventBums
 
   return (
     <Container>
@@ -50,7 +50,7 @@ export default BumsPage
 
 export const query = graphql`
   query($id: String) {
-    bums(id: { eq: $id }) {
+    adventBums(id: { eq: $id }) {
       name
       owner {
         login

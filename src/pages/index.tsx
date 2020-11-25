@@ -1,5 +1,5 @@
-import React, { Fragment, FunctionComponent, useEffect, useState } from 'react'
-import { Container, Flex, Grid, Divider, Heading, Text, Card, Spinner, Box, Link } from 'theme-ui'
+import React, { Fragment, FunctionComponent } from 'react'
+import { Container, Flex, Grid, Divider, Heading, Text, Card, Box, Link } from 'theme-ui'
 import { useStaticQuery, graphql, Link as GatsbyLink } from 'gatsby'
 
 import { MrFetchy } from '../components/mr-fetchy'
@@ -17,7 +17,7 @@ const isEnabled = (data: any, index: number) => {
 
 const IndexPage: FunctionComponent = () => {
   const data = useStaticQuery(graphql`
-    query BumsQuery {
+    query adventBumsQuery {
       allSitePage(filter: { path: { regex: "//bums//" } }) {
         nodes {
           context {
@@ -26,7 +26,7 @@ const IndexPage: FunctionComponent = () => {
           path
         }
       }
-      allBums {
+      allAdventBums {
         nodes {
           name
           full_name
@@ -55,7 +55,7 @@ const IndexPage: FunctionComponent = () => {
           25 Bums of Christmas
         </Heading>
         <Text>A new ‘bum’ repo for each day of Christmas</Text>
-        {/* TDOO - remove this */}
+
         <MrFetchy endPoint={END_POINT}>
           {(date) => {
             return (
@@ -88,7 +88,7 @@ const IndexPage: FunctionComponent = () => {
                 const {
                   name,
                   owner: { login },
-                } = data.allBums.nodes[index]
+                } = data.allAdventBums.nodes[index]
 
                 return (
                   <Fragment key={index}>

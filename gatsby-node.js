@@ -55,13 +55,31 @@ module.exports.sourceNodes = async ({ actions, createNodeId, createContentDigest
     repo: 'bah-bumhub',
   }))
 
-  const filtered = bums.filter((a) => included_repos.includes(a.name)).concat([owner.data])
+  const adventFiltered = bums.filter((a) => included_repos.includes(a.name)).concat([owner.data])
 
-  if (filtered.length < 25) {
+  if (adventFiltered.length < 25) {
     throw new Error('Respositories length is less than 25')
   }
 
-  filtered.forEach((item, index) => {
+  adventFiltered.forEach((item, index) => {
+    const { id } = item
+
+    let nodeMeta = {
+      id: createNodeId(`advent-bum-id-${id}`),
+      parent: null,
+      children: [],
+      internal: {
+        type: `adventBums`,
+        mediaType: `text/html`,
+        content: JSON.stringify(item),
+        contentDigest: createContentDigest(item),
+      },
+    }
+    const node = Object.assign({}, item, nodeMeta)
+    createNode(node)
+  })
+
+  bums.forEach((item, index) => {
     const { id } = item
 
     let nodeMeta = {
