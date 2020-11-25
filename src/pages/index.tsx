@@ -60,7 +60,7 @@ const IndexPage: FunctionComponent = () => {
           {(date) => {
             return (
               <Text>
-                <Text as="b">data_length: </Text>
+                <Text as="b">server date: </Text>
                 {date.data.formatted_date}
               </Text>
             )

@@ -13,17 +13,6 @@ const SearchPage: FunctionComponent = () => {
           Bum Search
         </Heading>
         <Text>Discover more of the worlds GitHub ‘bum’ repositories</Text>
-        {/* TDOO - remove this */}
-        {/* <MrFetchy endPoint={END_POINT}>
-          {(bums) => {
-            return (
-              <Text>
-                <Text as="b">data_length: </Text>
-                {bums.data.length}
-              </Text>
-            )
-          }}
-        </MrFetchy> */}
       </Box>
       <Divider />
 
