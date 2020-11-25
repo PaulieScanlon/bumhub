@@ -13,10 +13,6 @@ const SearchPage: FunctionComponent = () => {
           Bum Search
         </Heading>
         <Text>Discover more of the worlds GitHub ‘bum’ repositories</Text>
-        <Text>
-          <Text as="b">endpoint: </Text>
-          {`${process.env.GATSBY_API_URL}${END_POINT}`}
-        </Text>
         {/* TDOO - remove this */}
         <MrFetchy endPoint={END_POINT}>
           {(bums) => {
