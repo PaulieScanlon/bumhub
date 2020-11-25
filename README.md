@@ -1,2 +1,3 @@
-# bah-bumhub
-An advent calendar of GitHub "bums" repos
+# bumhub
+
+A cheeky look at the worlds GitHub ‘bum’ repos
