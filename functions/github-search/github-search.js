@@ -4,7 +4,7 @@ exports.handler = async (event, context, callback) => {
   const bums = await octokit.paginate(
     'GET /search/repositories',
     {
-      q: 'bums in:name,description',
+      q: 'bums in:name',
       per_page: 100,
     },
     (response, done) => {
