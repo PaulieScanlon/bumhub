@@ -14,7 +14,7 @@ const SearchPage: FunctionComponent = () => {
         </Heading>
         <Text>Discover more of the worlds GitHub ‘bum’ repositories</Text>
         {/* TDOO - remove this */}
-        <MrFetchy endPoint={END_POINT}>
+        {/* <MrFetchy endPoint={END_POINT}>
           {(bums) => {
             return (
               <Text>
@@ -23,7 +23,7 @@ const SearchPage: FunctionComponent = () => {
               </Text>
             )
           }}
-        </MrFetchy>
+        </MrFetchy> */}
       </Box>
       <Divider />
 
