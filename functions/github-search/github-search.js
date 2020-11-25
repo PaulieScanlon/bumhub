@@ -4,7 +4,7 @@ exports.handler = async (event, context, callback) => {
   const bums = await octokit.paginate(
     'GET /search/repositories',
     {
-      q: 'bums in:name',
+      q: 'bums in:name,description',
       per_page: 100,
     },
     (response, done) => {
@@ -23,16 +23,17 @@ exports.handler = async (event, context, callback) => {
       if (response.data.length === response.data.total_count) {
         done()
       }
-
-      return callback(null, {
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-        },
-        statusCode: response.status,
-        body: JSON.stringify({
-          data: response.data,
-        }),
-      })
+      return response.data
     },
   )
+
+  callback(null, {
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
+    statusCode: 200,
+    body: JSON.stringify({
+      data: bums,
+    }),
+  })
 }
