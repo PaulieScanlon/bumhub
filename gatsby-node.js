@@ -39,7 +39,7 @@ module.exports.sourceNodes = async ({ actions, createNodeId, createContentDigest
   const bums = await octokit.paginate(
     'GET /search/repositories',
     {
-      q: 'bums in:name,description',
+      q: 'bums in:name',
       per_page: 100,
     },
     (response, done) => {
@@ -56,6 +56,10 @@ module.exports.sourceNodes = async ({ actions, createNodeId, createContentDigest
   }))
 
   const filtered = bums.filter((a) => included_repos.includes(a.name)).concat([owner.data])
+
+  if (filtered.length < 25) {
+    throw new Error('Respositories length is less than 25')
+  }
 
   filtered.forEach((item, index) => {
     const { id } = item

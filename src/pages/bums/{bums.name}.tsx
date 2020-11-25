@@ -30,12 +30,13 @@ const BumsPage: FunctionComponent<IBumsPageProps> = ({ data }) => {
 
   return (
     <Container>
-      <Link to="/">Back</Link>
-      <Heading as="h1" variant="styles.h1">
-        {`name: ${name}`}
-      </Heading>
-      <Text>{`login: ${login}`}</Text>
-      <Text>{description}</Text>
+      <Box as="section" sx={{ mb: 5 }}>
+        <Heading as="h1" variant="styles.h1">
+          {`name: ${name}`}
+        </Heading>
+        <Text>{`login: ${login}`}</Text>
+        <Text>{`description: ${description}`}</Text>
+      </Box>
       <Divider />
       {isLoading ? (
         <Spinner />
@@ -48,9 +49,6 @@ const BumsPage: FunctionComponent<IBumsPageProps> = ({ data }) => {
         <Fragment>
           <Box dangerouslySetInnerHTML={{ __html: res.readme }} />
           <Divider />
-          {/* <pre>
-            <code>{JSON.stringify(data, null, 2)}</code>
-          </pre> */}
         </Fragment>
       ) : null}
     </Container>
