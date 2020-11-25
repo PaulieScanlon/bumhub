@@ -2,31 +2,20 @@ import React, { Fragment, FunctionComponent, useEffect, useState } from 'react'
 import { Container, Divider, Heading, Text, Box, Spinner } from 'theme-ui'
 import { graphql, Link } from 'gatsby'
 
+import { MrFetchy } from '../../components/mr-fetchy'
+
+const END_POINT = '/github-readme'
 interface IBumsPageProps {
+  /** Gatsby page data */
   data: any
 }
 
 const BumsPage: FunctionComponent<IBumsPageProps> = ({ data }) => {
-  const [res, setRes] = useState({ readme: null, error: null })
-  const [isLoading, setIsLoading] = useState(true)
   const {
     name,
     owner: { login },
     description,
   } = data.bums
-
-  useEffect(() => {
-    fetch(`../../${process.env.GATSBY_API_URL}/github-readme`, {
-      mode: 'no-cors',
-      method: 'POST',
-      body: JSON.stringify({ owner: login, repo: name }),
-    })
-      .then((res) => res.text())
-      .then((res) => {
-        setIsLoading(false)
-        setRes(JSON.parse(res))
-      })
-  }, [])
 
   return (
     <Container>
@@ -38,19 +27,11 @@ const BumsPage: FunctionComponent<IBumsPageProps> = ({ data }) => {
         <Text>{`description: ${description}`}</Text>
       </Box>
       <Divider />
-      {isLoading ? (
-        <Spinner />
-      ) : res.error ? (
-        <Heading as="h4" variant="styles.h4">
-          {res.error}
-        </Heading>
-      ) : null}
-      {res.readme ? (
-        <Fragment>
-          <Box dangerouslySetInnerHTML={{ __html: res.readme }} />
-          <Divider />
-        </Fragment>
-      ) : null}
+      <MrFetchy endPoint={END_POINT} method="POST" body={{ owner: login, repo: name }}>
+        {(readme) => {
+          return <Box dangerouslySetInnerHTML={{ __html: readme.data }} />
+        }}
+      </MrFetchy>
     </Container>
   )
 }
