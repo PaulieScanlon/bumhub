@@ -64,7 +64,7 @@ const IndexPage: FunctionComponent = () => {
       <Divider />
       <Box as="section" sx={{ mb: 5 }}>
         <Heading as="h2" variant="styles.h2">
-          Advent
+          25 Bums of Christmas
         </Heading>
         <Text>A new ‘bum’ repo for each day of Christmas</Text>
         <Text>Server Date | {res.date ? res.date.formatted_date : ''}</Text>
@@ -106,9 +106,9 @@ const IndexPage: FunctionComponent = () => {
                         flexGrow: 1,
                       }}
                     >
-                      <Heading as="h2" variant="styles.h2">{`${index + 1}`}</Heading>
+                      <Heading as="h4" variant="styles.h4">{`${index + 1}`}</Heading>
                       <Text>{login}</Text>
-                      <Heading as="h2" variant="styles.h2">
+                      <Heading as="h5" variant="styles.h5">
                         {name}
                       </Heading>
                     </Flex>
@@ -149,7 +149,7 @@ const IndexPage: FunctionComponent = () => {
         </Heading>
         <Text> BumHubs carbon footprint measured in human farts, powered by EcoPing</Text>
         <Link href="http://ecoping.earth/" target="_blank">
-          Preview Styles
+          http://ecoping.earth/
         </Link>
       </Box>
     </Container>

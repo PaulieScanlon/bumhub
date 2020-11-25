@@ -51,11 +51,11 @@ const SearchPage: FunctionComponent = () => {
             const { name, description, html_url } = item
 
             return (
-              <Box key={index} as="li" sx={{ mb: 2 }}>
-                <Text>
+              <Box key={index} as="li" sx={{ mb: 4 }}>
+                <Heading as="h5" variant="styles.h5">
                   <Text as="b">name: </Text>
                   {name}
-                </Text>
+                </Heading>
                 <Text>
                   <Text as="b">description: </Text>
                   {description ? description : '~no description available~'}

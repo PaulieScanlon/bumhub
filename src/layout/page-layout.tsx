@@ -1,5 +1,5 @@
 import React, { Fragment, FunctionComponent } from 'react'
-import { Container, Grid, Box, Heading, Divider } from 'theme-ui'
+import { Container, Grid, Box, Text, Divider } from 'theme-ui'
 import { Link } from 'gatsby'
 
 export const PageLayout: FunctionComponent = ({ children }) => {
@@ -9,9 +9,7 @@ export const PageLayout: FunctionComponent = ({ children }) => {
         <Container>
           <Grid sx={{ gridTemplateColumns: '1fr 1fr' }}>
             <Link to="/">
-              <Heading as="h1" variant="styles.h1">
-                BumHub
-              </Heading>
+              <Text>BumHub</Text>
             </Link>
             <Grid sx={{ alignItems: 'center', justifyContent: 'flex-end', gap: 2, gridTemplateColumns: 'auto auto' }}>
               <Link to="/search">Bum Search</Link>
