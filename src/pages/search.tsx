@@ -3,7 +3,7 @@ import { Container, Box, Divider, Text, Link, Flex, Heading } from 'theme-ui'
 
 import { MrFetchy } from '../components/mr-fetchy'
 
-const END_POINT = '/github-search'
+const END_POINT = 'github-search'
 
 const SearchPage: FunctionComponent = () => {
   return (

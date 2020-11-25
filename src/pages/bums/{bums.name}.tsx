@@ -4,7 +4,7 @@ import { graphql, Link } from 'gatsby'
 
 import { MrFetchy } from '../../components/mr-fetchy'
 
-const END_POINT = '/github-readme'
+const END_POINT = 'github-readme'
 interface IBumsPageProps {
   /** Gatsby page data */
   data: any

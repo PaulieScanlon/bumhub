@@ -18,6 +18,8 @@ export const MrFetchy: FunctionComponent<MrFetchProps> = ({ endPoint, method = '
   const [isLoading, setIsLoading] = useState(true)
   const [hasError, setHasError] = useState(false)
 
+  console.log(`${process.cwd()}${process.env.GATSBY_API_URL}/${endPoint}`)
+
   useEffect(() => {
     fetch(`${process.cwd()}${process.env.GATSBY_API_URL}/${endPoint}`, {
       mode: 'no-cors',

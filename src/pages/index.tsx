@@ -4,7 +4,7 @@ import { useStaticQuery, graphql, Link as GatsbyLink } from 'gatsby'
 
 import { MrFetchy } from '../components/mr-fetchy'
 
-const END_POINT = '/get-date'
+const END_POINT = 'get-date'
 
 const isEnabled = (data: any, index: number) => {
   if (index + 1 <= data.day && data.month === data.limited_month) {
