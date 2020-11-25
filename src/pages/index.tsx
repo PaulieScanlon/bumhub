@@ -7,8 +7,8 @@ const isEnabled = (date: any, index: number) => {
     return true
   }
 
-  // return false
   return true
+  // return false
 }
 
 const IndexPage: FunctionComponent = () => {
@@ -66,7 +66,7 @@ const IndexPage: FunctionComponent = () => {
         <Heading as="h2" variant="styles.h2">
           Advent
         </Heading>
-        <Text> A new ‘bum’ repo for each day of Christmas</Text>
+        <Text>A new ‘bum’ repo for each day of Christmas</Text>
         <Text>Server Date | {res.date ? res.date.formatted_date : ''}</Text>
       </Box>
       {res.date ? (
