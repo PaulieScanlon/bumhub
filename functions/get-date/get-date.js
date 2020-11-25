@@ -7,7 +7,7 @@ exports.handler = async (event, context, callback) => {
     },
     statusCode: 200,
     body: JSON.stringify({
-      date: {
+      data: {
         formatted_date: format(new Date(), 'dd-MM-yyy'),
         day: format(new Date(), 'dd'),
         // month: 11,

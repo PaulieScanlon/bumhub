@@ -16,19 +16,23 @@ exports.handler = (event, context, callback) => {
         format: 'html',
       },
     })
-    .then(({ data }) => {
+    .then((response) => {
       return callback(null, {
         headers: {
           'Access-Control-Allow-Origin': '*',
         },
         statusCode: 200,
-        body: JSON.stringify({ readme: data }),
+        body: JSON.stringify({
+          data: response.data,
+        }),
       })
     })
-    .catch((err) => {
+    .catch(() => {
       return callback(null, {
         statusCode: 400,
-        body: JSON.stringify({ error: 'This repoository has no README' }),
+        body: JSON.stringify({
+          data: null,
+        }),
       })
     })
 }
