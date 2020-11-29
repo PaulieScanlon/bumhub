@@ -33,8 +33,10 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.6.21",
     "@mdx-js/react": "^1.6.21",
+    "@n8tb1t/use-scroll-position": "^2.0.3",
     "@octokit/plugin-paginate-rest": "^2.6.0",
     "@octokit/rest": "^18.0.9",
+    "@theme-ui/color": "^0.3.4",
     "@theme-ui/prism": "^0.3.4",
     "date-fns": "^2.16.1",
     "dotenv": "^8.2.0",

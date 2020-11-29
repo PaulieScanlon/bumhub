@@ -18,21 +18,24 @@ const BumsPage: FunctionComponent<IBumsPageProps> = ({ data }) => {
   } = data.adventBums
 
   return (
-    <Container>
-      <Box as="section" sx={{ mb: 5 }}>
-        <Heading as="h1" variant="styles.h1">
-          {`name: ${name}`}
-        </Heading>
-        <Text>{`login: ${login}`}</Text>
-        <Text>{`description: ${description}`}</Text>
-      </Box>
-      <Divider />
-      <MrFetchy endPoint={END_POINT} method="POST" body={{ owner: login, repo: name }}>
-        {(readme) => {
-          return <Box dangerouslySetInnerHTML={{ __html: readme.data }} />
-        }}
-      </MrFetchy>
-    </Container>
+    <>
+      <Box sx={{ height: 'header', mb: 4 }} />
+      <Container>
+        <Box>
+          <Heading as="h1" variant="styles.h1">
+            {`name: ${name}`}
+          </Heading>
+          <Text>{`login: ${login}`}</Text>
+          <Text>{`description: ${description}`}</Text>
+        </Box>
+        <Divider />
+        <MrFetchy endPoint={END_POINT} method="POST" body={{ owner: login, repo: name }}>
+          {(readme) => {
+            return <Box dangerouslySetInnerHTML={{ __html: readme.data }} />
+          }}
+        </MrFetchy>
+      </Container>
+    </>
   )
 }
 

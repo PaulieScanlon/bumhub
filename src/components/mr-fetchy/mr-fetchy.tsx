@@ -18,12 +18,12 @@ export const MrFetchy: FunctionComponent<MrFetchProps> = ({ endPoint, method = '
   const [isLoading, setIsLoading] = useState(true)
   const [hasError, setHasError] = useState(false)
 
-  console.log('')
-  console.log('endPoint: ', endPoint)
-  console.log('method: ', method)
-  console.log('body: ', body)
-  console.log(`${process.cwd()}${process.env.GATSBY_API_URL}/${endPoint}`)
-  console.log('')
+  // console.log('')
+  // console.log('endPoint: ', endPoint)
+  // console.log('method: ', method)
+  // console.log('body: ', body)
+  // console.log(`${process.cwd()}${process.env.GATSBY_API_URL}/${endPoint}`)
+  // console.log('')
 
   useEffect(() => {
     fetch(`${process.cwd()}${process.env.GATSBY_API_URL}/${endPoint}`, {
