@@ -11,11 +11,7 @@ const components = {
 }
 
 const MdxLayout: FunctionComponent = ({ children }) => {
-  return (
-    <MDXProvider components={components}>
-      <themeUiComponents.Container>{children}</themeUiComponents.Container>
-    </MDXProvider>
-  )
+  return <MDXProvider components={components}>{children}</MDXProvider>
 }
 
 export default MdxLayout

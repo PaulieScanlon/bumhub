@@ -1,3 +1,4 @@
+import { transparentize } from '@theme-ui/color'
 import codeTheme from '@theme-ui/prism/presets/github.json'
 
 const commonFocus = {
@@ -7,19 +8,20 @@ const commonFocus = {
 
 export default {
   colors: {
-    text: '#333333',
+    text: '#000000',
     background: '#ffffff',
     primary: '#FF5BA3',
     secondary: '#1da0f2',
     grey: '#f7f7f7',
     accent: '#fdc449',
+    highlight: '#fceffb',
   },
   fonts: {
     body: 'system-ui, sans-serif',
     heading: 'system-ui, sans-serif',
     monospace: 'Menlo, monospace',
   },
-  fontSizes: ['0.75rem', '1rem', '1.25rem', '1.5rem', '2.125rem', '3rem', '3.5rem', '6rem'],
+  fontSizes: ['0.75rem', '1rem', '1.25rem', '1.5rem', '2rem', '2.5rem', '2.75rem', '3.5rem'],
   fontWeights: {
     body: 400,
     heading: 700,
@@ -30,26 +32,34 @@ export default {
     body: 1.5,
     code: 1.8,
   },
-  shadows: ['0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)'],
+  shadows: ['0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.12)'],
   sizes: {
+    header: 64,
+    hero: 600,
     container: 940,
+    full: '100vw',
+  },
+  zIndices: {
+    header: 999,
+    hero: 998,
   },
   styles: {
     root: {
+      backgroundColor: 'background',
       fontSize: 1,
       fontFamily: 'body',
       lineHeight: 'body',
     },
     h1: {
-      fontSize: 7,
+      fontSize: [5, 7],
       m: 0,
     },
     h2: {
-      fontSize: 6,
+      fontSize: [4, 6],
       m: 0,
     },
     h3: {
-      fontSize: 5,
+      fontSize: [4, 5],
       m: 0,
     },
     h4: {
@@ -79,7 +89,8 @@ export default {
       ...codeTheme,
     },
     hr: {
-      color: 'grey',
+      my: 3,
+      color: 'transparent',
     },
   },
   buttons: {
@@ -96,6 +107,19 @@ export default {
     secondary: {
       variant: 'buttons.default',
       backgroundColor: 'secondary',
+    },
+  },
+  links: {
+    nav: {
+      color: 'text',
+      textDecoration: 'none',
+      fontWeight: 'bold',
+      p: 2,
+      borderRadius: 4,
+      transition: '.2s linear background-color',
+      ':hover': {
+        backgroundColor: transparentize('text', 0.95),
+      },
     },
   },
   text: {

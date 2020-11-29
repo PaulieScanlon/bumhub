@@ -10,10 +10,9 @@ exports.handler = async (event, context, callback) => {
       data: {
         formatted_date: format(new Date(), 'dd-MM-yyy'),
         day: format(new Date(), 'dd'),
-        // month: 11,
         month: format(new Date(), 'MMMMMMM'),
         year: format(new Date(), 'yyy'),
-        limited_month: 11,
+        limited_month: 12,
       },
     }),
   })
