@@ -1,10 +1,18 @@
+import codeTheme from '@theme-ui/prism/presets/github.json'
+
+const commonFocus = {
+  outlineStyle: 'solid',
+  outlineWidth: '4px',
+}
+
 export default {
   colors: {
     text: '#333333',
     background: '#ffffff',
     primary: '#FF5BA3',
     secondary: '#1da0f2',
-    grey: '#444444',
+    grey: '#f7f7f7',
+    accent: '#fdc449',
   },
   fonts: {
     body: 'system-ui, sans-serif',
@@ -34,34 +42,60 @@ export default {
     },
     h1: {
       fontSize: 7,
+      m: 0,
     },
     h2: {
       fontSize: 6,
+      m: 0,
     },
     h3: {
       fontSize: 5,
+      m: 0,
     },
     h4: {
       fontSize: 4,
+      m: 0,
     },
     h5: {
       fontSize: 3,
+      m: 0,
     },
     h6: {
       fontSize: 2,
+      m: 0,
+    },
+    p: {
+      fontSize: 1,
+      m: 0,
+      mb: 2,
     },
     a: {
       color: 'primary',
     },
     pre: {
+      m: 0,
+      p: 3,
       whiteSpace: 'pre-wrap',
-      my: 4,
-      lineHeight: 'code',
-      fontSize: 0,
+      ...codeTheme,
     },
-    code: {
-      fontSize: 0,
-      lineHeight: 'code',
+    hr: {
+      color: 'grey',
+    },
+  },
+  buttons: {
+    default: {
+      textTransform: 'capitalize',
+      ':focus': {
+        ...commonFocus,
+        outlineColor: 'accent',
+      },
+    },
+    primary: {
+      variant: 'buttons.default',
+    },
+    secondary: {
+      variant: 'buttons.default',
+      backgroundColor: 'secondary',
     },
   },
   text: {

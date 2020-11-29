@@ -2,7 +2,7 @@ import React, { Fragment, FunctionComponent } from 'react'
 import { Container, Grid, Box, Text, Divider } from 'theme-ui'
 import { Link } from 'gatsby'
 
-export const PageLayout: FunctionComponent = ({ children }) => {
+const PageLayout: FunctionComponent = ({ children }) => {
   return (
     <Fragment>
       <Box as="header">
@@ -23,3 +23,5 @@ export const PageLayout: FunctionComponent = ({ children }) => {
     </Fragment>
   )
 }
+
+export default PageLayout
