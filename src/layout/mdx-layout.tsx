@@ -4,10 +4,13 @@ import Prism from '@theme-ui/prism'
 
 import * as themeUiComponents from 'theme-ui'
 
+import { AdventCard } from '../components/advent-card'
+
 const components = {
   pre: ({ children }) => <Fragment>{children}</Fragment>,
   code: Prism,
   ...themeUiComponents,
+  AdventCard,
 }
 
 const MdxLayout: FunctionComponent = ({ children }) => {

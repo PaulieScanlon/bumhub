@@ -5,12 +5,24 @@ import { useStaticQuery, graphql, Link as GatsbyLink } from 'gatsby'
 import { MrFetchy } from '../components/mr-fetchy'
 
 import { LogoBrand } from '../components/logo-brand'
+import { AdventCard } from '../components/advent-card'
 
 const END_POINT = 'get-date'
 
-const isEnabled = (data: any, index: number) => {
-  if (index + 1 <= data.day && data.month === data.limited_month) {
-    return true
+const isDisabled = (data: any, index: number) => {
+  if (data.month === data.limited_month) {
+    if (index <= data.day) {
+      return false
+    }
+  }
+  return true
+}
+
+const isToday = (data: any, index: number) => {
+  if (data.month === data.limited_month) {
+    if (index === data.day) {
+      return true
+    }
   }
 
   return false
@@ -84,57 +96,27 @@ const IndexPage: FunctionComponent = () => {
           </Box>
           <Divider />
           <MrFetchy endPoint={END_POINT}>
-            {(date) => {
+            {(response) => {
+              console.log(response.data)
               return (
                 <Grid
                   sx={{
                     gridTemplateColumns: ['1fr', '1fr 1fr', '1fr 1fr 1fr'],
-                    a: {
-                      color: 'text',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      textDecoration: 'none',
-                    },
                   }}
                 >
                   {data.allSitePage.nodes.map((node, index) => {
                     const { path } = node
-                    const {
-                      name,
-                      owner: { login },
-                    } = data.allAdventBums.nodes[index]
-
+                    const { name } = data.allAdventBums.nodes[index]
+                    const _index = index + 1
                     return (
-                      <Fragment key={index}>
-                        <GatsbyLink to={isEnabled(date.data, index) ? path : `#${index + 1}`}>
-                          <Card
-                            sx={{
-                              display: 'flex',
-                              flexDirection: 'column',
-                              flexGrow: 1,
-                              minHeight: '200px',
-                            }}
-                          >
-                            <Flex
-                              sx={{
-                                flexDirection: 'column',
-                                flexGrow: 1,
-                              }}
-                            >
-                              <Heading as="h4" variant="styles.h4">{`${index + 1}`}</Heading>
-                              <Text>{login}</Text>
-                              <Heading as="h5" variant="styles.h5">
-                                {name}
-                              </Heading>
-                            </Flex>
-                            {isEnabled(date.data, index) ? (
-                              <Flex sx={{ justifyContent: 'flex-end' }}>
-                                <Text sx={{ color: 'primary' }}>{`More details ➡️`}</Text>
-                              </Flex>
-                            ) : null}
-                          </Card>
-                        </GatsbyLink>
-                      </Fragment>
+                      <AdventCard
+                        key={_index}
+                        day={_index}
+                        to={path}
+                        repoName={name}
+                        isDisabled={isDisabled(response.data, _index)}
+                        isToday={isToday(response.data, _index)}
+                      />
                     )
                   })}
                 </Grid>

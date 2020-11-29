@@ -25,7 +25,7 @@ export const Header: FunctionComponent = () => {
       {({ location }) => {
         const { pathname } = location
         const isIndex = pathname === '/'
-        console.log('isIndex: ', isIndex)
+
         return (
           <Flex
             as="header"
