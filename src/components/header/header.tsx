@@ -11,7 +11,7 @@ export const Header: FunctionComponent = () => {
 
   useScrollPosition(
     ({ currPos }) => {
-      if (currPos.y >= -theme.sizes.hero + theme.sizes.header * 1.2) {
+      if (currPos.y >= -theme.sizes.hero + theme.sizes.header) {
         setIsHeaderBgVisible(true)
       } else {
         setIsHeaderBgVisible(false)
@@ -27,39 +27,52 @@ export const Header: FunctionComponent = () => {
         const isIndex = pathname === '/'
 
         return (
-          <Flex
-            as="header"
-            sx={{
-              alignItems: 'center',
-              backgroundColor: isIndex ? (isHeaderBgVisible ? 'transparent' : 'accent') : 'white',
-              position: 'fixed',
-              height: 'header',
-              width: 'full',
-              zIndex: 'header',
-              boxShadow: isIndex ? 'none' : 0,
-            }}
-          >
-            <Container>
-              <Grid
-                sx={{
-                  gridTemplateColumns: 'auto auto',
-                  a: {
-                    variant: 'links.nav',
-                  },
-                }}
-              >
-                <Flex sx={{ alignItems: 'center' }}>
-                  <GatsbyLink to="/">BumHub</GatsbyLink>
-                </Flex>
+          <>
+            <Box
+              sx={{
+                backgroundColor: isIndex ? (isHeaderBgVisible ? 'transparent' : 'accent') : 'white',
+                position: 'fixed',
+                top: isIndex ? (isHeaderBgVisible ? -theme.sizes.header : '0px') : '0px',
+                left: 0,
+                width: 'full',
+                height: 'header',
+                zIndex: 'header',
+                transition: '.2s ease-out top',
+              }}
+            />
+            <Flex
+              as="header"
+              sx={{
+                alignItems: 'center',
+                position: 'fixed',
+                height: 'header',
+                width: 'full',
+                zIndex: 'header',
+                boxShadow: isIndex ? 'none' : 0,
+              }}
+            >
+              <Container>
                 <Grid
-                  sx={{ alignItems: 'center', justifyContent: 'flex-end', gap: 2, gridTemplateColumns: 'auto auto' }}
+                  sx={{
+                    gridTemplateColumns: 'auto auto',
+                    a: {
+                      variant: 'links.nav',
+                    },
+                  }}
                 >
-                  <GatsbyLink to="/search">Bum Search</GatsbyLink>
-                  <GatsbyLink to="/bum-ui">Bum UI</GatsbyLink>
+                  <Flex sx={{ alignItems: 'center' }}>
+                    <GatsbyLink to="/">BumHub</GatsbyLink>
+                  </Flex>
+                  <Grid
+                    sx={{ alignItems: 'center', justifyContent: 'flex-end', gap: 2, gridTemplateColumns: 'auto auto' }}
+                  >
+                    <GatsbyLink to="/search">Bum Search</GatsbyLink>
+                    <GatsbyLink to="/bum-ui">Bum UI</GatsbyLink>
+                  </Grid>
                 </Grid>
-              </Grid>
-            </Container>
-          </Flex>
+              </Container>
+            </Flex>
+          </>
         )
       }}
     </Location>
