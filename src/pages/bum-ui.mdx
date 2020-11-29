@@ -23,6 +23,34 @@
 <Container>
 
 
+### BumHub Components
+
+#### [AdventCard](#AdventCard)
+
+<Grid sx={{gap: 4}}>
+
+
+Advent Card is of HTML `<a />` and `<div />` depending on states provided to determine it's active status
+
+```javascript
+<AdventCard to="/" day={1} repoName="repo name 1" isToday={false} isDisabled={false} />
+<AdventCard to="/" day={2} repoName="repo name 2" isToday={true} isDisabled={false} />
+<AdventCard to="/" day={3} repoName="repo name 3" isToday={false} isDisabled={true} />
+```
+
+<Grid sx={{ alignItems: 'center', gap: 2, gridTemplateColumns: '1fr 1fr 1fr' }}>
+  <AdventCard to="/" day={1} repoName="repo name 1" isToday={false} isDisabled={false} />
+  <AdventCard to="/" day={2} repoName="repo name 2" isToday={true} isDisabled={false} />
+  <AdventCard to="/" day={3} repoName="repo name 3" isToday={false} isDisabled={true} />
+</Grid>
+
+</Grid>
+
+
+<Divider />
+
+### Theme UI Components
+
 #### [Button](#button)
 
 <Grid sx={{gap: 4}}>
@@ -46,6 +74,8 @@ Button is of HTML type `<button />` Use the variant prop to change the button st
 
 </Grid>
 
+
+<Divider />
 
 </Container>
 

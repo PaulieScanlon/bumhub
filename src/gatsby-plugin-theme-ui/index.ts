@@ -1,7 +1,7 @@
 import { transparentize } from '@theme-ui/color'
 import codeTheme from '@theme-ui/prism/presets/github.json'
 
-const commonFocus = {
+export const commonFocus = {
   outlineStyle: 'solid',
   outlineWidth: '4px',
 }
@@ -12,7 +12,8 @@ export default {
     background: '#ffffff',
     primary: '#FF5BA3',
     secondary: '#1da0f2',
-    grey: '#f7f7f7',
+    lightGrey: '#f7f7f7',
+    grey: '#cccccc',
     accent: '#fdc449',
     highlight: '#fceffb',
   },
@@ -21,7 +22,7 @@ export default {
     heading: 'system-ui, sans-serif',
     monospace: 'Menlo, monospace',
   },
-  fontSizes: ['0.75rem', '1rem', '1.25rem', '1.5rem', '2rem', '2.5rem', '2.75rem', '3.5rem'],
+  fontSizes: ['0.75rem', '1rem', '1.5rem', '1.75rem', '2rem', '2.25rem', '2.5rem', '3rem'],
   fontWeights: {
     body: 400,
     heading: 700,
