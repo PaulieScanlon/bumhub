@@ -14,6 +14,12 @@ module.exports = {
   plugins: [
     'gatsby-plugin-theme-ui',
     {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-76055934-10',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
         fonts: [`ruda\:500,700,900`],
