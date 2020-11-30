@@ -5,6 +5,7 @@ import { Location } from '@reach/router'
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 
 import theme from '../../gatsby-plugin-theme-ui'
+import { LogoIcon } from '../logo-icon/logo-icon'
 
 export const Header: FunctionComponent = () => {
   const [isHeaderBgVisible, setIsHeaderBgVisible] = useState(true)
@@ -61,7 +62,12 @@ export const Header: FunctionComponent = () => {
                   }}
                 >
                   <Flex sx={{ alignItems: 'center' }}>
-                    <GatsbyLink to="/">BumHub</GatsbyLink>
+                    <GatsbyLink to="/">
+                      <Flex sx={{ alignItems: 'center' }}>
+                        <LogoIcon />
+                        BumHub
+                      </Flex>
+                    </GatsbyLink>
                   </Flex>
                   <Grid
                     sx={{ alignItems: 'center', justifyContent: 'flex-end', gap: 2, gridTemplateColumns: 'auto auto' }}

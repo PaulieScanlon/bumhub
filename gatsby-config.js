@@ -3,8 +3,23 @@ require('dotenv').config({
 })
 
 module.exports = {
+  siteMetadata: {
+    name: 'BumHub',
+    description: 'A #SillySiteChallgen by @PaulieScanlon',
+    keywords: ['bums', 'silly', 'gatsby'],
+    siteUrl: 'https://bumhub.netlify.app/',
+    ogImage: 'bumhub-og-image.jpg',
+    lang: 'eng',
+  },
   plugins: [
     'gatsby-plugin-theme-ui',
+    {
+      resolve: 'gatsby-plugin-google-fonts',
+      options: {
+        fonts: [`ruda\:500,700,900`],
+        display: 'swap',
+      },
+    },
     {
       resolve: 'gatsby-plugin-mdx',
       options: {

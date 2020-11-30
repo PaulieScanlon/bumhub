@@ -18,14 +18,14 @@ export default {
     highlight: '#fceffb',
   },
   fonts: {
-    body: 'system-ui, sans-serif',
-    heading: 'system-ui, sans-serif',
+    body: 'Ruda',
+    heading: 'Ruda',
     monospace: 'Menlo, monospace',
   },
   fontSizes: ['0.75rem', '1rem', '1.5rem', '1.75rem', '2rem', '2.25rem', '2.5rem', '3rem'],
   fontWeights: {
-    body: 400,
-    heading: 700,
+    body: 500,
+    heading: 900,
     bold: 700,
   },
   lineHeights: {

@@ -25,7 +25,43 @@
 
 ### BumHub Components
 
-#### [AdventCard](#AdventCard)
+#### [LogoBrand](#logo-brand)
+
+<Grid sx={{gap: 4}}>
+
+
+LogoBrand is the big logo used in the hero section
+
+```javascript
+<LogoBrand />
+```
+
+<LogoBrand />
+
+</Grid>
+
+
+<Divider />
+
+#### [LogoIcon](#logo-icon)
+
+<Grid sx={{gap: 4}}>
+
+
+LogoIcon is the little icon that lives in the navigation
+
+```javascript
+<LogoIcon />
+```
+
+<LogoIcon />
+
+</Grid>
+
+
+<Divider />
+
+#### [AdventCard](#advent-card)
 
 <Grid sx={{gap: 4}}>
 
@@ -51,6 +87,48 @@ Advent Card is of HTML `<a />` and `<div />` depending on states provided to det
 
 ### Theme UI Components
 
+#### [Heading](#heading)
+
+<Grid sx={{gap: 4}}>
+
+
+Heading is of HTML type `<h(N) />` Use the variant prop to change the heading styles
+
+```javascript
+<Heading as="h1" variant="styles.h1">Heading h1</Heading>
+<Heading as="h2" variant="styles.h2">Heading h2</Heading>
+<Heading as="h3" variant="styles.h3">Heading h3</Heading>
+<Heading as="h4" variant="styles.h4">Heading h4</Heading>
+<Heading as="h5" variant="styles.h5">Heading h5</Heading>
+<Heading as="h6" variant="styles.h6">Heading h6</Heading>
+```
+
+<Grid sx={{ gap: 2 }}>
+  <Heading as="h1" variant="styles.h1">
+    Heading h1
+  </Heading>
+  <Heading as="h2" variant="styles.h2">
+    Heading h2
+  </Heading>
+  <Heading as="h3" variant="styles.h3">
+    Heading h3
+  </Heading>
+  <Heading as="h4" variant="styles.h4">
+    Heading h4
+  </Heading>
+  <Heading as="h5" variant="styles.h5">
+    Heading h5
+  </Heading>
+  <Heading as="h6" variant="styles.h6">
+    Heading h6
+  </Heading>
+</Grid>
+
+</Grid>
+
+
+<Divider />
+
 #### [Button](#button)
 
 <Grid sx={{gap: 4}}>
@@ -63,14 +141,10 @@ Button is of HTML type `<button />` Use the variant prop to change the button st
 <Button variant='secondary'>secondary</Button>
 ```
 
-<Grid sx={{alignItems: 'center', gap: 2, gridTemplateColumns: '1fr 1fr'}}>
-    
+<Grid sx={{ alignItems: 'center', gap: 2, gridTemplateColumns: '1fr 1fr' }}>
   <Button>primary</Button>
   <Button variant="secondary">secondary</Button>
-
-
 </Grid>
-
 
 </Grid>
 
