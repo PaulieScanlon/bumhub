@@ -33,6 +33,8 @@ const included_repos = [
   'dharma-bums-backend',
 ]
 
+const excluded_repos = ['Hips-and-bums-penis-enlargement-cream-27810950180']
+
 module.exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
   const { createNode } = actions
 
@@ -52,7 +54,7 @@ module.exports.sourceNodes = async ({ actions, createNodeId, createContentDigest
 
   const owner = ({ data } = await octokit.request('GET /repos/{owner}/{repo}', {
     owner: 'pauliescanlon',
-    repo: 'bah-bumhub',
+    repo: 'bumhub',
   }))
 
   const adventFiltered = bums.filter((a) => included_repos.includes(a.name)).concat([owner.data])
@@ -79,7 +81,9 @@ module.exports.sourceNodes = async ({ actions, createNodeId, createContentDigest
     createNode(node)
   })
 
-  bums.forEach((item, index) => {
+  const searchFiltered = bums.filter((a) => !excluded_repos.includes(a.name))
+
+  searchFiltered.forEach((item, index) => {
     const { id } = item
 
     let nodeMeta = {
