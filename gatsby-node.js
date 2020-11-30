@@ -61,6 +61,10 @@ module.exports.sourceNodes = async ({ actions, createNodeId, createContentDigest
     .filter((a) => included_repos.includes(a.html_url))
     .sort((a, b) => included_repos.indexOf(a.html_url) - included_repos.indexOf(b.html_url))
 
+  console.log('')
+  console.log('adventFiltered: ', adventFiltered.length)
+  console.log('')
+
   if (adventFiltered.length < 25) {
     throw new Error('Respositories length is less than 25')
   }
