@@ -7,6 +7,7 @@ import * as themeUiComponents from 'theme-ui'
 import { AdventCard } from '../components/advent-card'
 import { LogoIcon } from '../components/logo-icon'
 import { LogoBrand } from '../components/logo-brand'
+import { Starburst } from '../components/starburst'
 
 const components = {
   pre: ({ children }) => <Fragment>{children}</Fragment>,
@@ -15,6 +16,7 @@ const components = {
   AdventCard,
   LogoIcon,
   LogoBrand,
+  Starburst,
 }
 
 const MdxLayout: FunctionComponent = ({ children }) => {
