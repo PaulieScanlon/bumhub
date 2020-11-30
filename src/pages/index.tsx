@@ -58,13 +58,40 @@ const IndexPage: FunctionComponent = () => {
     <>
       <Box as="section" sx={{ backgroundColor: 'accent', position: 'relative', zIndex: 'hero' }}>
         <Container sx={{ position: 'relative', zIndex: 1 }}>
-          <Flex sx={{ flexDirection: 'column', py: 5 }}>
-            <LogoBrand sx={{ width: '40%' }} />
+          <Flex sx={{ flexDirection: 'column', py: 5, justifyContent: 'center' }}>
+            <LogoBrand sx={{ width: ['60%', '40%', '40%'] }} />
             <Heading as="h1" variant="styles.h1" sx={{ textAlign: 'center' }}>
               The cheekiest way
               <br />
               to explore GitHub
             </Heading>
+            <Box sx={{ my: 3 }} />
+            <Box
+              sx={{
+                margin: '0 auto',
+              }}
+            >
+              <Flex
+                sx={{ borderRadius: 4, backgroundColor: 'text', display: 'inline-flex', px: 3, py: 2, fontSize: 0 }}
+              >
+                <Text sx={{ color: 'background', mr: 1 }}>A</Text>
+                <Link
+                  href="https://twitter.com/search?q=%23SillySiteChallenge"
+                  target="_blank"
+                  sx={{ fontWeight: 'bold', mr: 1, ':focus': { outlineColor: 'primary' } }}
+                >
+                  #SillySiteChallenge
+                </Link>
+                <Text sx={{ color: 'background', mr: 1 }}>by</Text>
+                <Link
+                  href="https://twitter.com/PaulieScanlon"
+                  target="_blank"
+                  sx={{ color: 'secondary', fontWeight: 'bold', ':focus': { outlineColor: 'secondary' } }}
+                >
+                  @PaulieScanlon
+                </Link>
+              </Flex>
+            </Box>
           </Flex>
         </Container>
         <Box

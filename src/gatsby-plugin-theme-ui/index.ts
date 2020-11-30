@@ -3,15 +3,15 @@ import codeTheme from '@theme-ui/prism/presets/github.json'
 
 export const commonFocus = {
   outlineStyle: 'solid',
-  outlineWidth: '4px',
+  outlineWidth: '2px',
 }
 
 export default {
   colors: {
     text: '#000000',
     background: '#ffffff',
-    primary: '#FF5BA3',
-    secondary: '#1da0f2',
+    primary: '#e260d3',
+    secondary: '#00cfff',
     lightGrey: '#f7f7f7',
     grey: '#cccccc',
     accent: '#fdc449',
@@ -50,9 +50,16 @@ export default {
       fontSize: 1,
       fontFamily: 'body',
       lineHeight: 'body',
+      minWidth: '320px',
+      a: {
+        ':focus': {
+          ...commonFocus,
+          outlineColor: 'text',
+        },
+      },
     },
     h1: {
-      fontSize: [5, 7],
+      fontSize: [4, 5, 7],
       m: 0,
     },
     h2: {
@@ -82,6 +89,10 @@ export default {
     },
     a: {
       color: 'primary',
+      ':focus': {
+        ...commonFocus,
+        outlineColor: 'accent',
+      },
     },
     pre: {
       m: 0,
@@ -121,14 +132,13 @@ export default {
       ':hover': {
         backgroundColor: transparentize('text', 0.95),
       },
+      ':focus': {
+        ...commonFocus,
+        outlineColor: 'text',
+      },
     },
   },
-  text: {
-    small: {
-      fontSize: 0,
-      color: 'grey',
-    },
-  },
+  text: {},
   cards: {
     primary: {
       boxShadow: 0,
