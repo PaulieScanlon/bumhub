@@ -6,6 +6,7 @@ import { MrFetchy } from '../components/mr-fetchy'
 
 import { LogoBrand } from '../components/logo-brand'
 import { AdventCard } from '../components/advent-card'
+import { Starburst } from '../components/starburst'
 
 const END_POINT = 'get-date'
 
@@ -54,6 +55,11 @@ const IndexPage: FunctionComponent = () => {
       }
     }
   `)
+
+  // console.log('data: ', data)
+  // console.log('allSitePage.nodes: ', data.allSitePage.nodes.length)
+  // console.log('allAdventBums.nodes: ', data.allAdventBums.nodes.length)
+
   return (
     <>
       <Box as="section" sx={{ backgroundColor: 'accent', position: 'relative', zIndex: 'hero' }}>
@@ -96,11 +102,8 @@ const IndexPage: FunctionComponent = () => {
         </Container>
         <Box
           sx={{
-            backgroundImage: 'url(images/bumhub-starburst.svg)',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
             opacity: 0.5,
-            top: '-15%',
+            top: ['5%', '0%', '-15%'],
             left: 0,
             bottom: 0,
             right: 0,
@@ -108,7 +111,9 @@ const IndexPage: FunctionComponent = () => {
             minHeight: 'hero',
             zIndex: 0,
           }}
-        />
+        >
+          <Starburst />
+        </Box>
       </Box>
       <Divider />
       <Box as="section">
@@ -124,7 +129,6 @@ const IndexPage: FunctionComponent = () => {
           <Divider />
           <MrFetchy endPoint={END_POINT}>
             {(response) => {
-              console.log(response.data)
               return (
                 <Grid
                   sx={{
@@ -134,7 +138,7 @@ const IndexPage: FunctionComponent = () => {
                   {data.allSitePage.nodes.map((node, index) => {
                     const { path } = node
                     const { name } = data.allAdventBums.nodes[index]
-                    const _index = index + 1
+                    let _index = index + 1
                     return (
                       <AdventCard
                         key={_index}
