@@ -78,7 +78,7 @@ const IndexPage: FunctionComponent = () => {
               }}
             >
               <Flex
-                sx={{ borderRadius: 4, backgroundColor: 'text', display: 'inline-flex', px: 3, py: 2, fontSize: 0 }}
+                sx={{ borderRadius: 0, backgroundColor: 'text', display: 'inline-flex', px: 3, py: 2, fontSize: 0 }}
               >
                 <Text sx={{ color: 'background', mr: 1 }}>A</Text>
                 <Link
@@ -118,12 +118,12 @@ const IndexPage: FunctionComponent = () => {
       <Divider />
       <Box as="section">
         <Container>
-          <Box>
+          <Box sx={{ my: 5 }}>
             <Heading as="h2" variant="styles.h2" sx={{ textAlign: 'center' }}>
               Merry Christmass
             </Heading>
             <Text sx={{ textAlign: 'center' }}>
-              A new <b>bum</b> for each day of advent
+              A new <b>bum</b> for every day of advent
             </Text>
           </Box>
           <Divider />
