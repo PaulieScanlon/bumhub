@@ -9,7 +9,7 @@ exports.handler = async (event, context, callback) => {
     body: JSON.stringify({
       data: {
         formatted_date: format(new Date(), 'dd-MM-yyy'),
-        day: format(new Date(), 'dd'),
+        day: format(new Date(), 'd'),
         month: format(new Date(), 'M'),
         year: format(new Date(), 'yyy'),
         limited_month: '12',

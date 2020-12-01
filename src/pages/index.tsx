@@ -12,7 +12,7 @@ const END_POINT = 'get-date'
 
 const isDisabled = (data: any, index: number) => {
   if (data.month === data.limited_month) {
-    if (index <= data.day) {
+    if (index.toString() <= data.day) {
       return false
     }
   }
@@ -21,7 +21,7 @@ const isDisabled = (data: any, index: number) => {
 
 const isToday = (data: any, index: number) => {
   if (data.month === data.limited_month) {
-    if (index === data.day) {
+    if (index.toString() === data.day) {
       return true
     }
   }

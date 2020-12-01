@@ -1,6 +1,6 @@
-import React, { Fragment, FunctionComponent, useEffect, useState } from 'react'
-import { Container, Divider, Heading, Text, Box, Spinner } from 'theme-ui'
-import { graphql, Link } from 'gatsby'
+import React, { Fragment, FunctionComponent } from 'react'
+import { Container, Divider, Heading, Text, Box, Link } from 'theme-ui'
+import { graphql } from 'gatsby'
 
 import { MrFetchy } from '../../components/mr-fetchy'
 
@@ -15,6 +15,10 @@ const BumsPage: FunctionComponent<IBumsPageProps> = ({ data }) => {
     name,
     owner: { login },
     description,
+    html_url,
+    language,
+    stargazers_count,
+    size,
   } = data.adventBums
 
   return (
@@ -23,10 +27,19 @@ const BumsPage: FunctionComponent<IBumsPageProps> = ({ data }) => {
       <Container>
         <Box>
           <Heading as="h1" variant="styles.h1">
-            {`name: ${name}`}
+            {name}
           </Heading>
-          <Text>{`login: ${login}`}</Text>
+          <Text>{`user: @${login}`}</Text>
           <Text>{`description: ${description}`}</Text>
+          <Text>{`language: ${language}`}</Text>
+          <Text>{`stargazers: ${stargazers_count}`}</Text>
+          <Text>{`size: ${size}`}</Text>
+          <Text>
+            url:{' '}
+            <Link href={html_url} target="_blank">
+              {html_url}
+            </Link>
+          </Text>
         </Box>
         <Divider />
         <MrFetchy endPoint={END_POINT} method="POST" body={{ owner: login, repo: name }}>
@@ -43,13 +56,18 @@ export default BumsPage
 
 // example query
 // {
-//     bums(id: {eq: "b5129c3e-7849-5109-a322-69e768d77a2f"}) {
-//       name
-//       owner {
-//         login
-//       }
+//   bums(id: {eq: "b5129c3e-7849-5109-a322-69e768d77a2f"}) {
+//     name
+//     owner {
+//       login
 //     }
+//     description
+//     html_url
+//     language
+//     stargazers_count
+//     size
 //   }
+// }
 
 export const query = graphql`
   query($id: String) {
@@ -59,6 +77,10 @@ export const query = graphql`
         login
       }
       description
+      html_url
+      language
+      stargazers_count
+      size
     }
   }
 `
