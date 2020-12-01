@@ -8,17 +8,17 @@ import theme from '../../gatsby-plugin-theme-ui'
 import { LogoIcon } from '../logo-icon/logo-icon'
 
 export const Header: FunctionComponent = () => {
-  const [isHeaderBgVisible, setIsHeaderBgVisible] = useState(true)
+  const [headerColor, setHeaderColor] = useState(theme.colors.transparent)
 
   useScrollPosition(
     ({ currPos }) => {
-      if (currPos.y >= -theme.sizes.hero + theme.sizes.header) {
-        setIsHeaderBgVisible(true)
+      if (currPos.y >= 0) {
+        setHeaderColor(theme.colors.transparent)
       } else {
-        setIsHeaderBgVisible(false)
+        setHeaderColor(theme.colors.background)
       }
     },
-    [isHeaderBgVisible],
+    [headerColor],
   )
 
   return (
@@ -26,59 +26,49 @@ export const Header: FunctionComponent = () => {
       {({ location }) => {
         const { pathname } = location
         const isIndex = pathname === '/'
-
         return (
-          <>
-            <Box
+          <Flex
+            as="header"
+            sx={{
+              variant: 'styles.header',
+            }}
+          >
+            <Container
               sx={{
-                backgroundColor: isIndex ? (isHeaderBgVisible ? 'transparent' : 'accent') : 'white',
-                position: 'fixed',
-                top: isIndex ? (isHeaderBgVisible ? -theme.sizes.header : '0px') : '0px',
-                left: 0,
-                width: 'full',
-                height: 'header',
-                zIndex: 'header',
-                transition: '.2s ease-out top',
-              }}
-            />
-            <Flex
-              as="header"
-              sx={{
-                alignItems: 'center',
-                position: 'fixed',
-                height: 'header',
-                width: 'full',
-                zIndex: 'header',
-                boxShadow: isIndex ? 'none' : 0,
+                px: [1, 1, 1, 1],
               }}
             >
-              <Container>
+              <Grid
+                sx={{
+                  backgroundColor: isIndex ? headerColor : 'background',
+                  borderRadius: 0,
+                  boxShadow: 1,
+                  gridTemplateColumns: 'auto auto',
+                  flexGrow: 1,
+                  transition: '.5s linear background-color',
+                  p: 2,
+                  a: {
+                    variant: 'links.nav',
+                  },
+                }}
+              >
+                <Flex sx={{ alignItems: 'center' }}>
+                  <GatsbyLink to="/">
+                    <Flex sx={{ alignItems: 'center' }}>
+                      <LogoIcon />
+                      BumHub
+                    </Flex>
+                  </GatsbyLink>
+                </Flex>
                 <Grid
-                  sx={{
-                    gridTemplateColumns: 'auto auto',
-                    a: {
-                      variant: 'links.nav',
-                    },
-                  }}
+                  sx={{ alignItems: 'center', justifyContent: 'flex-end', gap: 2, gridTemplateColumns: 'auto auto' }}
                 >
-                  <Flex sx={{ alignItems: 'center' }}>
-                    <GatsbyLink to="/">
-                      <Flex sx={{ alignItems: 'center' }}>
-                        <LogoIcon />
-                        BumHub
-                      </Flex>
-                    </GatsbyLink>
-                  </Flex>
-                  <Grid
-                    sx={{ alignItems: 'center', justifyContent: 'flex-end', gap: 2, gridTemplateColumns: 'auto auto' }}
-                  >
-                    <GatsbyLink to="/search">Bum Search</GatsbyLink>
-                    <GatsbyLink to="/bum-ui">Bum UI</GatsbyLink>
-                  </Grid>
+                  <GatsbyLink to="/search">Bum Search</GatsbyLink>
+                  <GatsbyLink to="/bum-ui">Bum UI</GatsbyLink>
                 </Grid>
-              </Container>
-            </Flex>
-          </>
+              </Grid>
+            </Container>
+          </Flex>
         )
       }}
     </Location>

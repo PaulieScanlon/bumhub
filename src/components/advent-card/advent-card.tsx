@@ -128,8 +128,8 @@ export const AdventCard: FunctionComponent<IAdventCardProps> = ({ day, repoName,
     <Box
       sx={{
         a: {
-          display: 'flex',
           color: 'inherit',
+          display: 'flex',
           textDecoration: 'none',
           transition: '.2s linear outline, .2s linear box-shadow, .2s ease-in-out transform',
           ':hover': {
@@ -138,7 +138,6 @@ export const AdventCard: FunctionComponent<IAdventCardProps> = ({ day, repoName,
           },
           ':focus': {
             ...commonFocus,
-            outlineWidth: '5px',
           },
         },
       }}

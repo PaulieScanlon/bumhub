@@ -23,7 +23,6 @@ const BumsPage: FunctionComponent<IBumsPageProps> = ({ data }) => {
 
   return (
     <>
-      <Box sx={{ height: 'header', mb: 4 }} />
       <Container>
         <Box>
           <Heading as="h1" variant="styles.h1">
