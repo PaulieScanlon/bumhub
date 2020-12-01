@@ -25,24 +25,6 @@
 
 ### BumHub Components
 
-#### [Starburst](#starburst)
-
-<Grid sx={{gap: 4}}>
-
-
-Starburst
-
-```javascript
-<Starburst color="#e260d3" />
-```
-
-<Starburst color="#e260d3" />
-
-</Grid>
-
-
-<Divider />
-
 #### [LogoBrand](#logo-brand)
 
 <Grid sx={{gap: 4}}>
@@ -76,6 +58,46 @@ LogoIcon is the little icon that lives in the navigation
 
 </Grid>
 
+
+#### [Starburst](#starburst)
+
+<Grid sx={{gap: 4}}>
+
+
+Starburst
+
+```javascript
+<Starburst />
+```
+
+<Box
+  sx={{
+    position: 'relative',
+    backgroundColor: 'accent',
+    overflow: 'hidden',
+    minHeight: '400px',
+  }}
+>
+  <Box
+    sx={{
+      opacity: 0.6,
+      top: '-40px',
+      left: 0,
+      bottom: 0,
+      right: 0,
+      position: 'absolute',
+      minHeight: '400px',
+      zIndex: 0,
+    }}
+  >
+    <Starburst />
+  </Box>
+</Box>
+
+</Grid>
+
+
+<Divider />
 
 <Divider />
 

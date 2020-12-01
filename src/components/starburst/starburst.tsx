@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import { Box, SxStyleProp } from 'theme-ui'
+import { keyframes } from '@emotion/react'
 
 interface IStarburstProps {
   /** The Color of the starburst */
@@ -8,12 +9,42 @@ interface IStarburstProps {
   sx?: SxStyleProp
 }
 
+const fade = keyframes({
+  '0%': {
+    opacity: 1,
+  },
+  '75%': {
+    opacity: 0,
+  },
+  '100%': {
+    opacity: 1,
+  },
+})
+
 export const Starburst: FunctionComponent<IStarburstProps> = ({ color = '#ffffff', sx }) => {
   return (
     <Box
       sx={{
         margin: '0 auto',
         ...sx,
+        polygon: {
+          animationTimingFunction: 'linear',
+          animationIterationCount: 'infinite',
+          animationDuration: '1.5s',
+          animationName: fade.toString(),
+        },
+        'polygon:nth-of-type(2n+1)': {
+          animationDelay: '.5s',
+        },
+        'polygon:nth-of-type(4n+1)': {
+          animationDelay: '.75s',
+        },
+        'polygon:nth-of-type(6n+1)': {
+          animationDelay: '1.2s',
+        },
+        'polygon:nth-of-type(8n+1)': {
+          animationDelay: '1.5s',
+        },
       }}
     >
       <svg version="1.0" x="0px" y="0px" viewBox="0 0 1140 610" width="100%" height="100%">

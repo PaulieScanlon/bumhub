@@ -31,6 +31,7 @@
   },
   "homepage": "https://github.com/PaulieScanlon/bah-bumhub#readme",
   "dependencies": {
+    "@emotion/react": "^11.1.1",
     "@mdx-js/mdx": "^1.6.21",
     "@mdx-js/react": "^1.6.21",
     "@n8tb1t/use-scroll-position": "^2.0.3",

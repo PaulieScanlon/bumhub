@@ -102,7 +102,7 @@ const IndexPage: FunctionComponent = () => {
         </Container>
         <Box
           sx={{
-            opacity: 0.5,
+            opacity: 0.6,
             top: ['5%', '0%', '-15%'],
             left: 0,
             bottom: 0,
