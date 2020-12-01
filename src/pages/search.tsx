@@ -24,7 +24,6 @@ const SearchPage: FunctionComponent = () => {
 
   return (
     <>
-      <Box sx={{ height: 'header', mb: 4 }} />
       <Container>
         <Box>
           <Heading as="h1" variant="styles.h1">

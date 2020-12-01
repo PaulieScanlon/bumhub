@@ -2,12 +2,20 @@ import { transparentize } from '@theme-ui/color'
 import codeTheme from '@theme-ui/prism/presets/github.json'
 
 export const commonFocus = {
-  outlineStyle: 'solid',
-  outlineWidth: '2px',
+  outline: 'none',
+  boxShadow: '0px 0px 1px 3px #fdc449',
+}
+
+const commonAnchor = {
+  color: 'primary',
+  ':focus': {
+    borderRadius: 0,
+    ...commonFocus,
+  },
 }
 
 export default {
-  borderRadius: [8, 10],
+  borderRadius: [8],
   colors: {
     text: '#000000',
     background: '#ffffff',
@@ -21,6 +29,7 @@ export default {
     shadowGrey: '#eeeeee',
     accent: '#fdc449',
     highlight: '#fceffb',
+    transparent: 'rgba(255, 255, 255, 0)',
   },
   fonts: {
     body: 'Ruda',
@@ -40,14 +49,12 @@ export default {
   },
   shadows: ['0px 0px 30px -2px rgba(0,0,0,0.10)', '0px 0px 40px -5px rgba(0,0,0,0.15)'],
   sizes: {
-    header: 64,
-    hero: 600,
     container: 940,
     full: '100vw',
   },
   zIndices: {
-    header: 999,
     hero: 998,
+    header: 999,
   },
   styles: {
     root: {
@@ -57,11 +64,19 @@ export default {
       lineHeight: 'body',
       minWidth: '320px',
       a: {
-        ':focus': {
-          ...commonFocus,
-          outlineColor: 'text',
-        },
+        ...commonAnchor,
       },
+    },
+    header: {
+      alignItems: 'center',
+      position: 'fixed',
+      top: 0,
+      display: 'flex',
+      mx: 'auto',
+      py: 2,
+      px: 2,
+      width: 'full',
+      zIndex: 'header',
     },
     h1: {
       fontSize: [4, 5, 7],
@@ -93,18 +108,14 @@ export default {
       m: 0,
       mb: 2,
       code: {
-        borderRadius: 1,
+        borderRadius: 0,
         padding: 2,
         backgroundColor: 'shadowGrey',
         fontSize: '1.1rem',
       },
     },
     a: {
-      color: 'primary',
-      ':focus': {
-        ...commonFocus,
-        outlineColor: 'accent',
-      },
+      ...commonAnchor,
     },
     pre: {
       m: 0,
@@ -133,27 +144,27 @@ export default {
       backgroundColor: 'secondary',
     },
   },
+
   links: {
     nav: {
+      borderRadius: 0,
       color: 'text',
-      textDecoration: 'none',
       fontWeight: 'bold',
       p: 2,
-      borderRadius: 0,
       transition: '.2s linear background-color',
+      textDecoration: 'none',
       ':hover': {
         backgroundColor: transparentize('text', 0.95),
       },
       ':focus': {
         ...commonFocus,
-        outlineColor: 'text',
       },
     },
   },
   text: {},
   cards: {
     primary: {
-      borderRadius: 1,
+      borderRadius: 0,
       boxShadow: 0,
       padding: 3,
     },

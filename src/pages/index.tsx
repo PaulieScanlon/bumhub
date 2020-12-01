@@ -84,7 +84,7 @@ const IndexPage: FunctionComponent = () => {
                 <Link
                   href="https://twitter.com/search?q=%23SillySiteChallenge"
                   target="_blank"
-                  sx={{ fontWeight: 'bold', mr: 1, ':focus': { outlineColor: 'primary' } }}
+                  sx={{ fontWeight: 'bold', mr: 1 }}
                 >
                   #SillySiteChallenge
                 </Link>
@@ -92,7 +92,7 @@ const IndexPage: FunctionComponent = () => {
                 <Link
                   href="https://twitter.com/PaulieScanlon"
                   target="_blank"
-                  sx={{ color: 'secondary', fontWeight: 'bold', ':focus': { outlineColor: 'secondary' } }}
+                  sx={{ color: 'secondary', fontWeight: 'bold' }}
                 >
                   @PaulieScanlon
                 </Link>
@@ -108,7 +108,6 @@ const IndexPage: FunctionComponent = () => {
             bottom: 0,
             right: 0,
             position: 'absolute',
-            minHeight: 'hero',
             zIndex: 0,
           }}
         >
