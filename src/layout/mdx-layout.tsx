@@ -8,6 +8,10 @@ import { AdventCard } from '../components/advent-card'
 import { LogoIcon } from '../components/logo-icon'
 import { LogoBrand } from '../components/logo-brand'
 import { Starburst } from '../components/starburst'
+import { PantsDown } from '../components/pants-down'
+import { PantsUp } from '../components/pants-up'
+import { Mistletoe } from '../components/mistletoe'
+import { Reef } from '../components/reef'
 
 const components = {
   pre: ({ children }) => <Fragment>{children}</Fragment>,
@@ -17,6 +21,10 @@ const components = {
   LogoIcon,
   LogoBrand,
   Starburst,
+  PantsDown,
+  PantsUp,
+  Mistletoe,
+  Reef,
 }
 
 const MdxLayout: FunctionComponent = ({ children }) => {

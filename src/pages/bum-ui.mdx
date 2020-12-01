@@ -25,6 +25,8 @@
 
 ### BumHub Components
 
+Components specific to BumHub
+
 #### [LogoBrand](#logo-brand)
 
 <Grid sx={{gap: 4}}>
@@ -59,6 +61,8 @@ LogoIcon is the little icon that lives in the navigation
 </Grid>
 
 
+<Divider />
+
 #### [Starburst](#starburst)
 
 <Grid sx={{gap: 4}}>
@@ -75,18 +79,18 @@ Starburst
     position: 'relative',
     backgroundColor: 'accent',
     overflow: 'hidden',
-    minHeight: '400px',
+    minHeight: [200, 300, 500],
   }}
 >
   <Box
     sx={{
       opacity: 0.6,
-      top: '-40px',
+      top: 0,
       left: 0,
       bottom: 0,
       right: 0,
       position: 'absolute',
-      minHeight: '400px',
+      height: '100%',
       zIndex: 0,
     }}
   >
@@ -98,6 +102,87 @@ Starburst
 
 
 <Divider />
+
+#### [PantsUp](#pants-up)
+
+<Grid sx={{gap: 4}}>
+
+
+PantsUp Bum is displayed when a calendar day is in the future
+
+```javascript
+<PantsUp />
+```
+
+<Grid sx={{ alignItems: 'center', gap: 4, gridTemplateColumns: ['1fr', '1fr 1fr'] }}>
+  <PantsUp />
+</Grid>
+
+</Grid>
+
+
+<Divider />
+
+#### [PantsDown](#pants-down)
+
+<Grid sx={{gap: 4}}>
+
+
+PantsDown Bum is displayed when a calendar day is in the past or is the current day. For the current day a different
+`shadowColor` is required
+
+```javascript
+<PantsDown />
+<PantsDown shadowColor="#e85145" />
+```
+
+<Grid sx={{ alignItems: 'center', gap: 4, gridTemplateColumns: ['1fr', '1fr 1fr'] }}>
+  <PantsDown />
+  <PantsDown shadowColor="#e85145" />
+</Grid>
+
+</Grid>
+
+
+<Divider />
+
+#### [Reef](#reef)
+
+<Grid sx={{gap: 4}}>
+
+
+Reef is displayed when a calendar day is the current day
+
+```javascript
+<Reef />
+```
+
+<Box sx={{ width: 100 }}>
+  <Reef />
+</Box>
+
+</Grid>
+
+
+<Divider />
+
+#### [Mistletoe](#mistletoe)
+
+<Grid sx={{gap: 4}}>
+
+
+Mistletoe is displayed when a calendar day is in the past
+
+```javascript
+<Mistletoe />
+```
+
+<Box sx={{ width: 100 }}>
+  <Mistletoe />
+</Box>
+
+</Grid>
+
 
 <Divider />
 
@@ -111,13 +196,13 @@ Advent Card is of HTML `<a />` and `<div />` depending on states provided to det
 ```javascript
 <AdventCard to="/" day={1} repoName="repo name 1" isToday={false} isDisabled={false} />
 <AdventCard to="/" day={2} repoName="repo name 2" isToday={true} isDisabled={false} />
-<AdventCard to="/" day={3} repoName="repo name 3" isToday={false} isDisabled={true} />
+<AdventCard to="/" day={25} repoName="repo name 3" isToday={false} isDisabled={true} />
 ```
 
-<Grid sx={{ alignItems: 'center', gap: 2, gridTemplateColumns: '1fr 1fr 1fr' }}>
+<Grid sx={{ alignItems: 'center', gap: 4, gridTemplateColumns: ['1fr', '1fr 1fr', '1fr 1fr 1fr'], mt: 4 }}>
   <AdventCard to="/" day={1} repoName="repo name 1" isToday={false} isDisabled={false} />
   <AdventCard to="/" day={2} repoName="repo name 2" isToday={true} isDisabled={false} />
-  <AdventCard to="/" day={3} repoName="repo name 3" isToday={false} isDisabled={true} />
+  <AdventCard to="/" day={25} repoName="repo name 3" isToday={false} isDisabled={true} />
 </Grid>
 
 </Grid>
@@ -126,6 +211,8 @@ Advent Card is of HTML `<a />` and `<div />` depending on states provided to det
 <Divider />
 
 ### Theme UI Components
+
+Themed versions of components from Theme UI
 
 #### [Heading](#heading)
 
