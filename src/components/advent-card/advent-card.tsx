@@ -131,6 +131,7 @@ export const AdventCard: FunctionComponent<IAdventCardProps> = ({ day, repoName,
           color: 'inherit',
           display: 'flex',
           textDecoration: 'none',
+          height: '100%',
           transition: '.2s linear outline, .2s linear box-shadow, .2s ease-in-out transform',
           ':hover': {
             transform: 'translateY(-0.25rem)',

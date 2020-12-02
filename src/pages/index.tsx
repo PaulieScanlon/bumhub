@@ -132,6 +132,7 @@ const IndexPage: FunctionComponent = () => {
                 <Grid
                   sx={{
                     gridTemplateColumns: ['1fr', '1fr 1fr', '1fr 1fr 1fr'],
+                    gap: 3,
                   }}
                 >
                   {data.allSitePage.nodes.map((node, index) => {
@@ -153,6 +154,18 @@ const IndexPage: FunctionComponent = () => {
               )
             }}
           </MrFetchy>
+        </Container>
+      </Box>
+      <Divider />
+      <Box as="section">
+        <Container>
+          <Heading as="h2" variant="styles.h2">
+            Blog
+          </Heading>
+          <Text>Here's a blog post i'm regulary updating as I develop this site in public</Text>
+          <Link href="https://paulie.dev/posts/2020/11/silly-site-challenge/" target="_blank">
+            https://paulie.dev/posts/2020/11/silly-site-challenge/
+          </Link>
         </Container>
       </Box>
       <Divider />
@@ -181,7 +194,7 @@ const IndexPage: FunctionComponent = () => {
           <Heading as="h2" variant="styles.h2">
             EcoBum
           </Heading>
-          <Text> BumHubs carbon footprint measured in human farts, powered by EcoPing</Text>
+          <Text>BumHubs carbon footprint measured in human farts, powered by EcoPing</Text>
           <Link href="http://ecoping.earth/" target="_blank">
             http://ecoping.earth/
           </Link>
