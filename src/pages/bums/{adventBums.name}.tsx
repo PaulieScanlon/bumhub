@@ -19,6 +19,9 @@ const BumsPage: FunctionComponent<IBumsPageProps> = ({ data }) => {
     language,
     stargazers_count,
     size,
+    license,
+    open_issues_count,
+    watchers,
   } = data.adventBums
 
   return (
@@ -28,17 +31,20 @@ const BumsPage: FunctionComponent<IBumsPageProps> = ({ data }) => {
           <Heading as="h1" variant="styles.h1">
             {name}
           </Heading>
-          <Text>{`user: @${login}`}</Text>
+          <Text>{`owner.login: @${login}`}</Text>
           <Text>{`description: ${description}`}</Text>
-          <Text>{`language: ${language}`}</Text>
-          <Text>{`stargazers: ${stargazers_count}`}</Text>
-          <Text>{`size: ${size}`}</Text>
           <Text>
-            url:{' '}
+            html_url:{' '}
             <Link href={html_url} target="_blank">
               {html_url}
             </Link>
           </Text>
+          <Text>{`language: ${language}`}</Text>
+          <Text>{`stargazers: ${stargazers_count}`}</Text>
+          <Text>{`size: ${size}`}</Text>
+          <Text>{`license.name: ${license?.name}`}</Text>
+          <Text>{`open_issues_count: ${open_issues_count}`}</Text>
+          <Text>{`watchers: ${watchers}`}</Text>
         </Box>
         <Divider />
         <MrFetchy endPoint={END_POINT} method="POST" body={{ owner: login, repo: name }}>
@@ -56,16 +62,21 @@ export default BumsPage
 // example query
 // {
 //   bums(id: {eq: "b5129c3e-7849-5109-a322-69e768d77a2f"}) {
-//     name
-//     owner {
-//       login
-//     }
-//     description
-//     html_url
-//     language
-//     stargazers_count
-//     size
+//   name
+//   owner {
+//     login
 //   }
+//   description
+//   language
+//   html_url
+//   stargazers_count
+//   size
+//   license {
+//     name
+//   }
+//   open_issues_count
+//   watchers
+// }
 // }
 
 export const query = graphql`
@@ -76,10 +87,15 @@ export const query = graphql`
         login
       }
       description
-      html_url
       language
+      html_url
       stargazers_count
       size
+      license {
+        name
+      }
+      open_issues_count
+      watchers
     }
   }
 `
