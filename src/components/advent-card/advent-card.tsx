@@ -45,7 +45,7 @@ export const AdventCard: FunctionComponent<IAdventCardProps> = ({ day, repoName,
             width: '100%',
           }}
         >
-          {isToday ? <Reef sx={{ width: 75 }} /> : isDisabled ? null : <Mistletoe sx={{ width: 60 }} />}
+          {isToday ? <Reef sx={{ width: 78, mt: '-2px' }} /> : isDisabled ? null : <Mistletoe sx={{ width: 60 }} />}
         </Box>
         <Flex
           sx={{

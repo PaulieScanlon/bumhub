@@ -12,7 +12,7 @@ const END_POINT = 'get-date'
 
 const isDisabled = (data: any, index: number) => {
   if (data.month === data.limited_month) {
-    if (index.toString() <= data.day) {
+    if (index <= Number(data.day)) {
       return false
     }
   }
@@ -21,7 +21,7 @@ const isDisabled = (data: any, index: number) => {
 
 const isToday = (data: any, index: number) => {
   if (data.month === data.limited_month) {
-    if (index.toString() === data.day) {
+    if (index === Number(data.day)) {
       return true
     }
   }
@@ -132,13 +132,15 @@ const IndexPage: FunctionComponent = () => {
                 <Grid
                   sx={{
                     gridTemplateColumns: ['1fr', '1fr 1fr', '1fr 1fr 1fr'],
-                    gap: 3,
+                    rowGap: 4,
+                    columnGap: 3,
                   }}
                 >
                   {data.allSitePage.nodes.map((node, index) => {
                     const { path } = node
                     const { name } = data.allAdventBums.nodes[index]
                     let _index = index + 1
+
                     return (
                       <AdventCard
                         key={_index}

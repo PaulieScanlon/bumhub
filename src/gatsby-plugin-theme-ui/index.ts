@@ -149,6 +149,7 @@ export default {
     nav: {
       borderRadius: 0,
       color: 'text',
+      fontSize: [0, 1],
       fontWeight: 'bold',
       p: 2,
       transition: '.2s linear background-color',
