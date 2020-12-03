@@ -1,12 +1,11 @@
-import React, { Fragment, FunctionComponent } from 'react'
-import { Container, Flex, Grid, Divider, Heading, Text, Card, Box, Link } from 'theme-ui'
+import React, { FunctionComponent } from 'react'
+import { Container, Grid, Divider, Heading, Text, Box, Link } from 'theme-ui'
 import { useStaticQuery, graphql, Link as GatsbyLink } from 'gatsby'
 
 import { MrFetchy } from '../components/mr-fetchy'
 
-import { LogoBrand } from '../components/logo-brand'
 import { AdventCard } from '../components/advent-card'
-import { Starburst } from '../components/starburst'
+import { IndexHero } from '../components/index-hero/index-hero'
 
 const END_POINT = 'get-date'
 
@@ -62,58 +61,7 @@ const IndexPage: FunctionComponent = () => {
 
   return (
     <>
-      <Box as="section" sx={{ backgroundColor: 'accent', position: 'relative', zIndex: 'hero' }}>
-        <Container sx={{ position: 'relative', zIndex: 1 }}>
-          <Flex sx={{ flexDirection: 'column', py: 5, justifyContent: 'center' }}>
-            <LogoBrand sx={{ width: ['60%', '40%', '40%'] }} />
-            <Heading as="h1" variant="styles.h1" sx={{ textAlign: 'center' }}>
-              The cheekiest way
-              <br />
-              to explore GitHub
-            </Heading>
-            <Box sx={{ my: 3 }} />
-            <Box
-              sx={{
-                margin: '0 auto',
-              }}
-            >
-              <Flex
-                sx={{ borderRadius: 0, backgroundColor: 'text', display: 'inline-flex', px: 3, py: 2, fontSize: 0 }}
-              >
-                <Text sx={{ color: 'background', mr: 1 }}>A</Text>
-                <Link
-                  href="https://twitter.com/search?q=%23SillySiteChallenge"
-                  target="_blank"
-                  sx={{ fontWeight: 'bold', mr: 1 }}
-                >
-                  #SillySiteChallenge
-                </Link>
-                <Text sx={{ color: 'background', mr: 1 }}>by</Text>
-                <Link
-                  href="https://twitter.com/PaulieScanlon"
-                  target="_blank"
-                  sx={{ color: 'secondary', fontWeight: 'bold' }}
-                >
-                  @PaulieScanlon
-                </Link>
-              </Flex>
-            </Box>
-          </Flex>
-        </Container>
-        <Box
-          sx={{
-            opacity: 0.6,
-            top: ['5%', '0%', '-15%'],
-            left: 0,
-            bottom: 0,
-            right: 0,
-            position: 'absolute',
-            zIndex: 0,
-          }}
-        >
-          <Starburst />
-        </Box>
-      </Box>
+      <IndexHero />
       <Divider />
       <Box as="section">
         <Container>

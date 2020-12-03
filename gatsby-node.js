@@ -104,6 +104,8 @@ module.exports.sourceNodes = async ({ actions, createNodeId, createContentDigest
     .sort((a, b) => included_repos.indexOf(a.html_url) - included_repos.indexOf(b.html_url))
 
   console.log('')
+  console.log(adventFiltered.map((a, index) => `${index + 1} | ${a.name}`))
+  console.log('')
   console.log('adventFiltered: ', adventFiltered.length)
   console.log('')
 

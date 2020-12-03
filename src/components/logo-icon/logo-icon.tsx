@@ -1,6 +1,9 @@
 import React, { FunctionComponent } from 'react'
 import { Box, SxStyleProp } from 'theme-ui'
 
+import theme from '../../gatsby-plugin-theme-ui'
+const { colors } = theme
+
 interface ILogoIconProps {
   /** Theme UI JSX pragma */
   sx?: SxStyleProp
@@ -15,7 +18,7 @@ export const LogoIcon: FunctionComponent<ILogoIconProps> = ({ sx }) => {
           <path
             d="M19.81,13.83l-.14.13a8.21,8.21,0,0,1,4.64,6,6.54,6.54,0,0,1-.93,4.46,7.14,7.14,0,0,1-4,2.71,23.54,23.54,0,0,1-4.21,1l-1.49.26c-1.5.25-1.69.11-2-1.38-1.35-6.84-2.66-13.7-4-20.54A1.41,1.41,0,0,1,8.93,4.65a50.25,50.25,0,0,1,5.16-.93,9.48,9.48,0,0,1,4.76.35,5.91,5.91,0,0,1,2.9,2.85,5.4,5.4,0,0,1,.09,4.55A5.47,5.47,0,0,1,19.81,13.83Z"
             transform="translate(-4.85 -0.81)"
-            fill="#00cfff"
+            fill={colors.secondary}
           />
           <g>
             <path d="M20.29,24.13a.81.81,0,0,0,.26,1.6A.81.81,0,0,0,20.29,24.13Z" transform="translate(-4.85 -0.81)" />
@@ -26,12 +29,12 @@ export const LogoIcon: FunctionComponent<ILogoIconProps> = ({ sx }) => {
             <path
               d="M20.31,9a.83.83,0,0,1-.76-.52A3.68,3.68,0,0,0,15,6.08a.82.82,0,1,1-.47-1.57,5.38,5.38,0,0,1,6.56,3.38A.83.83,0,0,1,20.61,9,1,1,0,0,1,20.31,9Z"
               transform="translate(-4.85 -0.81)"
-              fill="#fff"
+              fill={colors.background}
             />
             <path
               d="M12.49,4.94a.86.86,0,0,0,.29,1.7A.86.86,0,0,0,12.49,4.94Z"
               transform="translate(-4.85 -0.81)"
-              fill="#fff"
+              fill={colors.background}
             />
           </g>
           <path

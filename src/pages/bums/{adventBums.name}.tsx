@@ -1,8 +1,9 @@
-import React, { Fragment, FunctionComponent } from 'react'
-import { Container, Divider, Heading, Text, Box, Link } from 'theme-ui'
+import React, { FunctionComponent } from 'react'
+import { Container, Divider, Box } from 'theme-ui'
 import { graphql } from 'gatsby'
 
 import { MrFetchy } from '../../components/mr-fetchy'
+import { BumHero } from '../../components/bum-hero/bum-hero'
 
 const END_POINT = 'github-readme'
 interface IBumsPageProps {
@@ -26,33 +27,38 @@ const BumsPage: FunctionComponent<IBumsPageProps> = ({ data }) => {
 
   return (
     <>
+      <BumHero
+        name={name}
+        login={login}
+        description={description}
+        html_url={html_url}
+        language={language}
+        stargazers_count={stargazers_count}
+        size={size}
+        license={license}
+        open_issues_count={open_issues_count}
+        watchers={watchers}
+      />
+      <Divider />
       <Container>
-        <Box>
-          <Heading as="h1" variant="styles.h1">
-            {name}
-          </Heading>
-          <Text>{`owner.login: @${login}`}</Text>
-          <Text>{`description: ${description}`}</Text>
-          <Text>
-            html_url:{' '}
-            <Link href={html_url} target="_blank">
-              {html_url}
-            </Link>
-          </Text>
-          <Text>{`language: ${language}`}</Text>
-          <Text>{`stargazers: ${stargazers_count}`}</Text>
-          <Text>{`size: ${size}`}</Text>
-          <Text>{`license.name: ${license?.name}`}</Text>
-          <Text>{`open_issues_count: ${open_issues_count}`}</Text>
-          <Text>{`watchers: ${watchers}`}</Text>
-        </Box>
-        <Divider />
-        <MrFetchy endPoint={END_POINT} method="POST" body={{ owner: login, repo: name }}>
-          {(readme) => {
-            return <Box dangerouslySetInnerHTML={{ __html: readme.data }} />
+        <Box
+          sx={{
+            borderRadius: 0,
+            boxShadow: 1,
+            px: [2, 4],
+            py: [3, 5],
+            mx: [0, 4],
+            mt: -5,
           }}
-        </MrFetchy>
+        >
+          <MrFetchy endPoint={END_POINT} method="POST" body={{ owner: login, repo: name }}>
+            {(readme) => {
+              return <Box dangerouslySetInnerHTML={{ __html: readme.data }} />
+            }}
+          </MrFetchy>
+        </Box>
       </Container>
+      <Divider />
     </>
   )
 }
