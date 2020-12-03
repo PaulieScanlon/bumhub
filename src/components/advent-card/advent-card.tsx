@@ -34,7 +34,7 @@ export const AdventCard: FunctionComponent<IAdventCardProps> = ({ day, repoName,
           flexDirection: 'column',
           flexGrow: 1,
           minHeight: '240px',
-          backgroundColor: isToday ? 'lightRed' : 'background',
+          backgroundColor: isToday ? 'midRed' : 'background',
         }}
       >
         <Box
@@ -87,7 +87,7 @@ export const AdventCard: FunctionComponent<IAdventCardProps> = ({ day, repoName,
               </Text>
               <Flex
                 sx={{
-                  color: isToday ? 'background' : 'lightRed',
+                  color: isToday ? 'background' : 'midRed',
                   justifyContent: 'center',
                 }}
               >
@@ -117,7 +117,7 @@ export const AdventCard: FunctionComponent<IAdventCardProps> = ({ day, repoName,
           {isDisabled ? (
             <PantsUp />
           ) : (
-            <PantsDown shadowColor={isToday ? theme.colors.shadowRed : theme.colors.shadowGrey} />
+            <PantsDown shadowColor={isToday ? theme.colors.midRed : theme.colors.shadowGrey} />
           )}
         </Box>
       </Card>

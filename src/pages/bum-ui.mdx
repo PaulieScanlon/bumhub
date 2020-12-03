@@ -209,6 +209,37 @@ Advent Card is of HTML `<a />` and `<div />` depending on states provided to det
 
 <Divider />
 
+#### [BumStat](#bum-stat)
+
+<Grid sx={{gap: 4}}>
+
+
+BumStat is used on the `/bums/name-of-repo` page and is used to display GitHub data
+
+```javascript
+<BumStat description="User" value="@PaulieScanlon" color="#e260d3" icon="accountCircle" />
+<BumStat description="Language" value="JavaScript" color="#00cfff" icon="code" />
+```
+
+<Box
+  sx={{
+    backgroundColor: 'text',
+    borderRadius: 0,
+    p: 4,
+    width: ['100%', '50%'],
+  }}
+>
+  <Grid sx={{ mx: '-45px', rowGap: 3 }}>
+    <BumStat description="User" value="@PaulieScanlon" color="#e260d3" icon="accountCircle" />
+    <BumStat description="Language" value="JavaScript" color="#00cfff" icon="code" />
+  </Grid>
+</Box>
+
+</Grid>
+
+
+<Divider />
+
 ### Theme UI Components
 
 Themed versions of components from Theme UI

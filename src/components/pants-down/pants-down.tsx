@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react'
 import { Box, SxStyleProp } from 'theme-ui'
 
 import theme from '../../gatsby-plugin-theme-ui'
+const { colors } = theme
 
 interface IPantsDownProps {
   /** Theme UI JSX pragma */
@@ -10,7 +11,7 @@ interface IPantsDownProps {
   shadowColor?: string
 }
 
-export const PantsDown: FunctionComponent<IPantsDownProps> = ({ shadowColor = theme.colors.shadowGrey, sx }) => {
+export const PantsDown: FunctionComponent<IPantsDownProps> = ({ shadowColor = colors.shadowGrey, sx }) => {
   return (
     <Box sx={{ margin: '0 auto', ...sx }}>
       <svg version="1.0" x="0px" y="0px" viewBox="0 0 471.6 329.7" width="100%" height="100%">
@@ -23,7 +24,7 @@ export const PantsDown: FunctionComponent<IPantsDownProps> = ({ shadowColor = th
 				L327.2,270z"
             />
             <path
-              fill="#D87148"
+              fill={colors.darkSkin}
               d="M302.1,269.2c3.7-25.9,0.7-48.9-9-68.4c-8.4-17-19-24.9-19.1-25l4.4-6.1l4.4-6.1
 				c0.5,0.4,13.2,9.7,23.2,29.6c7.9,15.5,15.5,40.6,11.2,75.5C312.2,268.6,307.1,268.8,302.1,269.2z"
             />
@@ -33,7 +34,7 @@ export const PantsDown: FunctionComponent<IPantsDownProps> = ({ shadowColor = th
 				L172.7,273.6z"
             />
             <path
-              fill="#D87148"
+              fill={colors.darkSkin}
               d="M197.7,271.6c-5-25.7-3.2-48.8,5.4-68.8c7.5-17.4,17.7-25.9,17.8-25.9l-4.7-5.8l-4.7-5.8
 				c-0.5,0.4-12.7,10.4-21.7,30.7c-7.1,15.9-13.4,41.3-7.3,76C187.6,271.5,192.7,271.4,197.7,271.6z"
             />
@@ -43,12 +44,12 @@ export const PantsDown: FunctionComponent<IPantsDownProps> = ({ shadowColor = th
 				C230.4,204.4,212.1,209.7,193.6,209.7z"
             />
             <path
-              fill="#F49262"
+              fill={colors.midSkin}
               d="M344.1,48L120.7,60c0,0-16.6,73.2,16,107.1s81.8,30.6,110.4,4c0,0,11.3,22.6,60.5,14
 				C356.8,176.4,370.7,105.2,344.1,48z"
             />
             <path
-              fill="#D87148"
+              fill={colors.darkSkin}
               d="M136.6,167c32.6,33.9,81.8,30.6,110.4,4c0,0,11.3,22.6,60.5,14c26.4-4.6,42.7-27.4,48-56.2
 				c-13.9,37-38.4,47.3-65.8,45.9c-40.9-2-35.9-30.9-35.9-30.9s-21.9,61.9-93.8,27.9C108.4,147.3,120.7,60,120.7,60
 				S104,133.1,136.6,167z"
@@ -74,7 +75,7 @@ export const PantsDown: FunctionComponent<IPantsDownProps> = ({ shadowColor = th
             </g>
             <g>
               <path
-                fill="#FFFFFF"
+                fill={colors.background}
                 d="M363.2,255c-1.8-1.1-3.6-2.1-5.5-3.1c1.9-4.7,1-10.8-3.3-14.7c-7-6.5-17.9-6.6-27.1-4
 					c-5.5-13.7-21.6-21.1-35.8-15.1c-1.4,0.6-4.5,3-6,3c-1.6,0-3.3-2-4.5-2.9c-3.2-2.5-6.8-4.2-10.9-4.8c-3.8-0.6-7.7-0.5-11.3,0.6
 					c-1.6,0.5-3.1,1.1-4.6,1.8c-0.6,0.3-4.7,3-4.2,3.6c-1.2-0.4-3.5-2.1-4.4-2.5c-1.8-0.8-3.6-1.4-5.4-1.8c-4-0.9-8.2-1.1-12.3-0.6
@@ -86,7 +87,7 @@ export const PantsDown: FunctionComponent<IPantsDownProps> = ({ shadowColor = th
 					c10.3,1,21.3,1.8,31.6,1c6.7-0.5,19.4-2.3,19.2-11.4C370.2,259.4,366.4,257.1,363.2,255z"
               />
               <path
-                fill="#C2D8FF"
+                fill={colors.lightBlue}
                 d="M319.5,274.1c10.3,1,21.3,1.8,31.6,1c6.7-0.5,19.4-2.3,19.2-11.4c-0.1-4.3-3.9-6.6-7.2-8.7
 					c-1.8-1.1-3.6-2.1-5.5-3.1c1.9-4.7,1-10.8-3.3-14.7c-0.6-0.6-1.3-1.1-1.9-1.5c-8.8,2.8-15,11.8-15,11.8s20,12,8,15.3
 					c-12,3.3-25.3-9.3-41.2-20.6s-27.3-4-42.6,0.7c-15.3,4.7-21.3-6-34.6-7.3c-13.3-1.3-13.3,12-25.9,18c-12.6,6-22.6-4-37.9-7.3
@@ -97,7 +98,7 @@ export const PantsDown: FunctionComponent<IPantsDownProps> = ({ shadowColor = th
 					C308.1,271.2,313.7,273.6,319.5,274.1z"
               />
               <path
-                fill="#D10909"
+                fill={colors.darkRed}
                 d="M305.8,269.6c-10.3,2-21.5-2.9-27.2-11.7c-0.6-0.9-1.8-1.5-2.8-1.1c-7.2,2.6-15.2,2-21.9-1.9
 					c-1.1-0.6-2.1-0.3-3,0.4c-6.5,5.1-15.4,6.7-23.3,4.4c-1.1-0.3-2.2,0.2-2.8,1.1c-3.4,5.6-9.2,9.2-15.5,10.7
 					c-5.9-0.9-11.8-1.6-17.7-2c-1.9-0.1-2.8,2-2.1,3.4c0.1,0.8,0.6,1.5,1.4,1.6c0.5,0.1,1,0.2,1.5,0.3c3.6,1.6,7.5,2.3,11.3,2.3
@@ -279,11 +280,11 @@ export const PantsDown: FunctionComponent<IPantsDownProps> = ({ shadowColor = th
                 />
               </g>
             </g>
-            <path fill="#FFB297" d="M120.7,60c0,0,118.4,38.6,223.5-12C342.8,48,120.7,60,120.7,60z" />
+            <path fill={colors.lightSkin} d="M120.7,60c0,0,118.4,38.6,223.5-12C342.8,48,120.7,60,120.7,60z" />
 
             <path
               fill="none"
-              stroke="#FFFFFF"
+              stroke={colors.background}
               strokeWidth="12"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -294,7 +295,7 @@ export const PantsDown: FunctionComponent<IPantsDownProps> = ({ shadowColor = th
 
             <path
               fill="none"
-              stroke="#FFFFFF"
+              stroke={colors.background}
               strokeWidth="13"
               strokeLinecap="round"
               strokeLinejoin="round"
