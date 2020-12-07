@@ -5,7 +5,7 @@ import filesize from 'filesize'
 import theme from '../../gatsby-plugin-theme-ui'
 
 import { Starburst } from '../starburst'
-import { BumStat } from '../bum-stat'
+import { GitHubStat } from '../github-stat'
 import { LaptopBum } from '../laptop-bum/laptop-bum'
 
 const { colors } = theme
@@ -49,7 +49,14 @@ export const BumHero: FunctionComponent<IBumHeroProps> = ({
     <Container sx={{ position: 'relative', zIndex: 1 }}>
       <Box
         as="section"
-        sx={{ backgroundColor: 'accent', borderRadius: 0, boxShadow: 0, p: 4, position: 'relative', zIndex: 'hero' }}
+        sx={{
+          backgroundColor: 'accent',
+          borderRadius: 0,
+          boxShadow: 'surface',
+          p: 4,
+          position: 'relative',
+          zIndex: 'hero',
+        }}
       >
         <Grid
           sx={{
@@ -82,18 +89,18 @@ export const BumHero: FunctionComponent<IBumHeroProps> = ({
                 rowGap: 3,
               }}
             >
-              <BumStat description="User" value={`@${login}`} color={colors.primary} icon="accountCircle" />
-              <BumStat description="Language" value={language} color={colors.secondary} icon="code" />
-              <BumStat description="License" value={license?.name} color={colors.highlight} icon="localPolice" />
-              <BumStat description="Stargazers" value={stargazers_count} color={colors.accent} icon="grade" />
-              <BumStat
+              <GitHubStat description="User" value={`@${login}`} color={colors.primary} icon="accountCircle" />
+              <GitHubStat description="Language" value={language} color={colors.secondary} icon="code" />
+              <GitHubStat description="License" value={license?.name} color={colors.highlight} icon="localPolice" />
+              <GitHubStat description="Stargazers" value={stargazers_count} color={colors.accent} icon="grade" />
+              <GitHubStat
                 description="Size"
                 value={filesize(size, { exponent: 1 })}
                 color={colors.green}
                 icon="snippetFolder"
               />
-              <BumStat description="Watchers" value={watchers} color={colors.teal} icon="visibility" />
-              <BumStat description="Issues" value={open_issues_count} color={colors.midRed} icon="warning" />
+              <GitHubStat description="Watchers" value={watchers} color={colors.teal} icon="visibility" />
+              <GitHubStat description="Issues" value={open_issues_count} color={colors.midRed} icon="warning" />
             </Grid>
           </Box>
         </Grid>

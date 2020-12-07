@@ -12,7 +12,9 @@ import { PantsDown } from '../components/pants-down'
 import { PantsUp } from '../components/pants-up'
 import { Mistletoe } from '../components/mistletoe'
 import { Reef } from '../components/reef'
-import { BumStat } from '../components/bum-stat'
+import { GitHubStat } from '../components/github-stat'
+import { FartBum } from '../components/fart-bum'
+import { EcoStat } from '../components/eco-stat'
 
 const components = {
   pre: ({ children }) => <Fragment>{children}</Fragment>,
@@ -26,7 +28,9 @@ const components = {
   PantsUp,
   Mistletoe,
   Reef,
-  BumStat,
+  GitHubStat,
+  FartBum,
+  EcoStat,
 }
 
 const MdxLayout: FunctionComponent = ({ children }) => {

@@ -1,19 +1,6 @@
 import { transparentize } from '@theme-ui/color'
 import codeTheme from '@theme-ui/prism/presets/github.json'
 
-export const commonFocus = {
-  outline: 'none',
-  boxShadow: '0px 0px 1px 3px #fdc449',
-}
-
-const commonAnchor = {
-  color: 'primary',
-  ':focus': {
-    borderRadius: 0,
-    ...commonFocus,
-  },
-}
-
 export default {
   borderRadius: [8],
   colors: {
@@ -31,10 +18,11 @@ export default {
     green: '#66cc4f',
     teal: '#29d6c6',
     grey: '#cccccc',
-    shadowGrey: '#eeeeee',
-    shadowAccent: '#c29e50',
+    blueGreen: '#102738',
     accent: '#fdc449',
     highlight: '#9aa1fc',
+    shadowGrey: '#eeeeee',
+    shadowAccent: '#c29e50',
     transparent: 'rgba(255, 255, 255, 0)',
   },
   fonts: {
@@ -53,7 +41,11 @@ export default {
     body: 2,
     code: 1.8,
   },
-  shadows: ['0px 0px 30px -2px rgba(0,0,0,0.10)', '0px 0px 40px -5px rgba(0,0,0,0.15)'],
+  shadows: {
+    header: '0px 0px 40px -5px rgba(0,0,0,0.25)',
+    surface: '0px 0px 30px -2px rgba(0,0,0,0.10)',
+    focus: '0px 0px 1px 3px rgba(0,0,255,0.90)',
+  },
   sizes: {
     container: 1140,
     full: '100vw',
@@ -71,7 +63,13 @@ export default {
       lineHeight: 'body',
       minWidth: '320px',
       a: {
-        ...commonAnchor,
+        variant: 'styles.a',
+      },
+      // GitHub readme top level div
+      '.markdown-body': {
+        pre: {
+          variant: 'styles.pre',
+        },
       },
     },
     header: {
@@ -114,6 +112,7 @@ export default {
       lineHeight: 'body',
       m: 0,
       mb: 2,
+      // inline code
       code: {
         borderRadius: 0,
         padding: 2,
@@ -122,7 +121,14 @@ export default {
       },
     },
     a: {
-      ...commonAnchor,
+      borderRadius: 0,
+      cursor: 'pointer',
+      color: 'primary',
+      transition: '0.2s linear box-shadow',
+      ':focus': {
+        outline: 'none',
+        boxShadow: 'focus',
+      },
     },
     pre: {
       m: 0,
@@ -137,10 +143,11 @@ export default {
   },
   buttons: {
     default: {
+      borderRadius: 0,
       textTransform: 'capitalize',
+      fontWeight: 'heading',
       ':focus': {
-        ...commonFocus,
-        outlineColor: 'accent',
+        boxShadow: 'focus',
       },
     },
     primary: {
@@ -150,22 +157,25 @@ export default {
       variant: 'buttons.default',
       backgroundColor: 'secondary',
     },
+    accent: {
+      variant: 'buttons.default',
+      color: 'text',
+      backgroundColor: 'accent',
+    },
   },
 
   links: {
     nav: {
       borderRadius: 0,
+      cursor: 'pointer',
       color: 'text',
       fontSize: [0, 1],
       fontWeight: 'bold',
       p: 2,
-      transition: '.2s linear background-color',
+      transition: '.2s linear background-color, .2s linear box-shadow',
       textDecoration: 'none',
       ':hover': {
         backgroundColor: transparentize('text', 0.95),
-      },
-      ':focus': {
-        ...commonFocus,
       },
     },
   },
@@ -173,7 +183,7 @@ export default {
   cards: {
     primary: {
       borderRadius: 0,
-      boxShadow: 0,
+      boxShadow: 'surface',
       padding: 3,
     },
   },
