@@ -66,51 +66,6 @@ const IndexPage: FunctionComponent = () => {
   return (
     <>
       <IndexHero />
-      <Divider />
-      <Box as="section">
-        <Container>
-          <Box sx={{ my: 5 }}>
-            <Heading as="h2" variant="styles.h2" sx={{ textAlign: 'center' }}>
-              Merry Christmass
-            </Heading>
-            <Text sx={{ textAlign: 'center' }}>
-              A new <b>bum</b> for every day of advent
-            </Text>
-          </Box>
-          <Divider />
-          <MrFetchy endPoint={DATE_END_POINT}>
-            {(response) => {
-              return (
-                <Grid
-                  sx={{
-                    gridTemplateColumns: ['1fr', '1fr 1fr', '1fr 1fr 1fr'],
-                    rowGap: 4,
-                    columnGap: 3,
-                  }}
-                >
-                  {data.allSitePage.nodes.map((node, index) => {
-                    const { path } = node
-                    const { name } = data.allAdventBums.nodes[index]
-                    let _index = index + 1
-
-                    return (
-                      <AdventCard
-                        key={_index}
-                        day={_index}
-                        to={path}
-                        repoName={name}
-                        isDisabled={isDisabled(response.data, _index)}
-                        isToday={isToday(response.data, _index)}
-                      />
-                    )
-                  })}
-                </Grid>
-              )
-            }}
-          </MrFetchy>
-        </Container>
-      </Box>
-      <Divider />
       <Box
         as="section"
         sx={{
@@ -203,6 +158,50 @@ const IndexPage: FunctionComponent = () => {
               </Link>
             </Flex>
           </Grid>
+        </Container>
+      </Box>
+      <Divider />
+      <Box as="section">
+        <Container>
+          <Box sx={{ my: 5 }}>
+            <Heading as="h2" variant="styles.h2" sx={{ textAlign: 'center' }}>
+              Merry Christmass
+            </Heading>
+            <Text sx={{ textAlign: 'center' }}>
+              A new <b>bum</b> for every day of advent
+            </Text>
+          </Box>
+          <Divider />
+          <MrFetchy endPoint={DATE_END_POINT}>
+            {(response) => {
+              return (
+                <Grid
+                  sx={{
+                    gridTemplateColumns: ['1fr', '1fr 1fr', '1fr 1fr 1fr'],
+                    rowGap: 4,
+                    columnGap: 3,
+                  }}
+                >
+                  {data.allSitePage.nodes.map((node, index) => {
+                    const { path } = node
+                    const { name } = data.allAdventBums.nodes[index]
+                    let _index = index + 1
+
+                    return (
+                      <AdventCard
+                        key={_index}
+                        day={_index}
+                        to={path}
+                        repoName={name}
+                        isDisabled={isDisabled(response.data, _index)}
+                        isToday={isToday(response.data, _index)}
+                      />
+                    )
+                  })}
+                </Grid>
+              )
+            }}
+          </MrFetchy>
         </Container>
       </Box>
       <Divider />
