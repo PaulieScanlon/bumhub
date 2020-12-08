@@ -11,12 +11,16 @@ const SearchPage: FunctionComponent = () => {
           full_name
           owner {
             login
+            avatar_url
           }
           description
           html_url
           created_at
           stargazers_count
           language
+          forks
+          watchers
+          size
         }
       }
     }
@@ -34,23 +38,33 @@ const SearchPage: FunctionComponent = () => {
         <Divider />
         <Box as="ol">
           {data.allBums.nodes.map((item, index: number) => {
-            const { name, description, html_url } = item
+            const {
+              name,
+              full_name,
+              owner,
+              description,
+              html_url,
+              created_at,
+              stargazers_count,
+              language,
+              forks,
+              watchers,
+              size,
+            } = item
             return (
               <Box key={index} as="li" sx={{ mb: 4 }}>
-                <Heading as="h5" variant="styles.h5">
-                  <Text as="b">name: </Text>
-                  {name}
-                </Heading>
-                <Text>
-                  <Text as="b">description: </Text>
-                  {description ? description : '~no description available~'}
-                </Text>
-                <Flex>
-                  <Text as="b">url: </Text>
-                  <Link href={html_url} target="_blank">
-                    {html_url}
-                  </Link>
-                </Flex>
+                <Text>{`name: ${name}`}</Text>
+                <Text>{`full_name: ${full_name}`}</Text>
+                <Text>{`login: ${owner.login}`}</Text>
+                <Text>{`avatar_url: ${owner.avatar_url}`}</Text>
+                <Text>{`description: ${description}`}</Text>
+                <Text>{`html_url: ${html_url}`}</Text>
+                <Text>{`created_at: ${created_at}`}</Text>
+                <Text>{`stargazers_count: ${stargazers_count}`}</Text>
+                <Text>{`language: ${language}`}</Text>
+                <Text>{`forks: ${forks}`}</Text>
+                <Text>{`watchers: ${watchers}`}</Text>
+                <Text>{`size: ${size}`}</Text>
               </Box>
             )
           })}
