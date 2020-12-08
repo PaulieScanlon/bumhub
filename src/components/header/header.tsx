@@ -42,7 +42,7 @@ export const Header: FunctionComponent = () => {
                 sx={{
                   backgroundColor: isIndex ? headerColor : 'background',
                   borderRadius: 0,
-                  boxShadow: 1,
+                  boxShadow: 'header',
                   gridTemplateColumns: 'auto auto',
                   flexGrow: 1,
                   transition: '.5s linear background-color',

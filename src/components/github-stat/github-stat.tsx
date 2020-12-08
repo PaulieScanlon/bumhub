@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react'
 import { Flex, Grid, Box, Text } from 'theme-ui'
 import { Icon } from '../icon'
 
-interface IBumStatProps {
+interface IGitHubStatProps {
   /** The description of the statistic */
   description: string
   /** The statistic value */
@@ -13,7 +13,7 @@ interface IBumStatProps {
   icon: string
 }
 
-export const BumStat: FunctionComponent<IBumStatProps> = ({ description, value, color, icon }) => {
+export const GitHubStat: FunctionComponent<IGitHubStatProps> = ({ description, value, color, icon }) => {
   return (
     <Grid
       sx={{

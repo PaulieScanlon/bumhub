@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import { Container, Divider, Box } from 'theme-ui'
+import { Container, Divider, Box, Text } from 'theme-ui'
 import { graphql } from 'gatsby'
 
 import { MrFetchy } from '../../components/mr-fetchy'
@@ -44,16 +44,21 @@ const BumsPage: FunctionComponent<IBumsPageProps> = ({ data }) => {
         <Box
           sx={{
             borderRadius: 0,
-            boxShadow: 1,
-            px: [2, 4],
+            boxShadow: 'surface',
+            px: 4,
             py: [3, 5],
             mx: [0, 4],
-            mt: -5,
+            mt: [-2, -5],
           }}
         >
           <MrFetchy endPoint={END_POINT} method="POST" body={{ owner: login, repo: name }}>
             {(readme) => {
-              return <Box dangerouslySetInnerHTML={{ __html: readme.data }} />
+              return (
+                <Box>
+                  <Text sx={{ fontSize: 0, fontWeight: 'heading' }}>README.md</Text>
+                  <Box dangerouslySetInnerHTML={{ __html: readme.data }} />
+                </Box>
+              )
             }}
           </MrFetchy>
         </Box>

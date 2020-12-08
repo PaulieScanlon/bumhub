@@ -26,6 +26,7 @@ export const IndexHero: FunctionComponent = () => {
               <Link
                 href="https://twitter.com/search?q=%23SillySiteChallenge"
                 target="_blank"
+                rel="noopener"
                 sx={{ fontWeight: 'bold', mr: 1 }}
               >
                 #SillySiteChallenge
@@ -34,6 +35,7 @@ export const IndexHero: FunctionComponent = () => {
               <Link
                 href="https://twitter.com/PaulieScanlon"
                 target="_blank"
+                rel="noopener"
                 sx={{ color: 'secondary', fontWeight: 'bold' }}
               >
                 @PaulieScanlon

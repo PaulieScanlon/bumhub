@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react'
 import { Flex, Box, Card, Text } from 'theme-ui'
 import { Link as GatsbyLink } from 'gatsby'
 
-import theme, { commonFocus } from '../../gatsby-plugin-theme-ui'
+import theme from '../../gatsby-plugin-theme-ui'
 
 import { Icon } from '../icon'
 import { PantsUp } from '../pants-up'
@@ -33,7 +33,6 @@ export const AdventCard: FunctionComponent<IAdventCardProps> = ({ day, repoName,
           display: 'flex',
           flexDirection: 'column',
           flexGrow: 1,
-          minHeight: '240px',
           backgroundColor: isToday ? 'midRed' : 'background',
         }}
       >
@@ -117,7 +116,7 @@ export const AdventCard: FunctionComponent<IAdventCardProps> = ({ day, repoName,
           {isDisabled ? (
             <PantsUp />
           ) : (
-            <PantsDown shadowColor={isToday ? theme.colors.midRed : theme.colors.shadowGrey} />
+            <PantsDown shadowColor={isToday ? theme.colors.darkRed : theme.colors.shadowGrey} />
           )}
         </Box>
       </Card>
@@ -135,10 +134,10 @@ export const AdventCard: FunctionComponent<IAdventCardProps> = ({ day, repoName,
           transition: '.2s linear outline, .2s linear box-shadow, .2s ease-in-out transform',
           ':hover': {
             transform: 'translateY(-0.25rem)',
-            boxShadow: 1,
+            boxShadow: 'surface',
           },
           ':focus': {
-            ...commonFocus,
+            boxShadow: 'focus',
           },
         },
       }}

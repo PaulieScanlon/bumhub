@@ -1,6 +1,6 @@
 const { format } = require('date-fns')
 
-exports.handler = async (event, context, callback) => {
+exports.handler = (event, context, callback) => {
   callback(null, {
     headers: {
       'Access-Control-Allow-Origin': '*',

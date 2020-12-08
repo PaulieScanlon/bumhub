@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, memo } from 'react'
 import { Box, SxStyleProp } from 'theme-ui'
 
 import theme from '../../gatsby-plugin-theme-ui'
@@ -11,7 +11,7 @@ interface IPantsDownProps {
   shadowColor?: string
 }
 
-export const PantsDown: FunctionComponent<IPantsDownProps> = ({ shadowColor = colors.shadowGrey, sx }) => {
+export const PantsDown: FunctionComponent<IPantsDownProps> = memo(({ shadowColor = colors.shadowGrey, sx }) => {
   return (
     <Box sx={{ margin: '0 auto', ...sx }}>
       <svg version="1.0" x="0px" y="0px" viewBox="0 0 471.6 329.7" width="100%" height="100%">
@@ -308,4 +308,4 @@ export const PantsDown: FunctionComponent<IPantsDownProps> = ({ shadowColor = co
       </svg>
     </Box>
   )
-}
+})
