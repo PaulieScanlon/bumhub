@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import { Container, Grid, Flex, Box, Heading, Text, Link } from 'theme-ui'
+import { Container, Grid, Flex, Box, Heading, Text, Link, Image } from 'theme-ui'
 import filesize from 'filesize'
 
 import theme from '../../gatsby-plugin-theme-ui'
@@ -15,6 +15,8 @@ interface IBumHeroProps {
   name: string
   /** The repository owner */
   login: string
+  /** The owners avatar */
+  avatar: string
   /** The repository description */
   description: string
   /** The repository url */
@@ -36,6 +38,7 @@ interface IBumHeroProps {
 export const BumHero: FunctionComponent<IBumHeroProps> = ({
   name = '',
   login = '',
+  avatar = '',
   description = '',
   html_url = '',
   language = '',
@@ -65,14 +68,29 @@ export const BumHero: FunctionComponent<IBumHeroProps> = ({
             zIndex: 1,
           }}
         >
-          <Box sx={{}}>
-            <Heading as="h1" variant="styles.h1">
-              <Link href={html_url} target="_blank" sx={{ color: 'text' }}>
-                {name}
-              </Link>
-            </Heading>
-            <Text>{description}</Text>
-            <Flex sx={{ width: ['50%', '60%', '70%'], mt: '10%' }}>
+          <Box>
+            <Grid sx={{ alignItems: 'center', gridTemplateColumns: ['1fr', '1fr', '70px 1fr'] }}>
+              <Image
+                src={avatar}
+                sx={{ borderRadius: '100%', overflow: 'hidden', maxWidth: [90, 90, 70], mx: 'auto' }}
+              />
+              <Box>
+                <Heading as="h1" variant="styles.h1" sx={{ mb: 2, textAlign: ['center', 'center', 'left'] }}>
+                  <Link href={html_url} target="_blank" sx={{ color: 'text' }}>
+                    {name}
+                  </Link>
+                </Heading>
+                <Text
+                  sx={{
+                    lineHeight: 'normal',
+                    textAlign: ['center', 'center', 'left'],
+                  }}
+                >
+                  {description ? description : '~no description available~'}
+                </Text>
+              </Box>
+            </Grid>
+            <Flex sx={{ width: ['50%', '50%', '70%'], mt: ['10%', '10%', '20%'], mx: ['auto', 'auto', 0] }}>
               <LaptopBum />
             </Flex>
           </Box>
@@ -107,8 +125,8 @@ export const BumHero: FunctionComponent<IBumHeroProps> = ({
         <Box
           sx={{
             opacity: 0.6,
-            top: ['5%', '2%', '-10%'],
-            left: ['-60%'],
+            top: ['25%', '20%', '-10%'],
+            left: ['0%', '0%', '-60%'],
             bottom: 0,
             right: 0,
             position: 'absolute',

@@ -14,7 +14,7 @@ interface IBumsPageProps {
 const BumsPage: FunctionComponent<IBumsPageProps> = ({ data }) => {
   const {
     name,
-    owner: { login },
+    owner: { login, avatar_url },
     description,
     html_url,
     language,
@@ -30,6 +30,7 @@ const BumsPage: FunctionComponent<IBumsPageProps> = ({ data }) => {
       <BumHero
         name={name}
         login={login}
+        avatar={avatar_url}
         description={description}
         html_url={html_url}
         language={language}
@@ -76,6 +77,7 @@ export default BumsPage
 //   name
 //   owner {
 //     login
+//     avatar_url
 //   }
 //   description
 //   language
@@ -96,6 +98,7 @@ export const query = graphql`
       name
       owner {
         login
+        avatar_url
       }
       description
       language
