@@ -11,6 +11,7 @@ import { AdventCard } from '../components/advent-card'
 import { IndexHero } from '../components/index-hero/index-hero'
 import { EcoStat } from '../components/eco-stat'
 import { FartBum } from '../components/fart-bum'
+import { ThemeUIBum } from '../components/theme-ui-bum'
 import fileSize from 'filesize'
 
 import Highlight, { defaultProps } from 'prism-react-renderer'
@@ -71,6 +72,51 @@ const IndexPage: FunctionComponent = () => {
   return (
     <>
       <IndexHero />
+
+      <Box as="section">
+        <Container>
+          <Box sx={{ my: 5 }}>
+            <Heading as="h2" variant="styles.h2" sx={{ textAlign: 'center' }}>
+              Merry Christmass
+            </Heading>
+            <Text sx={{ textAlign: 'center' }}>
+              A new <b>bum</b> for every day of advent
+            </Text>
+          </Box>
+          <Divider />
+          <MrFetchy endPoint={DATE_END_POINT}>
+            {(response) => {
+              return (
+                <Grid
+                  sx={{
+                    gridTemplateColumns: ['1fr', '1fr 1fr', '1fr 1fr 1fr'],
+                    rowGap: 4,
+                    columnGap: 3,
+                  }}
+                >
+                  {data.allSitePage.nodes.map((node, index) => {
+                    const { path } = node
+                    const { name } = data.allAdventBums.nodes[index]
+                    let _index = index + 1
+
+                    return (
+                      <AdventCard
+                        key={_index}
+                        day={_index}
+                        to={path}
+                        repoName={name}
+                        isDisabled={isDisabled(response.data, _index)}
+                        isToday={isToday(response.data, _index)}
+                      />
+                    )
+                  })}
+                </Grid>
+              )
+            }}
+          </MrFetchy>
+        </Container>
+      </Box>
+      <Divider />
 
       <Box
         as="section"
@@ -168,63 +214,14 @@ const IndexPage: FunctionComponent = () => {
         </Container>
       </Box>
       <Divider />
+
       <Box as="section">
-        <Container>
-          <Box sx={{ my: 5 }}>
-            <Heading as="h2" variant="styles.h2" sx={{ textAlign: 'center' }}>
-              Merry Christmass
-            </Heading>
-            <Text sx={{ textAlign: 'center' }}>
-              A new <b>bum</b> for every day of advent
-            </Text>
-          </Box>
-          <Divider />
-          <MrFetchy endPoint={DATE_END_POINT}>
-            {(response) => {
-              return (
-                <Grid
-                  sx={{
-                    gridTemplateColumns: ['1fr', '1fr 1fr', '1fr 1fr 1fr'],
-                    rowGap: 4,
-                    columnGap: 3,
-                  }}
-                >
-                  {data.allSitePage.nodes.map((node, index) => {
-                    const { path } = node
-                    const { name } = data.allAdventBums.nodes[index]
-                    let _index = index + 1
-
-                    return (
-                      <AdventCard
-                        key={_index}
-                        day={_index}
-                        to={path}
-                        repoName={name}
-                        isDisabled={isDisabled(response.data, _index)}
-                        isToday={isToday(response.data, _index)}
-                      />
-                    )
-                  })}
-                </Grid>
-              )
-            }}
-          </MrFetchy>
-        </Container>
-      </Box>
-
-      <Divider />
-      <Box
-        as="section"
-        sx={{
-          backgroundColor: 'lightGrey',
-        }}
-      >
         <Container
           sx={{
-            py: 5,
+            py: 4,
           }}
         >
-          <Grid sx={{ gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'] }}>
+          <Grid sx={{ gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'], rowGap: 4 }}>
             <Grid sx={{ gridRowGap: 2 }}>
               <Box>
                 <Heading as="h2" variant="styles.h2">
@@ -247,12 +244,12 @@ const IndexPage: FunctionComponent = () => {
                 </GatsbyLink>
               </Flex>
             </Grid>
-            <Box>
+            <Box sx={{ position: 'relative' }}>
               <Highlight
                 {...defaultProps}
                 code={JSON.stringify(theme.styles.header, null, 2)}
                 language="jsx"
-                theme={codeTheme}
+                theme={codeTheme as any}
               >
                 {({ className, style, tokens, getLineProps, getTokenProps }) => (
                   <Box as="pre" variant="styles.pre" sx={{ boxShadow: 'header' }} className={className} style={style}>
@@ -269,27 +266,44 @@ const IndexPage: FunctionComponent = () => {
                   </Box>
                 )}
               </Highlight>
+              <Box sx={{ position: 'absolute', right: 0, bottom: '-25%' }}>
+                <Box sx={{ width: 320 }}>
+                  <ThemeUIBum />
+                </Box>
+              </Box>
             </Box>
           </Grid>
         </Container>
       </Box>
       <Divider />
 
-      <Box as="section">
-        <Container>
+      <Box
+        as="section"
+        sx={{
+          backgroundColor: 'lightGrey',
+        }}
+      >
+        <Container
+          sx={{
+            py: 5,
+          }}
+        >
           <Heading as="h2" variant="styles.h2">
-            Bum Search
+            Bum Search (WIP)
           </Heading>
           <Text>Discover more of the worlds GitHub ‘bum’ repositories</Text>
           <GatsbyLink to="/search">Search Bums</GatsbyLink>
         </Container>
       </Box>
 
-      <Divider />
       <Box as="section">
-        <Container>
+        <Container
+          sx={{
+            py: 5,
+          }}
+        >
           <Heading as="h2" variant="styles.h2">
-            Blog
+            Blog (WIP)
           </Heading>
           <Text>Here's a blog post i'm regulary updating as I develop this site in public</Text>
           <Link href="https://paulie.dev/posts/2020/11/silly-site-challenge/" target="_blank" rel="noopener">
