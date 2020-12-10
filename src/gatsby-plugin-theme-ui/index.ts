@@ -1,5 +1,5 @@
 import { transparentize } from '@theme-ui/color'
-import codeTheme from '@theme-ui/prism/presets/github.json'
+import codeTheme from '@theme-ui/prism/presets/dracula.json'
 
 export default {
   borderRadius: [8],
@@ -20,17 +20,18 @@ export default {
     grey: '#cccccc',
     blueGreen: '#102738',
     accent: '#fdc449',
-    highlight: '#9aa1fc',
+    highlight: '#bd93f9',
     shadowGrey: '#eeeeee',
     shadowAccent: '#c29e50',
     transparent: 'rgba(255, 255, 255, 0)',
+    lineNumbers: '#5b68b3',
   },
   fonts: {
     body: 'Ruda',
     heading: 'Ruda',
     monospace: 'Menlo, monospace',
   },
-  fontSizes: ['0.75rem', '1rem', '1.25rem', '1.75rem', '2rem', '2.25rem', '2.5rem', '3rem'],
+  fontSizes: ['0.85rem', '1rem', '1.25rem', '1.75rem', '2rem', '2.25rem', '2.5rem', '3rem'],
   fontWeights: {
     body: 500,
     heading: 900,
@@ -64,6 +65,9 @@ export default {
       minWidth: '320px',
       a: {
         variant: 'styles.a',
+      },
+      '.gatsby-link': {
+        color: 'secondary',
       },
       // GitHub readme top level div
       '.markdown-body': {
@@ -131,9 +135,10 @@ export default {
       },
     },
     pre: {
+      borderRadius: 0,
       m: 0,
       p: 3,
-      whiteSpace: 'pre-wrap',
+      overflow: 'scroll',
       ...codeTheme,
     },
     hr: {
@@ -141,12 +146,15 @@ export default {
       color: 'transparent',
     },
   },
+
   buttons: {
     default: {
       borderRadius: 0,
       textTransform: 'capitalize',
+      fontSize: 0,
       fontWeight: 'heading',
       ':focus': {
+        outline: 'none',
         boxShadow: 'focus',
       },
     },
@@ -172,7 +180,7 @@ export default {
       fontSize: [0, 1],
       fontWeight: 'bold',
       p: 2,
-      transition: '.2s linear background-color, .2s linear box-shadow',
+      transition: '.2s linear background-color',
       textDecoration: 'none',
       ':hover': {
         backgroundColor: transparentize('text', 0.95),

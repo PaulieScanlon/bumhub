@@ -1,6 +1,7 @@
 import React, { Fragment, FunctionComponent } from 'react'
 import { Location } from '@reach/router'
-import { Box } from 'theme-ui'
+import { ThemeProvider, Box } from 'theme-ui'
+
 import { Header } from '../components/header'
 
 const PageLayout: FunctionComponent = ({ children }) => {

@@ -1,6 +1,9 @@
 import React, { FunctionComponent } from 'react'
 import { Container, Grid, Divider, Heading, Text, Flex, Box, Link, Button } from 'theme-ui'
 import { useStaticQuery, graphql, Link as GatsbyLink } from 'gatsby'
+import codeTheme from 'prism-react-renderer/themes/dracula'
+
+import theme from '../gatsby-plugin-theme-ui'
 
 import { MrFetchy } from '../components/mr-fetchy'
 
@@ -9,6 +12,8 @@ import { IndexHero } from '../components/index-hero/index-hero'
 import { EcoStat } from '../components/eco-stat'
 import { FartBum } from '../components/fart-bum'
 import fileSize from 'filesize'
+
+import Highlight, { defaultProps } from 'prism-react-renderer'
 
 const DATE_END_POINT = 'get-date'
 const ECO_END_POINT = 'get-eco-ping'
@@ -66,6 +71,7 @@ const IndexPage: FunctionComponent = () => {
   return (
     <>
       <IndexHero />
+
       <Box
         as="section"
         sx={{
@@ -101,6 +107,7 @@ const IndexPage: FunctionComponent = () => {
             >
               <MrFetchy endPoint={ECO_END_POINT}>
                 {(response) => {
+                  console.log(response)
                   return (
                     <Grid
                       sx={{
@@ -127,7 +134,7 @@ const IndexPage: FunctionComponent = () => {
                         <FartBum />
                         <Box sx={{ mt: 1 }}>
                           <Text sx={{ fontSize: 3, textAlign: 'center', fontWeight: 'bold', lineHeight: 'heading' }}>
-                            {`${response.data.conversions.farts} human farts`}
+                            {`${response.data.conversions.farts.perView} human farts`}
                           </Text>
                           <Text sx={{ textAlign: 'center', fontSize: 1 }}>per page visit</Text>
                         </Box>
@@ -204,7 +211,70 @@ const IndexPage: FunctionComponent = () => {
           </MrFetchy>
         </Container>
       </Box>
+
       <Divider />
+      <Box
+        as="section"
+        sx={{
+          backgroundColor: 'lightGrey',
+        }}
+      >
+        <Container
+          sx={{
+            py: 5,
+          }}
+        >
+          <Grid sx={{ gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'] }}>
+            <Grid sx={{ gridRowGap: 2 }}>
+              <Box>
+                <Heading as="h2" variant="styles.h2">
+                  Bum UI
+                </Heading>
+                <Text>
+                  BumHub's UI was created using the brills{' '}
+                  <Link href="http://theme-ui.com/" target="_blank" rel="noopener">
+                    Theme UI
+                  </Link>
+                </Text>
+              </Box>
+              <Text sx={{ fontSize: 0, fontStyle: 'italic' }}>
+                "Theme UI is a library for creating themeable user interfaces based on constraint-based design
+                principles" - Theme UI
+              </Text>
+              <Flex sx={{ alignItems: 'flex-end' }}>
+                <GatsbyLink to="/bum-ui" className="gatsby-link">
+                  <Button variant="secondary">Preview Styles</Button>
+                </GatsbyLink>
+              </Flex>
+            </Grid>
+            <Box>
+              <Highlight
+                {...defaultProps}
+                code={JSON.stringify(theme.styles.header, null, 2)}
+                language="jsx"
+                theme={codeTheme}
+              >
+                {({ className, style, tokens, getLineProps, getTokenProps }) => (
+                  <Box as="pre" variant="styles.pre" sx={{ boxShadow: 'header' }} className={className} style={style}>
+                    {tokens.map((line, i) => (
+                      <Text {...getLineProps({ line, key: i })} sx={{ lineHeight: '1.5' }}>
+                        <Box as="span" sx={{ color: 'lineNumbers', mr: 2 }}>
+                          {i}
+                        </Box>
+                        {line.map((token, key) => (
+                          <Box as="span" {...getTokenProps({ token, key })} />
+                        ))}
+                      </Text>
+                    ))}
+                  </Box>
+                )}
+              </Highlight>
+            </Box>
+          </Grid>
+        </Container>
+      </Box>
+      <Divider />
+
       <Box as="section">
         <Container>
           <Heading as="h2" variant="styles.h2">
@@ -214,16 +284,7 @@ const IndexPage: FunctionComponent = () => {
           <GatsbyLink to="/search">Search Bums</GatsbyLink>
         </Container>
       </Box>
-      <Divider />
-      <Box as="section">
-        <Container>
-          <Heading as="h2" variant="styles.h2">
-            Bum UI
-          </Heading>
-          <Text>The BumHub styles created with the brills Theme-UI</Text>
-          <GatsbyLink to="/bum-ui">Preview Styles</GatsbyLink>
-        </Container>
-      </Box>
+
       <Divider />
       <Box as="section">
         <Container>
