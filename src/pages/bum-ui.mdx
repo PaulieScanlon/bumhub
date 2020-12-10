@@ -102,6 +102,44 @@ Starburst
 
 <Divider />
 
+#### [Theme UI Bum](#theme-ui-bum)
+
+<Grid sx={{gap: 4}}>
+
+
+ThemeUIBum is used in the Bum UI section
+
+```javascript
+<ThemeUIBum />
+```
+
+<Box sx={{ width: 260 }}>
+  <ThemeUIBum />
+</Box>
+
+</Grid>
+
+
+<Divider />
+
+<Grid sx={{gap: 4}}>
+
+
+LaptopBum is used in the Hero section on `/bums/name-of-repo`
+
+```javascript
+<LaptopBum />
+```
+
+<Box sx={{ width: 220 }}>
+  <LaptopBum />
+</Box>
+
+</Grid>
+
+
+<Divider />
+
 #### [PantsUp](#pants-up)
 
 <Grid sx={{gap: 4}}>
@@ -113,9 +151,9 @@ PantsUp Bum is displayed when a calendar day is in the future
 <PantsUp />
 ```
 
-<Grid sx={{ alignItems: 'center' }}>
+<Flex sx={{ alignItems: 'center', width: 260 }}>
   <PantsUp />
-</Grid>
+</Flex>
 
 </Grid>
 
@@ -135,7 +173,7 @@ PantsDown Bum is displayed when a calendar day is in the past or is the current 
 <PantsDown shadowColor="#df3022" />
 ```
 
-<Grid sx={{ alignItems: 'center', gap: 4, gridTemplateColumns: ['1fr', '1fr 1fr'] }}>
+<Grid sx={{ alignItems: 'center', gap: 4, gridTemplateColumns: ['1fr', '260px 260px'] }}>
   <PantsDown />
   <PantsDown shadowColor="#df3022" />
 </Grid>
@@ -252,7 +290,7 @@ EcoStat is used in the EcoBum section
 <EcoStat statistic="5.2kb" />
 ```
 
-<Grid sx={{ alignItems: 'center', gap: 4, gridTemplateColumns: ['1fr', 'auto auto'] }}>
+<Grid sx={{ alignItems: 'center', gap: 4, gridTemplateColumns: ['1fr', '220px 220px'] }}>
   <EcoStat statistic=".28g" />
   <EcoStat statistic="5.2kb" />
 </Grid>

@@ -7,16 +7,14 @@ const { colors } = theme
 interface ILaptopBumProps {
   /** Theme UI JSX pragma */
   sx?: SxStyleProp
-  /** The color of the shadow */
-  shadowColor?: string
 }
 
-export const LaptopBum: FunctionComponent<ILaptopBumProps> = ({ shadowColor = colors.shadowAccent, sx }) => {
+export const LaptopBum: FunctionComponent<ILaptopBumProps> = ({ sx }) => {
   return (
     <Box sx={{ width: '100%', height: 'auto', ...sx }}>
       <svg version="1.0" x="0px" y="0px" viewBox="0 0 400 260" width="100%" height="100%">
         <path
-          fill={shadowColor}
+          fill={colors.shadowAccent}
           d="M369.5,211.6l-58-6.3c20.5-2.7,32.6-6,32.6-9.6c0-8.9-73.7-16.1-164.7-16.1s-164.7,7.2-164.7,16.1
 	c0,5.8,31.7,10.9,79.2,13.7l-10.6,1.6c-3.3,0.5-3.6,5.1-0.4,6.1l109,31.9c0.5,0.1,0.9,0.2,1.4,0.1l176.4-31.4
 	C373.2,217.2,373.1,212,369.5,211.6z"

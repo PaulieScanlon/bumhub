@@ -14,7 +14,9 @@ import { Mistletoe } from '../components/mistletoe'
 import { Reef } from '../components/reef'
 import { GitHubStat } from '../components/github-stat'
 import { FartBum } from '../components/fart-bum'
+import { LaptopBum } from '../components/laptop-bum'
 import { EcoStat } from '../components/eco-stat'
+import { ThemeUIBum } from '../components/theme-ui-bum'
 
 const components = {
   pre: ({ children }) => <Fragment>{children}</Fragment>,
@@ -30,7 +32,9 @@ const components = {
   Reef,
   GitHubStat,
   FartBum,
+  LaptopBum,
   EcoStat,
+  ThemeUIBum,
 }
 
 const MdxLayout: FunctionComponent = ({ children }) => {
