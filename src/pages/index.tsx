@@ -153,7 +153,6 @@ const IndexPage: FunctionComponent = () => {
             >
               <MrFetchy endPoint={ECO_END_POINT}>
                 {(response) => {
-                  console.log(response)
                   return (
                     <Grid
                       sx={{
