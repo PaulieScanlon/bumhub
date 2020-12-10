@@ -27,7 +27,7 @@ const SearchPage: FunctionComponent = () => {
       <Container>
         <Box>
           <Heading as="h1" variant="styles.h1">
-            Bum Search
+            Bum Search (WIP)
           </Heading>
           <Text>Discover more of the worlds GitHub ‘bum’ repositories</Text>
         </Box>
