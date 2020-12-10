@@ -153,7 +153,6 @@ const IndexPage: FunctionComponent = () => {
             >
               <MrFetchy endPoint={ECO_END_POINT}>
                 {(response) => {
-                  console.log(response)
                   return (
                     <Grid
                       sx={{
@@ -249,7 +248,7 @@ const IndexPage: FunctionComponent = () => {
                 {...defaultProps}
                 code={JSON.stringify(theme.styles.header, null, 2)}
                 language="jsx"
-                theme={codeTheme}
+                theme={codeTheme as any}
               >
                 {({ className, style, tokens, getLineProps, getTokenProps }) => (
                   <Box as="pre" variant="styles.pre" sx={{ boxShadow: 'header' }} className={className} style={style}>

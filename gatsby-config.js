@@ -12,6 +12,7 @@ module.exports = {
     lang: 'eng',
   },
   plugins: [
+    'gatsby-plugin-preact',
     'gatsby-plugin-theme-ui',
     {
       resolve: 'gatsby-plugin-google-analytics',
