@@ -1,9 +1,6 @@
 import React, { FunctionComponent } from 'react'
-import { Container, Grid, Divider, Heading, Text, Flex, Box, Link, Button } from 'theme-ui'
+import { Container, Grid, Divider, Heading, Text, Flex, Box, Link } from 'theme-ui'
 import { useStaticQuery, graphql, Link as GatsbyLink } from 'gatsby'
-import codeTheme from 'prism-react-renderer/themes/dracula'
-
-import theme from '../gatsby-plugin-theme-ui'
 
 import { MrFetchy } from '../components/mr-fetchy'
 
@@ -14,7 +11,9 @@ import { FartBum } from '../components/fart-bum'
 import { ThemeUIBum } from '../components/theme-ui-bum'
 import fileSize from 'filesize'
 
-import Highlight, { defaultProps } from 'prism-react-renderer'
+import { CodeBlock } from '../components/code-block'
+import { TableGraphic } from '../components/table-graphic/table-graphic'
+import { GlassesBum } from '../components/glasses-bum/glasses-bum'
 
 const DATE_END_POINT = 'get-date'
 const ECO_END_POINT = 'get-eco-ping'
@@ -65,10 +64,6 @@ const IndexPage: FunctionComponent = () => {
     }
   `)
 
-  // console.log('data: ', data)
-  // console.log('allSitePage.nodes: ', data.allSitePage.nodes.length)
-  // console.log('allAdventBums.nodes: ', data.allAdventBums.nodes.length)
-
   return (
     <>
       <IndexHero />
@@ -82,6 +77,31 @@ const IndexPage: FunctionComponent = () => {
             <Text sx={{ textAlign: 'center' }}>
               A new <b>bum</b> for every day of advent
             </Text>
+            <Box
+              sx={{
+                mx: 'auto',
+                width: ['100%', '80%', '70%', '50%'],
+              }}
+            >
+              <Text sx={{ fontSize: 0, fontStyle: 'italic', textAlign: 'center' }}>
+                BumHub uses{' '}
+                <Link href="https://www.netlify.com/products/functions/" target="_blank">
+                  Netlify functions
+                </Link>{' '}
+                to hit the GitHub{' '}
+                <Link href="https://developer.github.com/v3/" target="_blank">
+                  REST API
+                </Link>{' '}
+                at build time to create a page for each day of advent using Gatsby's new{' '}
+                <Link href="https://www.gatsbyjs.com/docs/file-system-route-api/" target="_blank">
+                  Routes API
+                </Link>{' '}
+                -{' '}
+                <Box as="span" role="image" aria-label="Man Dancing">
+                  🕺
+                </Box>
+              </Text>
+            </Box>
           </Box>
           <Divider />
           <MrFetchy endPoint={DATE_END_POINT}>
@@ -121,7 +141,7 @@ const IndexPage: FunctionComponent = () => {
       <Box
         as="section"
         sx={{
-          backgroundColor: 'lightGrey',
+          backgroundColor: 'white',
         }}
       >
         <Container
@@ -143,6 +163,9 @@ const IndexPage: FunctionComponent = () => {
                 <Link href="http://ecoping.earth/" target="_blank" rel="noopener">
                   EcoPing.earth
                 </Link>
+              </Text>
+              <Text sx={{ fontSize: 0, fontStyle: 'italic', textAlign: 'center' }}>
+                BumHub uses good old client-side API requests to hit the EcoPing servers
               </Text>
             </Box>
             <Box
@@ -203,10 +226,8 @@ const IndexPage: FunctionComponent = () => {
                 justifyContent: 'center',
               }}
             >
-              <Link href="http://ecoping.earth/" target="_blank" rel="noopener">
-                <Button as="div" variant="accent">
-                  Visit EcoPing.earth
-                </Button>
+              <Link href="http://ecoping.earth/" target="_blank" rel="noopener" variant="buttons.accent">
+                Visit EcoPing.earth
               </Link>
             </Flex>
           </Grid>
@@ -227,49 +248,35 @@ const IndexPage: FunctionComponent = () => {
                   Bum UI
                 </Heading>
                 <Text>
-                  BumHub's UI was created using the brills{' '}
+                  BumHub's UI was created using the super brill brills{' '}
                   <Link href="http://theme-ui.com/" target="_blank" rel="noopener">
                     Theme UI
                   </Link>
                 </Text>
               </Box>
               <Text sx={{ fontSize: 0, fontStyle: 'italic' }}>
-                "Theme UI is a library for creating themeable user interfaces based on constraint-based design
-                principles" - Theme UI
+                Theme UI is a library for creating themeable user interfaces based on constraint-based design principles
+                - Theme UI
               </Text>
-              <Flex sx={{ alignItems: 'flex-end' }}>
-                <GatsbyLink to="/bum-ui" className="gatsby-link">
-                  <Button variant="secondary">Preview Styles</Button>
-                </GatsbyLink>
+              <Flex sx={{ alignItems: 'flex-end', a: { variant: 'buttons.secondary' } }}>
+                <GatsbyLink to="/bum-ui">Preview the styles</GatsbyLink>
               </Flex>
             </Grid>
             <Box sx={{ position: 'relative' }}>
-              <Highlight
-                {...defaultProps}
-                code={JSON.stringify(theme.styles.header, null, 2)}
-                language="jsx"
-                theme={codeTheme as any}
+              <CodeBlock />
+              <Flex
+                sx={{
+                  alignItems: 'center',
+                  position: 'absolute',
+                  right: 0,
+                  bottom: '-20%',
+                  justifyContent: 'flex-start',
+                }}
               >
-                {({ className, style, tokens, getLineProps, getTokenProps }) => (
-                  <Box as="pre" variant="styles.pre" sx={{ boxShadow: 'header' }} className={className} style={style}>
-                    {tokens.map((line, i) => (
-                      <Text {...getLineProps({ line, key: i })} sx={{ lineHeight: '1.5' }}>
-                        <Box as="span" sx={{ color: 'lineNumbers', mr: 2 }}>
-                          {i}
-                        </Box>
-                        {line.map((token, key) => (
-                          <Box as="span" {...getTokenProps({ token, key })} />
-                        ))}
-                      </Text>
-                    ))}
-                  </Box>
-                )}
-              </Highlight>
-              <Box sx={{ position: 'absolute', right: 0, bottom: '-25%' }}>
-                <Box sx={{ width: 320 }}>
+                <Box sx={{ width: [280, 320] }}>
                   <ThemeUIBum />
                 </Box>
-              </Box>
+              </Flex>
             </Box>
           </Grid>
         </Container>
@@ -279,7 +286,7 @@ const IndexPage: FunctionComponent = () => {
       <Box
         as="section"
         sx={{
-          backgroundColor: 'lightGrey',
+          backgroundColor: 'white',
         }}
       >
         <Container
@@ -287,11 +294,53 @@ const IndexPage: FunctionComponent = () => {
             py: 5,
           }}
         >
-          <Heading as="h2" variant="styles.h2">
-            Bum Search (WIP)
-          </Heading>
-          <Text>Discover more of the worlds GitHub ‘bum’ repositories</Text>
-          <GatsbyLink to="/search">Search Bums</GatsbyLink>
+          <Grid sx={{ gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'], rowGap: 4 }}>
+            <Box sx={{ position: 'relative', gridRow: ['none', 'none', 1] }}>
+              <TableGraphic />
+              <Flex
+                sx={{
+                  alignItems: 'center',
+                  position: 'absolute',
+                  left: 0,
+                  bottom: '-30%',
+                  justifyContent: 'flex-start',
+                }}
+              >
+                <Box sx={{ width: [220, 260] }}>
+                  <GlassesBum />
+                </Box>
+              </Flex>
+            </Box>
+            <Box sx={{}}>
+              <Grid sx={{ gridRowGap: 2 }}>
+                <Box>
+                  <Heading as="h2" variant="styles.h2" sx={{ textAlign: 'right' }}>
+                    Bum Search
+                  </Heading>
+                  <Text sx={{ textAlign: 'right' }}>
+                    BumHub has retrieved all the GitHub bums so you don't have to!
+                  </Text>
+                </Box>
+                <Text sx={{ fontSize: 0, fontStyle: 'italic', textAlign: 'right' }}>
+                  BumHub uses{' '}
+                  <Link href="https://www.netlify.com/products/functions/" target="_blank">
+                    Netlify functions
+                  </Link>{' '}
+                  to hit the GitHub{' '}
+                  <Link href="https://developer.github.com/v3/" target="_blank">
+                    REST API
+                  </Link>{' '}
+                  at build time so all bum data is statically rendered by Gatsby -{' '}
+                  <Box as="span" role="image" aria-label="Kiss Mark">
+                    💋
+                  </Box>
+                </Text>
+                <Flex sx={{ justifyContent: 'flex-end', a: { variant: 'buttons.secondary' } }}>
+                  <GatsbyLink to="/search">Search the bums</GatsbyLink>
+                </Flex>
+              </Grid>
+            </Box>
+          </Grid>
         </Container>
       </Box>
 

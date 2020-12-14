@@ -11,7 +11,7 @@ interface IPantsUpProps {
   shadowColor?: string
 }
 
-export const PantsUp: FunctionComponent<IPantsUpProps> = memo(({ shadowColor = colors.shadowGrey, sx }) => {
+export const PantsUp: FunctionComponent<IPantsUpProps> = memo(({ shadowColor = colors.shadowBlue, sx }) => {
   return (
     <Box sx={{ margin: '0 auto', ...sx }}>
       <svg version="1.0" x="0px" y="0px" viewBox="0 0 471.6 329.7" width="100%" height="100%">
