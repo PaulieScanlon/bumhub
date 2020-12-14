@@ -83,6 +83,10 @@ const SearchPage: FunctionComponent = () => {
               placeholder="Search"
               value={currentSearch}
               onChange={(event: ChangeEvent<HTMLInputElement>) => setCurrentSearch(event.target.value)}
+              sx={{
+                px: 2,
+                py: 0,
+              }}
             />
             <Close title="Clear search" aria-label="search clear" onClick={() => setCurrentSearch('')} />
           </Grid>
@@ -99,6 +103,10 @@ const SearchPage: FunctionComponent = () => {
               title="Select search"
               aria-label="search select"
               onChange={(event: ChangeEvent<HTMLSelectElement>) => setCurrentFilter(event.target.value)}
+              sx={{
+                px: 2,
+                py: 0,
+              }}
             >
               <option value="name">Repository name</option>
               <option value="owner">User name</option>
