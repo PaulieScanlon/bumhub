@@ -311,35 +311,32 @@ const IndexPage: FunctionComponent = () => {
                 </Box>
               </Flex>
             </Box>
-            <Box sx={{}}>
-              <Grid sx={{ gridRowGap: 2 }}>
-                <Box>
-                  <Heading as="h2" variant="styles.h2" sx={{ textAlign: 'right' }}>
-                    Bum Search
-                  </Heading>
-                  <Text sx={{ textAlign: 'right' }}>
-                    BumHub has retrieved all the GitHub bums so you don't have to!
-                  </Text>
+
+            <Grid sx={{ gridRowGap: 2 }}>
+              <Box>
+                <Heading as="h2" variant="styles.h2" sx={{ textAlign: 'right' }}>
+                  Bum Search
+                </Heading>
+                <Text sx={{ textAlign: 'right' }}>BumHub has retrieved all the GitHub bums so you don't have to!</Text>
+              </Box>
+              <Text sx={{ fontSize: 0, fontStyle: 'italic', textAlign: 'right' }}>
+                BumHub uses{' '}
+                <Link href="https://www.netlify.com/products/functions/" target="_blank">
+                  Netlify functions
+                </Link>{' '}
+                to hit the GitHub{' '}
+                <Link href="https://developer.github.com/v3/" target="_blank">
+                  REST API
+                </Link>{' '}
+                at build time so all bum data is statically rendered by Gatsby -{' '}
+                <Box as="span" role="image" aria-label="Kiss Mark">
+                  💋
                 </Box>
-                <Text sx={{ fontSize: 0, fontStyle: 'italic', textAlign: 'right' }}>
-                  BumHub uses{' '}
-                  <Link href="https://www.netlify.com/products/functions/" target="_blank">
-                    Netlify functions
-                  </Link>{' '}
-                  to hit the GitHub{' '}
-                  <Link href="https://developer.github.com/v3/" target="_blank">
-                    REST API
-                  </Link>{' '}
-                  at build time so all bum data is statically rendered by Gatsby -{' '}
-                  <Box as="span" role="image" aria-label="Kiss Mark">
-                    💋
-                  </Box>
-                </Text>
-                <Flex sx={{ justifyContent: 'flex-end', a: { variant: 'buttons.secondary' } }}>
-                  <GatsbyLink to="/search">Search the bums</GatsbyLink>
-                </Flex>
-              </Grid>
-            </Box>
+              </Text>
+              <Flex sx={{ alignItems: 'flex-end', justifyContent: 'flex-end', a: { variant: 'buttons.secondary' } }}>
+                <GatsbyLink to="/search">Search the bums</GatsbyLink>
+              </Flex>
+            </Grid>
           </Grid>
         </Container>
       </Box>
