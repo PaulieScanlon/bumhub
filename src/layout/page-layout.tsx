@@ -1,6 +1,6 @@
 import React, { Fragment, FunctionComponent } from 'react'
 import { Location } from '@reach/router'
-import { ThemeProvider, Box } from 'theme-ui'
+import { Box } from 'theme-ui'
 
 import { Header } from '../components/header'
 

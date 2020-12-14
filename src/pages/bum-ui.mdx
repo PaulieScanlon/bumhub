@@ -21,7 +21,9 @@
 
 <Container>
 
-### BumHub Components
+<Heading as="h3" variant="styles.h3" sx={{ color: 'secondary' }}>
+  BumHub Components
+</Heading>
 
 Components specific to BumHub
 
@@ -53,6 +55,58 @@ LogoIcon is the little icon that lives in the navigation
 
 <LogoIcon />
 
+</Grid>
+
+<Divider />
+
+#### [Dropdown](#dropdown)
+
+<Grid sx={{ gap: 4}}>
+
+Dropdown is used in the main navigation and can be used to navigate to internal routes or external urls. The trigger
+render prop can compose any React component.
+
+```javascript
+<Dropdown
+  trigger={<MenuButton aria-label="Menu" />}
+  items={[
+    {
+      name: 'BumHub',
+      to: '/',
+    },
+    {
+      name: 'Bum Search',
+      to: '/search',
+    },
+    {
+      name: 'paulie.dev',
+      url: 'https://paulie.dev/',
+    },
+  ]}
+/>
+```
+
+<Flex
+  sx={{justifyContent: 'flex-end'}}
+>
+<Dropdown
+  trigger={<MenuButton aria-label="Menu" />}
+  items={[
+    {
+      name: 'BumHub',
+      to: '/',
+    },
+    {
+      name: 'Bum Search',
+      to: '/search',
+    },
+    {
+      name: 'paulie.dev',
+      url: 'https://paulie.dev/',
+    },
+  ]}
+/>
+</Flex>
 </Grid>
 
 <Divider />
@@ -311,9 +365,13 @@ FartBum is used in the EcoBum section
 
 </Grid>
 
+<Divider sx={{ backgroundColor: 'shadowBlue' }} />
+
 <Divider />
 
-### Theme UI Components
+<Heading as="h3" variant="styles.h3" sx={{ color: 'secondary' }}>
+  Theme UI Components
+</Heading>
 
 Themed versions of components from Theme UI
 
