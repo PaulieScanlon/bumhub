@@ -46,11 +46,10 @@ export const IndexHero: FunctionComponent = () => {
       </Container>
       <Box
         sx={{
-          // opacity: 0.9,
-          top: ['20%', '10%', '-15%'],
+          top: ['15%', 0],
           left: 0,
-          bottom: 0,
           right: 0,
+          bottom: 0,
           position: 'absolute',
           overflow: 'hidden',
           zIndex: 0,

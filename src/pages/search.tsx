@@ -88,7 +88,7 @@ const SearchPage: FunctionComponent = () => {
                 py: 0,
               }}
             />
-            <Close title="Clear search" aria-label="search clear" onClick={() => setCurrentSearch('')} />
+            <Close title="Wipe search" aria-label="search clear" onClick={() => setCurrentSearch('')} />
           </Grid>
           <Box sx={{ display: ['none', 'block'], height: '100%', width: '1px', backgroundColor: 'grey' }} />
           <Box

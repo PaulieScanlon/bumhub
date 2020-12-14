@@ -9,7 +9,7 @@ interface IMistletoeProps {
 export const Mistletoe: FunctionComponent<IMistletoeProps> = ({ sx }) => {
   return (
     <Box sx={{ margin: '0 auto', ...sx }}>
-      <svg version="1.0" x="0px" y="0px" viewBox="0 0 113 67" width="100%" height="100%">
+      <svg version="1.0" x="0px" y="0px" viewBox="0 0 114 68" width="100%" height="100%">
         <g>
           <g>
             <path

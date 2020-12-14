@@ -30,9 +30,19 @@ export default {
         dark: '#d87148',
       },
       {
+        light: '#f9e7b2',
+        mid: '#eece71',
+        dark: '#e0a941',
+      },
+      {
+        light: '#fdeeda',
+        mid: '#eddcbf',
+        dark: '#d7a689',
+      },
+      {
         light: '#efd5b8',
         mid: '#e2c5a5',
-        dark: '#b7805d',
+        dark: '#ca9674',
       },
       {
         light: '#b48860',
@@ -147,6 +157,7 @@ export default {
       cursor: 'pointer',
       color: 'primary',
       transition: '0.2s linear box-shadow',
+      wordBreak: 'break-all',
       ':focus': {
         outline: 'none',
         boxShadow: 'focus',
@@ -193,6 +204,7 @@ export default {
     accent: {
       variant: 'buttons.default',
       color: 'text',
+      fontWeight: 'heading',
       backgroundColor: 'accent',
     },
     ghost: {

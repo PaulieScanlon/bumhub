@@ -109,7 +109,7 @@ const IndexPage: FunctionComponent = () => {
               return (
                 <Grid
                   sx={{
-                    gridTemplateColumns: ['1fr', '1fr 1fr', '1fr 1fr 1fr', '1fr 1fr 1fr 1fr'],
+                    gridTemplateColumns: ['1fr', '1fr 1fr', '1fr 1fr 1fr'],
                     rowGap: 4,
                     columnGap: 3,
                   }}
@@ -165,7 +165,7 @@ const IndexPage: FunctionComponent = () => {
                 </Link>
               </Text>
               <Text sx={{ fontSize: 0, fontStyle: 'italic', textAlign: 'center' }}>
-                BumHub uses good old client-side API requests to hit the EcoPing servers
+                BumHub uses client-side API requests to hit the EcoPing servers
               </Text>
             </Box>
             <Box
@@ -291,7 +291,8 @@ const IndexPage: FunctionComponent = () => {
       >
         <Container
           sx={{
-            py: 5,
+            pt: 5,
+            pb: 6,
           }}
         >
           <Grid sx={{ gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'], rowGap: 4 }}>
@@ -301,8 +302,8 @@ const IndexPage: FunctionComponent = () => {
                 sx={{
                   alignItems: 'center',
                   position: 'absolute',
-                  left: 0,
-                  bottom: '-30%',
+                  left: [0, '-5%'],
+                  bottom: '-35%',
                   justifyContent: 'flex-start',
                 }}
               >

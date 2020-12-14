@@ -101,7 +101,6 @@ export const AdventCard: FunctionComponent<IAdventCardProps> = ({ day, repoName,
                       color: 'inherit',
                       fontSize: 0,
                       textAlign: 'center',
-                      lineHeight: 1.25,
                     }}
                   >
                     Explore
