@@ -1,1 +1,1 @@
-export { TableContainer, TableWrapper, Table, Thead, Tbody, Tr, Th, Td } from './Table'
+export { TableContainer, TableWrapper, Table, Thead, Tbody, Tr, Th, Td } from './table'
