@@ -9,9 +9,6 @@ export default {
     secondary: '#00cfff',
     darkRed: '#df3022',
     midRed: '#ff4a4a',
-    darkSkin: '#d87148',
-    midSkin: '#f49262',
-    lightSkin: '#ffB297',
     lightBlue: '#c2d8ff',
     green: '#66cc4f',
     teal: '#29d6c6',
@@ -26,6 +23,28 @@ export default {
     codeLineNumbers: '#5b68b3',
     codeBackground: '#282A36',
     oddTableRow: '#f7f7f7',
+    skin: [
+      {
+        light: '#ffB297',
+        mid: '#f49262',
+        dark: '#d87148',
+      },
+      {
+        light: '#efd5b8',
+        mid: '#e2c5a5',
+        dark: '#b7805d',
+      },
+      {
+        light: '#b48860',
+        mid: '#93633b',
+        dark: '#623f2d',
+      },
+      {
+        light: '#75645b',
+        mid: '#574840',
+        dark: '#352621',
+      },
+    ],
   },
   fonts: {
     body: 'Ruda',
