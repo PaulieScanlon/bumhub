@@ -13,8 +13,8 @@ export const ThemeUIBum: FunctionComponent<IThemeUIBumProps> = ({ sx }) => {
   return (
     <Box sx={{ width: '100%', height: 'auto', ...sx }}>
       <svg version="1.0" x="0px" y="0px" viewBox="0 0 400 180" width="100%" height="100%">
-        <ellipse fill={colors.shadowGrey} cx="259.8" cy="157.9" rx="134.2" ry="15.8" />
-        <ellipse fill={colors.shadowGrey} cx="105.1" cy="138.1" rx="93.1" ry="11.3" />
+        <ellipse fill={colors.shadowBlue} cx="259.8" cy="157.9" rx="134.2" ry="15.8" />
+        <ellipse fill={colors.shadowBlue} cx="105.1" cy="138.1" rx="93.1" ry="11.3" />
         <g>
           <g>
             <path

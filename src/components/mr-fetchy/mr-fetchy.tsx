@@ -56,7 +56,7 @@ export const MrFetchy: FunctionComponent<MrFetchProps> = ({ endPoint, method = '
 
   return (
     <Box>
-      {hasError ? <Text>{hasError}</Text> : null}
+      {hasError ? <Text sx={{ textAlign: 'center', color: 'darkRed' }}>{hasError}</Text> : null}
       {isLoading ? <Spinner /> : null}
       {!hasError && !isLoading && response ? <>{children(response)}</> : null}
     </Box>

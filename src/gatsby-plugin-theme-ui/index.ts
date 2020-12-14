@@ -2,13 +2,11 @@ import { transparentize } from '@theme-ui/color'
 import codeTheme from '@theme-ui/prism/presets/dracula.json'
 
 export default {
-  borderRadius: [8],
   colors: {
     text: '#000000',
-    background: '#ffffff',
+    background: '#f5f7fc',
     primary: '#e260d3',
     secondary: '#00cfff',
-    lightGrey: '#f7f7f7',
     darkRed: '#df3022',
     midRed: '#ff4a4a',
     darkSkin: '#d87148',
@@ -18,13 +16,16 @@ export default {
     green: '#66cc4f',
     teal: '#29d6c6',
     grey: '#cccccc',
+    white: '#ffffff',
     blueGreen: '#102738',
     accent: '#fdc449',
-    highlight: '#bd93f9',
-    shadowGrey: '#eeeeee',
+    highlight: '#f48be8',
+    shadowBlue: '#dbe6fb',
     shadowAccent: '#c29e50',
     transparent: 'rgba(255, 255, 255, 0)',
-    lineNumbers: '#5b68b3',
+    codeLineNumbers: '#5b68b3',
+    codeBackground: '#282A36',
+    oddTableRow: '#f7f7f7',
   },
   fonts: {
     body: 'Ruda',
@@ -42,6 +43,7 @@ export default {
     body: 2,
     code: 1.8,
   },
+  radii: [8, 48],
   shadows: {
     header: '0px 0px 40px -5px rgba(0,0,0,0.25)',
     surface: '0px 0px 30px -2px rgba(0,0,0,0.10)',
@@ -65,9 +67,6 @@ export default {
       minWidth: '320px',
       a: {
         variant: 'styles.a',
-      },
-      '.gatsby-link': {
-        color: 'secondary',
       },
       // GitHub readme top level div
       '.markdown-body': {
@@ -120,7 +119,7 @@ export default {
       code: {
         borderRadius: 0,
         padding: 2,
-        backgroundColor: 'shadowGrey',
+        backgroundColor: 'shadowBlue',
         fontSize: '1.1rem',
       },
     },
@@ -149,10 +148,16 @@ export default {
 
   buttons: {
     default: {
+      alignItems: 'center',
+      cursor: 'pointer',
       borderRadius: 0,
+      display: 'inline-flex',
       textTransform: 'capitalize',
+      textDecoration: 'none',
       fontSize: 0,
-      fontWeight: 'heading',
+      fontWeight: 'body',
+      px: 3,
+      py: 2,
       ':focus': {
         outline: 'none',
         boxShadow: 'focus',
@@ -164,11 +169,31 @@ export default {
     secondary: {
       variant: 'buttons.default',
       backgroundColor: 'secondary',
+      color: 'white',
     },
     accent: {
       variant: 'buttons.default',
       color: 'text',
       backgroundColor: 'accent',
+    },
+    ghost: {
+      variant: 'buttons.default',
+      color: 'secondary',
+      backgroundColor: 'transparent',
+    },
+    icon: {
+      cursor: 'pointer',
+      ':focus': {
+        outline: 'none',
+        boxShadow: 'focus',
+      },
+    },
+    close: {
+      cursor: 'pointer',
+      ':focus': {
+        outline: 'none',
+        boxShadow: 'focus',
+      },
     },
   },
 
@@ -187,7 +212,27 @@ export default {
       },
     },
   },
-  text: {},
+  input: {
+    borderColor: 'transparent',
+    fontSize: 0,
+    py: 0,
+    px: 2,
+    ':focus': {
+      outline: 'none',
+      boxShadow: 'focus',
+    },
+  },
+  select: {
+    borderColor: 'transparent',
+    cursor: 'pointer',
+    fontSize: 0,
+    py: 0,
+    px: 2,
+    ':focus': {
+      outline: 'none',
+      boxShadow: 'focus',
+    },
+  },
   cards: {
     primary: {
       borderRadius: 0,

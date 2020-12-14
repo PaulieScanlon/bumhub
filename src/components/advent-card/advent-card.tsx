@@ -116,7 +116,7 @@ export const AdventCard: FunctionComponent<IAdventCardProps> = ({ day, repoName,
           {isDisabled ? (
             <PantsUp />
           ) : (
-            <PantsDown shadowColor={isToday ? theme.colors.darkRed : theme.colors.shadowGrey} />
+            <PantsDown shadowColor={isToday ? theme.colors.darkRed : theme.colors.shadowBlue} />
           )}
         </Box>
       </Card>
