@@ -195,6 +195,9 @@ export default {
         boxShadow: 'focus',
       },
     },
+    menu: {
+      cursor: 'pointer',
+    },
   },
 
   links: {
@@ -202,7 +205,7 @@ export default {
       borderRadius: 0,
       cursor: 'pointer',
       color: 'text',
-      fontSize: [0, 1],
+      fontSize: 1,
       fontWeight: 'bold',
       p: 2,
       transition: '.2s linear background-color',

@@ -1,11 +1,24 @@
 import React, { FunctionComponent, useState } from 'react'
-import { Container, Grid, Flex, Box } from 'theme-ui'
+import { Container, Grid, Flex, Box, MenuButton } from 'theme-ui'
 import { Link as GatsbyLink } from 'gatsby'
 import { Location } from '@reach/router'
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 
 import theme from '../../gatsby-plugin-theme-ui'
 import { LogoIcon } from '../logo-icon/logo-icon'
+import { INavigationItem } from '../../types'
+import { Dropdown } from '../dropdown/dropdown'
+
+const navigationItems: INavigationItem[] = [
+  {
+    name: 'Bum UI',
+    to: '/bum-ui',
+  },
+  {
+    name: 'Bum Search',
+    to: '/search',
+  },
+]
 
 export const Header: FunctionComponent = () => {
   const [headerColor, setHeaderColor] = useState(theme.colors.transparent)
@@ -60,11 +73,32 @@ export const Header: FunctionComponent = () => {
                     </Flex>
                   </GatsbyLink>
                 </Flex>
-                <Grid
-                  sx={{ alignItems: 'center', justifyContent: 'flex-end', gap: 2, gridTemplateColumns: 'auto auto' }}
+                <Flex
+                  sx={{
+                    display: ['flex', 'none'],
+                    alignItems: 'center',
+                    justifyContent: 'flex-end',
+                  }}
                 >
-                  <GatsbyLink to="/search">Bum Search</GatsbyLink>
-                  <GatsbyLink to="/bum-ui">Bum UI</GatsbyLink>
+                  <Dropdown trigger={<MenuButton aria-label="Menu" />} items={navigationItems} />
+                </Flex>
+                <Grid
+                  sx={{
+                    display: ['none', 'grid'],
+                    alignItems: 'center',
+                    justifyContent: 'flex-end',
+                    gap: 2,
+                    gridTemplateColumns: 'auto auto',
+                  }}
+                >
+                  {navigationItems.map((item: INavigationItem, index: number) => {
+                    const { to, name } = item
+                    return (
+                      <GatsbyLink key={index} to={to}>
+                        {name}
+                      </GatsbyLink>
+                    )
+                  })}
                 </Grid>
               </Grid>
             </Container>

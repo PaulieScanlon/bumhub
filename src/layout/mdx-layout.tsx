@@ -18,6 +18,7 @@ import { LaptopBum } from '../components/laptop-bum'
 import { EcoStat } from '../components/eco-stat'
 import { ThemeUIBum } from '../components/theme-ui-bum'
 import { GlassesBum } from '../components/glasses-bum'
+import { Dropdown } from '../components/dropdown'
 
 const components = {
   pre: ({ children }) => <Fragment>{children}</Fragment>,
@@ -37,6 +38,7 @@ const components = {
   EcoStat,
   ThemeUIBum,
   GlassesBum,
+  Dropdown,
 }
 
 const MdxLayout: FunctionComponent = ({ children }) => {
