@@ -109,7 +109,7 @@ const IndexPage: FunctionComponent = () => {
               return (
                 <Grid
                   sx={{
-                    gridTemplateColumns: ['1fr', '1fr 1fr', '1fr 1fr 1fr'],
+                    gridTemplateColumns: ['1fr', '1fr 1fr', '1fr 1fr 1fr', '1fr 1fr 1fr 1fr'],
                     rowGap: 4,
                     columnGap: 3,
                   }}
