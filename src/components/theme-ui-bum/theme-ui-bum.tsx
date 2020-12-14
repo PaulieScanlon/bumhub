@@ -4,12 +4,15 @@ import { Box, SxStyleProp } from 'theme-ui'
 import theme from '../../gatsby-plugin-theme-ui'
 const { colors } = theme
 
+import { useTone } from '../../hooks/useTone'
+
 interface IThemeUIBumProps {
   /** Theme UI JSX pragma */
   sx?: SxStyleProp
 }
 
 export const ThemeUIBum: FunctionComponent<IThemeUIBumProps> = ({ sx }) => {
+  const tone = useTone()
   return (
     <Box sx={{ width: '100%', height: 'auto', ...sx }}>
       <svg version="1.0" x="0px" y="0px" viewBox="0 0 400 180" width="100%" height="100%">
@@ -178,12 +181,12 @@ export const ThemeUIBum: FunctionComponent<IThemeUIBumProps> = ({ sx }) => {
 		C276.1,157.4,291.4,161.9,306.7,161.9z"
           />
           <path
-            fill={colors.midSkin}
+            fill={colors.skin[tone].mid}
             d="M181.2,26.9l186.5,10c0,0,13.9,61.1-13.3,89.4c-27.2,28.3-68.3,25.5-92.1,3.3c0,0-9.4,18.9-50.5,11.7
 		C170.6,134,159,74.6,181.2,26.9z"
           />
           <path
-            fill={colors.darkSkin}
+            fill={colors.skin[tone].dark}
             d="M354.3,126.3c-27.2,28.3-68.3,25.5-92.1,3.3c0,0-9.4,18.9-50.5,11.7c-22-3.8-35.6-22.9-40-46.9
 		c11.6,30.9,32,39.5,54.9,38.3c34.1-1.7,30-25.8,30-25.8s18.3,51.6,78.3,23.3c43.1-20.4,32.9-93.2,32.9-93.2S381.5,98,354.3,126.3z"
           />
@@ -206,11 +209,14 @@ export const ThemeUIBum: FunctionComponent<IThemeUIBumProps> = ({ sx }) => {
 			C242.7,69.9,250.6,73.3,250.1,78.4L250.1,78.4z"
             />
           </g>
-          <path fill={colors.lightSkin} d="M367.6,36.9c0,0-98.8,32.2-186.5-10C182.3,26.9,367.6,36.9,367.6,36.9z" />
+          <path
+            fill={colors.skin[tone].light}
+            d="M367.6,36.9c0,0-98.8,32.2-186.5-10C182.3,26.9,367.6,36.9,367.6,36.9z"
+          />
         </g>
         <g id="Layer_2">
           <path
-            fill={colors.darkSkin}
+            fill={colors.skin[tone].dark}
             d="M207.8,68.6l0.1,1.4l4.1-0.4l-0.6,0.8l7.2,2l-0.6,0.8l4.3,0.9l-1.3,0.8l2.3,1.8l-1.4,0.1l2.4,9.5
 		c1.1,1.3,1.7,2.8,1.9,4.7c0.2,1.8-0.2,3.5-1.2,5l-2.2,8.6c-1.1,2.9-6.1,7.6-10.3,8c-4.1,0.4-10.1-3.1-11.7-5.7l-4-7.9
 		c-1.3-1.3-2-2.8-2.2-4.6c-0.2-1.8,0.1-3.5,0.9-5l-1.2-11.7l1.4,0.5l2.3-4.4l0.8,1.3L207.8,68.6z M212,82c-3.9-1.9-7.7-2.7-11.4-2.3
