@@ -459,12 +459,12 @@ const BumBumMaker: FunctionComponent = () => {
                       sx={{
                         textAlign: 'center',
                         fontSize: [2, 5, 6, 7],
-                        lineHeight: 0.6,
+                        lineHeight: 0.8,
                       }}
                     >
                       BumHub
                     </Heading>
-                    <Text sx={{ fontWeight: 'bold', textAlign: 'center', fontSize: [0, 1, 1, 1] }}>
+                    <Text sx={{ fontWeight: 'bold', textAlign: 'center', fontSize: ['0.7rem', 1, 1, 1] }}>
                       The cheekiest way to explore GitHub
                     </Text>
                   </Flex>
@@ -491,7 +491,7 @@ const BumBumMaker: FunctionComponent = () => {
                         sx={{
                           fontWeight: 'bold',
                           textAlign: 'center',
-                          fontSize: [0, 1],
+                          fontSize: ['0.5rem', 0],
                           lineHeight: 1.4,
                         }}
                       >

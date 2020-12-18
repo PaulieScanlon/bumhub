@@ -62,8 +62,8 @@ export default {
     ],
   },
   fonts: {
-    body: 'Ruda',
-    heading: 'Ruda',
+    body: 'Ruda, system-ui',
+    heading: 'Ruda, system-ui',
     monospace: 'Menlo, monospace',
   },
   fontSizes: ['0.9rem', '1rem', '1.25rem', '1.75rem', '2rem', '2.25rem', '2.5rem', '3rem'],
