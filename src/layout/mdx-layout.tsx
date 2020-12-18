@@ -17,7 +17,7 @@ import { FartBum } from '../components/fart-bum'
 import { LaptopBum } from '../components/laptop-bum'
 import { EcoStat } from '../components/eco-stat'
 import { ThemeUIBum } from '../components/theme-ui-bum'
-import { GlassesBum } from '../components/glasses-bum'
+import { SearchBum } from '../components/search-bum'
 import { Dropdown } from '../components/dropdown'
 import { BumToneTester } from '../components/bum-tone-tester'
 
@@ -38,7 +38,7 @@ const components = {
   LaptopBum,
   EcoStat,
   ThemeUIBum,
-  GlassesBum,
+  SearchBum,
   Dropdown,
   BumToneTester,
 }

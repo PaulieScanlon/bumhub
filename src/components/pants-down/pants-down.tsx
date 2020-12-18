@@ -27,7 +27,7 @@ export const PantsDown: FunctionComponent<IPantsDownProps> = memo(({ shadowColor
 				L327.2,270z"
             />
             <path
-              fill={colors.skin[tone].dark}
+              fill={colors.tone[tone].dark}
               d="M302.1,269.2c3.7-25.9,0.7-48.9-9-68.4c-8.4-17-19-24.9-19.1-25l4.4-6.1l4.4-6.1
 				c0.5,0.4,13.2,9.7,23.2,29.6c7.9,15.5,15.5,40.6,11.2,75.5C312.2,268.6,307.1,268.8,302.1,269.2z"
             />
@@ -37,7 +37,7 @@ export const PantsDown: FunctionComponent<IPantsDownProps> = memo(({ shadowColor
 				L172.7,273.6z"
             />
             <path
-              fill={colors.skin[tone].dark}
+              fill={colors.tone[tone].dark}
               d="M197.7,271.6c-5-25.7-3.2-48.8,5.4-68.8c7.5-17.4,17.7-25.9,17.8-25.9l-4.7-5.8l-4.7-5.8
 				c-0.5,0.4-12.7,10.4-21.7,30.7c-7.1,15.9-13.4,41.3-7.3,76C187.6,271.5,192.7,271.4,197.7,271.6z"
             />
@@ -47,12 +47,12 @@ export const PantsDown: FunctionComponent<IPantsDownProps> = memo(({ shadowColor
 				C230.4,204.4,212.1,209.7,193.6,209.7z"
             />
             <path
-              fill={colors.skin[tone].mid}
+              fill={colors.tone[tone].mid}
               d="M344.1,48L120.7,60c0,0-16.6,73.2,16,107.1s81.8,30.6,110.4,4c0,0,11.3,22.6,60.5,14
 				C356.8,176.4,370.7,105.2,344.1,48z"
             />
             <path
-              fill={colors.skin[tone].dark}
+              fill={colors.tone[tone].dark}
               d="M136.6,167c32.6,33.9,81.8,30.6,110.4,4c0,0,11.3,22.6,60.5,14c26.4-4.6,42.7-27.4,48-56.2
 				c-13.9,37-38.4,47.3-65.8,45.9c-40.9-2-35.9-30.9-35.9-30.9s-21.9,61.9-93.8,27.9C108.4,147.3,120.7,60,120.7,60
 				S104,133.1,136.6,167z"
@@ -283,7 +283,7 @@ export const PantsDown: FunctionComponent<IPantsDownProps> = memo(({ shadowColor
                 />
               </g>
             </g>
-            <path fill={colors.skin[tone].light} d="M120.7,60c0,0,118.4,38.6,223.5-12C342.8,48,120.7,60,120.7,60z" />
+            <path fill={colors.tone[tone].light} d="M120.7,60c0,0,118.4,38.6,223.5-12C342.8,48,120.7,60,120.7,60z" />
 
             <path
               fill="none"

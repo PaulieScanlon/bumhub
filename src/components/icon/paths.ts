@@ -48,4 +48,8 @@ export const paths = {
     path: 'M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z',
     title: 'Expand More',
   },
+  fileDownload: {
+    path: 'M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z',
+    title: 'File Download',
+  },
 }

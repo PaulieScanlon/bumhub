@@ -1,4 +1,6 @@
 import theme from '../gatsby-plugin-theme-ui'
-const { skin } = theme.colors
+const {
+  colors: { tone },
+} = theme
 
-export const useTone = () => Math.round(Math.floor(Math.random() * Math.floor(skin.length)))
+export const useTone = () => Math.round(Math.floor(Math.random() * Math.floor(tone.length)))
