@@ -12,6 +12,7 @@ export default {
     green: '#009169',
     lightBlue: '#c2d8ff',
     grey: '#cccccc',
+    midGrey: '#666666',
     darkGrey: '#373737',
     white: '#ffffff',
     blueGreen: '#102738',
@@ -65,7 +66,7 @@ export default {
     heading: 'Ruda',
     monospace: 'Menlo, monospace',
   },
-  fontSizes: ['0.7rem', '1rem', '1.25rem', '1.75rem', '2rem', '2.25rem', '2.5rem', '3rem'],
+  fontSizes: ['0.9rem', '1rem', '1.25rem', '1.75rem', '2rem', '2.25rem', '2.5rem', '3rem'],
   fontWeights: {
     body: 500,
     bold: 700,
@@ -73,7 +74,7 @@ export default {
   },
   lineHeights: {
     heading: 1,
-    body: 2,
+    body: 1.7,
     code: 1.8,
   },
   radii: [8, 48],
