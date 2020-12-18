@@ -27,34 +27,6 @@
 
 Components specific to BumHub
 
-#### [BumToneTester](#bum-tone-tester)
-
-<Grid sx={{gap: 4}}>
-
-BumToneTester is WIP and is being used to create different skin tones
-
-```javascript
-<BumToneTester tone={0} />
-<BumToneTester tone={1} />
-<BumToneTester tone={2} />
-<BumToneTester tone={3} />
-<BumToneTester tone={4} />
-<BumToneTester tone={5} />
-```
-
-<Grid sx={{ gridTemplateColumns: ['1fr', '1fr 1fr', '1fr 1fr 1fr'] }}>
-  <BumToneTester tone={0} />
-  <BumToneTester tone={1} />
-  <BumToneTester tone={2} />
-  <BumToneTester tone={3} />
-  <BumToneTester tone={4} />
-  <BumToneTester tone={5} />
-</Grid>
-
-</Grid>
-
-<Divider />
-
 #### [LogoBrand](#logo-brand)
 
 <Grid sx={{gap: 4}}>
@@ -149,28 +121,8 @@ Starburst
 <Starburst />
 ```
 
-<Box
-  sx={{
-    position: 'relative',
-    backgroundColor: 'accent',
-    overflow: 'hidden',
-    minHeight: [200, 300, 500],
-  }}
->
-  <Box
-    sx={{
-      opacity: 0.6,
-      top: 0,
-      left: 0,
-      bottom: 0,
-      right: 0,
-      position: 'absolute',
-      height: '100%',
-      zIndex: 0,
-    }}
-  >
-    <Starburst />
-  </Box>
+<Box sx={{ width: ['100%', '50%'] }}>
+  <Starburst sx={{ backgroundColor: 'accent', mx: 0 }} />
 </Box>
 
 </Grid>
@@ -187,7 +139,7 @@ ThemeUIBum is used in the Bum UI section
 <ThemeUIBum />
 ```
 
-<Box sx={{ width: 260 }}>
+<Box sx={{ width: 275 }}>
   <ThemeUIBum />
 </Box>
 
@@ -195,18 +147,18 @@ ThemeUIBum is used in the Bum UI section
 
 <Divider />
 
-#### [Glasses Bum](#glasses-bum)
+#### [Search Bum](#search-bum)
 
 <Grid sx={{gap: 4}}>
 
-GlassesBum is used in the Search section
+SearchBum is used in the Search section
 
 ```javascript
-<GlassesBum />
+<SearchBum />
 ```
 
-<Box sx={{ width: 260 }}>
-  <GlassesBum />
+<Box sx={{ width: 240 }}>
+  <SearchBum />
 </Box>
 
 </Grid>
@@ -223,7 +175,7 @@ LaptopBum is used in the Hero section on `/bums/name-of-repo`
 <LaptopBum />
 ```
 
-<Box sx={{ width: 220 }}>
+<Box sx={{ width: 260 }}>
   <LaptopBum />
 </Box>
 
@@ -394,6 +346,34 @@ FartBum is used in the EcoBum section
 </Grid>
 
 <Divider sx={{ backgroundColor: 'shadowBlue' }} />
+
+<Divider />
+
+#### [BumToneTester](#bum-tone-tester)
+
+<Grid sx={{gap: 4}}>
+
+BumToneTester is WIP and is being used to create different skin tones
+
+```javascript
+<BumToneTester tone={0} />
+<BumToneTester tone={1} />
+<BumToneTester tone={2} />
+<BumToneTester tone={3} />
+<BumToneTester tone={4} />
+<BumToneTester tone={5} />
+```
+
+<Grid sx={{ width: ['100%', '50%'], gridTemplateColumns: ['1fr', '1fr 1fr', '1fr 1fr 1fr'] }}>
+  <BumToneTester tone={0} />
+  <BumToneTester tone={1} />
+  <BumToneTester tone={2} />
+  <BumToneTester tone={3} />
+  <BumToneTester tone={4} />
+  <BumToneTester tone={5} />
+</Grid>
+
+</Grid>
 
 <Divider />
 

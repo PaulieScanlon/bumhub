@@ -9,21 +9,25 @@ export default {
     secondary: '#00cfff',
     darkRed: '#df3022',
     midRed: '#ff4a4a',
+    green: '#009169',
     lightBlue: '#c2d8ff',
-    green: '#66cc4f',
-    teal: '#29d6c6',
     grey: '#cccccc',
+    darkGrey: '#373737',
     white: '#ffffff',
     blueGreen: '#102738',
     accent: '#fdc449',
-    highlight: '#f48be8',
+    highlight: '#fbc7f5',
     shadowBlue: '#dbe6fb',
     shadowAccent: '#c29e50',
-    transparent: 'rgba(255, 255, 255, 0)',
+    shadowSecondary: '#009FD8',
     codeLineNumbers: '#5b68b3',
     codeBackground: '#282A36',
     oddTableRow: '#f7f7f7',
-    skin: [
+    gatsbyDefault: '#663399',
+    gatsbyDark: '#3e2d59',
+    gatsbyLight: '#9682c0',
+    transparent: 'rgba(255, 255, 255, 0)',
+    tone: [
       {
         light: '#ffB297',
         mid: '#f49262',
@@ -37,12 +41,12 @@ export default {
       {
         light: '#fdeeda',
         mid: '#eddcbf',
-        dark: '#d7a689',
+        dark: '#d1b792',
       },
       {
-        light: '#efd5b8',
-        mid: '#e2c5a5',
-        dark: '#ca9674',
+        light: '#fcd6bd',
+        mid: '#e8b797',
+        dark: '#cb9571',
       },
       {
         light: '#b48860',
@@ -61,11 +65,11 @@ export default {
     heading: 'Ruda',
     monospace: 'Menlo, monospace',
   },
-  fontSizes: ['0.85rem', '1rem', '1.25rem', '1.75rem', '2rem', '2.25rem', '2.5rem', '3rem'],
+  fontSizes: ['0.7rem', '1rem', '1.25rem', '1.75rem', '2rem', '2.25rem', '2.5rem', '3rem'],
   fontWeights: {
     body: 500,
-    heading: 900,
     bold: 700,
+    heading: 900,
   },
   lineHeights: {
     heading: 1,
@@ -79,10 +83,11 @@ export default {
     focus: '0px 0px 1px 3px rgba(0,0,255,0.90)',
   },
   sizes: {
-    container: 1140,
+    container: 1340,
     full: '100vw',
+    max: 1440,
   },
-  space: [0, 4, 8, 16, 32, 64, 96],
+  space: [0, 4, 8, 16, 32, 64, 108],
   zIndices: {
     hero: 998,
     header: 999,
@@ -111,7 +116,6 @@ export default {
       display: 'flex',
       mx: 'auto',
       py: 2,
-      px: 2,
       width: 'full',
       zIndex: 'header',
     },
@@ -184,8 +188,9 @@ export default {
       display: 'inline-flex',
       textTransform: 'capitalize',
       textDecoration: 'none',
-      fontSize: 0,
-      fontWeight: 'body',
+      fontSize: [0, 1],
+      fontWeight: 'bold',
+      justifyContent: 'center',
       px: 3,
       py: 2,
       ':focus': {
@@ -195,6 +200,8 @@ export default {
     },
     primary: {
       variant: 'buttons.default',
+
+      fontWeight: 'bold',
     },
     secondary: {
       variant: 'buttons.default',
@@ -246,29 +253,41 @@ export default {
       },
     },
   },
-  input: {
-    backgroundColor: 'white',
-    borderColor: 'transparent',
-    borderRadius: 0,
-    px: 3,
-    py: 2,
-    ':focus': {
-      outline: 'none',
-      boxShadow: 'focus',
+  forms: {
+    input: {
+      backgroundColor: 'white',
+      borderColor: 'transparent',
+      borderRadius: 0,
+      px: 3,
+      py: 2,
+      ':focus': {
+        outline: 'none',
+        boxShadow: 'focus',
+      },
+    },
+    select: {
+      backgroundColor: 'white',
+      borderColor: 'transparent',
+      borderRadius: 0,
+      cursor: 'pointer',
+      px: 3,
+      py: 2,
+      ':focus': {
+        outline: 'none',
+        boxShadow: 'focus',
+      },
+    },
+    label: {
+      cursor: 'pointer',
+      borderRadius: 0,
+      textTransform: 'capitalize',
+      transition: '.2s linear background-color',
+      ':hover': {
+        backgroundColor: transparentize('background', 0.8),
+      },
     },
   },
-  select: {
-    backgroundColor: 'white',
-    borderColor: 'transparent',
-    borderRadius: 0,
-    cursor: 'pointer',
-    px: 3,
-    py: 2,
-    ':focus': {
-      outline: 'none',
-      boxShadow: 'focus',
-    },
-  },
+
   cards: {
     primary: {
       borderRadius: 0,

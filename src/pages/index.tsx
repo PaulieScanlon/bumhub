@@ -13,7 +13,7 @@ import fileSize from 'filesize'
 
 import { CodeBlock } from '../components/code-block'
 import { TableGraphic } from '../components/table-graphic/table-graphic'
-import { GlassesBum } from '../components/glasses-bum/glasses-bum'
+import { SearchBum } from '../components/search-bum'
 
 const DATE_END_POINT = 'get-date'
 const ECO_END_POINT = 'get-eco-ping'
@@ -109,7 +109,7 @@ const IndexPage: FunctionComponent = () => {
               return (
                 <Grid
                   sx={{
-                    gridTemplateColumns: ['1fr', '1fr 1fr', '1fr 1fr 1fr'],
+                    gridTemplateColumns: ['1fr', '1fr 1fr', '1fr 1fr 1fr', '1fr 1fr 1fr 1fr'],
                     rowGap: 4,
                     columnGap: 3,
                   }}
@@ -308,7 +308,7 @@ const IndexPage: FunctionComponent = () => {
                 }}
               >
                 <Box sx={{ width: [220, 260] }}>
-                  <GlassesBum />
+                  <SearchBum />
                 </Box>
               </Flex>
             </Box>

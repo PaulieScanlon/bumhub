@@ -10,7 +10,7 @@ interface IGlassesBumProps {
   sx?: SxStyleProp
 }
 
-export const GlassesBum: FunctionComponent<IGlassesBumProps> = ({ sx }) => {
+export const SearchBum: FunctionComponent<IGlassesBumProps> = ({ sx }) => {
   const tone = useTone()
 
   return (
@@ -30,12 +30,12 @@ export const GlassesBum: FunctionComponent<IGlassesBumProps> = ({ sx }) => {
 		c-19.4,0-32.5-5.1-40.8-10.4C204.6,207.3,186.3,212.7,167.8,212.7z"
           />
           <path
-            fill={colors.skin[tone].mid}
+            fill={colors.tone[tone].mid}
             d="M318.3,50.9l-223.5,12c0,0-16.6,73.2,16,107.1s81.8,30.6,110.4,4c0,0,11.3,22.6,60.5,14
 		C331,179.3,344.9,108.1,318.3,50.9z"
           />
           <path
-            fill={colors.skin[tone].dark}
+            fill={colors.tone[tone].dark}
             d="M110.8,170c32.6,33.9,81.8,30.6,110.4,4c0,0,11.3,22.6,60.5,14c26.4-4.6,42.7-27.4,48-56.2
 		c-13.9,37-38.4,47.3-65.8,45.9c-40.9-2-35.9-30.9-35.9-30.9s-21.9,61.9-93.8,27.9C82.6,150.2,94.8,62.9,94.8,62.9
 		S78.2,136.1,110.8,170z"
@@ -59,7 +59,7 @@ export const GlassesBum: FunctionComponent<IGlassesBumProps> = ({ sx }) => {
 			C244.6,102.4,235.2,106.5,235.7,112.7L235.7,112.7z"
             />
           </g>
-          <path fill={colors.skin[tone].light} d="M94.8,62.9c0,0,118.4,38.6,223.5-12C317,50.9,94.8,62.9,94.8,62.9z" />
+          <path fill={colors.tone[tone].light} d="M94.8,62.9c0,0,118.4,38.6,223.5-12C317,50.9,94.8,62.9,94.8,62.9z" />
           <g>
             <g>
               <path

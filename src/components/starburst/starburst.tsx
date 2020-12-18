@@ -26,6 +26,7 @@ export const Starburst: FunctionComponent<IStarburstProps> = ({ color = '#ffffff
     <Box
       sx={{
         margin: '0 auto',
+        maxWidth: 'max',
         ...sx,
         polygon: {
           animationTimingFunction: 'linear',

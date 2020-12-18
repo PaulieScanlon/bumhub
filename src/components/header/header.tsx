@@ -11,12 +11,16 @@ import { Dropdown } from '../dropdown/dropdown'
 
 const navigationItems: INavigationItem[] = [
   {
-    name: 'Bum UI',
-    to: '/bum-ui',
-  },
-  {
     name: 'Bum Search',
     to: '/search',
+  },
+  {
+    name: 'Bum Bum Maker',
+    to: '/bum-bum-maker',
+  },
+  {
+    name: 'Bum UI',
+    to: '/bum-ui',
   },
 ]
 
@@ -48,7 +52,7 @@ export const Header: FunctionComponent = () => {
           >
             <Container
               sx={{
-                px: [1, 1, 1, 1],
+                maxWidth: 'maxWidth',
               }}
             >
               <Grid
@@ -84,11 +88,12 @@ export const Header: FunctionComponent = () => {
                 </Flex>
                 <Grid
                   sx={{
+                    position: 'relative',
                     display: ['none', 'grid'],
                     alignItems: 'center',
                     justifyContent: 'flex-end',
                     gap: 2,
-                    gridTemplateColumns: 'auto auto',
+                    gridTemplateColumns: 'auto auto auto',
                   }}
                 >
                   {navigationItems.map((item: INavigationItem, index: number) => {
