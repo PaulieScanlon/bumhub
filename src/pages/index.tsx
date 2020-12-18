@@ -11,9 +11,13 @@ import { FartBum } from '../components/fart-bum'
 import { ThemeUIBum } from '../components/theme-ui-bum'
 import fileSize from 'filesize'
 
+import { LogoBrand } from '../components/logo-brand'
 import { CodeBlock } from '../components/code-block'
 import { TableGraphic } from '../components/table-graphic/table-graphic'
 import { SearchBum } from '../components/search-bum'
+import { Starburst } from '../components/starburst'
+import { MakerBum } from '../components/maker-bum'
+import { bumBumConfig } from './bum-bum-maker'
 
 const DATE_END_POINT = 'get-date'
 const ECO_END_POINT = 'get-eco-ping'
@@ -83,7 +87,7 @@ const IndexPage: FunctionComponent = () => {
                 width: ['100%', '80%', '70%', '50%'],
               }}
             >
-              <Text sx={{ fontSize: 0, fontStyle: 'italic', textAlign: 'center' }}>
+              <Text sx={{ color: 'midGrey', fontSize: 0, fontStyle: 'italic', textAlign: 'center' }}>
                 BumHub uses{' '}
                 <Link href="https://www.netlify.com/products/functions/" target="_blank">
                   Netlify functions
@@ -136,6 +140,7 @@ const IndexPage: FunctionComponent = () => {
           </MrFetchy>
         </Container>
       </Box>
+
       <Divider />
 
       <Box
@@ -164,7 +169,7 @@ const IndexPage: FunctionComponent = () => {
                   EcoPing.earth
                 </Link>
               </Text>
-              <Text sx={{ fontSize: 0, fontStyle: 'italic', textAlign: 'center' }}>
+              <Text sx={{ color: 'midGrey', fontSize: 0, fontStyle: 'italic', textAlign: 'center' }}>
                 BumHub uses client-side API requests to hit the EcoPing servers
               </Text>
             </Box>
@@ -233,6 +238,7 @@ const IndexPage: FunctionComponent = () => {
           </Grid>
         </Container>
       </Box>
+
       <Divider />
 
       <Box as="section">
@@ -242,8 +248,84 @@ const IndexPage: FunctionComponent = () => {
           }}
         >
           <Grid sx={{ gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'], rowGap: 4 }}>
-            <Grid sx={{ gridRowGap: 2 }}>
-              <Box>
+            <Box sx={{ position: 'relative', gridRow: ['none', 'none', 1], py: 4 }}>
+              <Flex
+                sx={{
+                  mx: 'auto',
+                  position: 'relative',
+                  zIndex: 1,
+                  width: [280, 320],
+                }}
+              >
+                <MakerBum config={bumBumConfig} />
+              </Flex>
+              <Box
+                sx={{
+                  backgroundColor: 'accent',
+                  borderRadius: 0,
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  bottom: -10,
+                  right: 0,
+                  zIndex: 0,
+                }}
+              >
+                <LogoBrand sx={{ position: 'absolute', left: '16px', bottom: '8px', width: '75px' }} />
+
+                <Starburst />
+              </Box>
+            </Box>
+
+            <Grid sx={{ gridRowGap: 1 }}>
+              <Box
+                sx={{
+                  pl: [0, 0, 2, 4],
+                }}
+              >
+                <Heading as="h2" variant="styles.h2" sx={{ textAlign: 'right' }}>
+                  Bum Bum Maker
+                </Heading>
+                <Text sx={{ textAlign: 'right' }}>So what else can you do with Gatsby?</Text>
+                <Text sx={{ color: 'midGrey', fontSize: 0, fontStyle: 'italic', textAlign: 'right' }}>
+                  Bum Bum Maker lets you customise your own bum and by using{' '}
+                  <Link href="https://www.npmjs.com/package/html-to-image" target="_blank" rel="noopener">
+                    html-to-image
+                  </Link>{' '}
+                  even lets you export your bum to .jpeg so you can download and share! -{' '}
+                  <Box as="span" role="image" aria-label=" Man Dancing">
+                    🕺
+                  </Box>
+                </Text>
+              </Box>
+              <Flex sx={{ alignItems: 'flex-end', justifyContent: 'flex-end', a: { variant: 'buttons.secondary' } }}>
+                <GatsbyLink to="/bum-bum-maker">Make your own bum</GatsbyLink>
+              </Flex>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+
+      <Divider />
+
+      <Box
+        as="section"
+        sx={{
+          backgroundColor: 'white',
+        }}
+      >
+        <Container
+          sx={{
+            py: 5,
+          }}
+        >
+          <Grid sx={{ gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'], rowGap: 4 }}>
+            <Grid sx={{ gridRowGap: 1 }}>
+              <Box
+                sx={{
+                  pr: [0, 0, 2, 4],
+                }}
+              >
                 <Heading as="h2" variant="styles.h2">
                   Bum UI
                 </Heading>
@@ -253,11 +335,11 @@ const IndexPage: FunctionComponent = () => {
                     Theme UI
                   </Link>
                 </Text>
+                <Text sx={{ color: 'midGrey', fontSize: 0, fontStyle: 'italic' }}>
+                  Theme UI is a library for creating themeable user interfaces based on constraint-based design
+                  principles - Theme UI
+                </Text>
               </Box>
-              <Text sx={{ fontSize: 0, fontStyle: 'italic' }}>
-                Theme UI is a library for creating themeable user interfaces based on constraint-based design principles
-                - Theme UI
-              </Text>
               <Flex sx={{ alignItems: 'flex-end', a: { variant: 'buttons.secondary' } }}>
                 <GatsbyLink to="/bum-ui">Preview the styles</GatsbyLink>
               </Flex>
@@ -281,17 +363,13 @@ const IndexPage: FunctionComponent = () => {
           </Grid>
         </Container>
       </Box>
+
       <Divider />
 
-      <Box
-        as="section"
-        sx={{
-          backgroundColor: 'white',
-        }}
-      >
+      <Box as="section">
         <Container
           sx={{
-            pt: 5,
+            pt: 4,
             pb: 6,
           }}
         >
@@ -313,27 +391,31 @@ const IndexPage: FunctionComponent = () => {
               </Flex>
             </Box>
 
-            <Grid sx={{ gridRowGap: 2 }}>
-              <Box>
+            <Grid sx={{ gridRowGap: 1 }}>
+              <Box
+                sx={{
+                  pl: [0, 0, 2, 4],
+                }}
+              >
                 <Heading as="h2" variant="styles.h2" sx={{ textAlign: 'right' }}>
                   Bum Search
                 </Heading>
                 <Text sx={{ textAlign: 'right' }}>BumHub has retrieved all the GitHub bums so you don't have to!</Text>
+                <Text sx={{ color: 'midGrey', fontSize: 0, fontStyle: 'italic', textAlign: 'right' }}>
+                  BumHub uses{' '}
+                  <Link href="https://www.netlify.com/products/functions/" target="_blank">
+                    Netlify functions
+                  </Link>{' '}
+                  to hit the GitHub{' '}
+                  <Link href="https://developer.github.com/v3/" target="_blank">
+                    REST API
+                  </Link>{' '}
+                  at build time so all bum data is statically rendered by Gatsby -{' '}
+                  <Box as="span" role="image" aria-label="Kiss Mark">
+                    💋
+                  </Box>
+                </Text>
               </Box>
-              <Text sx={{ fontSize: 0, fontStyle: 'italic', textAlign: 'right' }}>
-                BumHub uses{' '}
-                <Link href="https://www.netlify.com/products/functions/" target="_blank">
-                  Netlify functions
-                </Link>{' '}
-                to hit the GitHub{' '}
-                <Link href="https://developer.github.com/v3/" target="_blank">
-                  REST API
-                </Link>{' '}
-                at build time so all bum data is statically rendered by Gatsby -{' '}
-                <Box as="span" role="image" aria-label="Kiss Mark">
-                  💋
-                </Box>
-              </Text>
               <Flex sx={{ alignItems: 'flex-end', justifyContent: 'flex-end', a: { variant: 'buttons.secondary' } }}>
                 <GatsbyLink to="/search">Search the bums</GatsbyLink>
               </Flex>
@@ -342,7 +424,12 @@ const IndexPage: FunctionComponent = () => {
         </Container>
       </Box>
 
-      <Box as="section">
+      <Box
+        as="section"
+        sx={{
+          backgroundColor: 'white',
+        }}
+      >
         <Container
           sx={{
             py: 5,

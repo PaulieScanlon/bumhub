@@ -35,7 +35,7 @@ import {
   LAPTOP_STICKERS,
 } from '../const'
 
-const initialConfig = [
+export const bumBumConfig = [
   {
     name: FACE,
     options: [
@@ -83,7 +83,7 @@ const initialConfig = [
       {
         label: 'none',
         value: 'noMiscellaneous',
-        checked: false,
+        checked: true,
         meta: {
           type: SWATCH,
           value: colors.text,
@@ -101,7 +101,7 @@ const initialConfig = [
       {
         label: 't-shirt',
         value: T_SHIRT,
-        checked: true,
+        checked: false,
         meta: {
           type: IMAGE,
           value: '',
@@ -124,7 +124,7 @@ const initialConfig = [
       {
         label: 'santa hat',
         value: SANTA,
-        checked: true,
+        checked: false,
         meta: {
           type: IMAGE,
           value: '',
@@ -142,7 +142,7 @@ const initialConfig = [
       {
         label: 'headphones',
         value: HEADPHONES,
-        checked: false,
+        checked: true,
         meta: {
           type: IMAGE,
           value: '',
@@ -151,7 +151,7 @@ const initialConfig = [
       {
         label: 'glasses',
         value: GLASSES,
-        checked: true,
+        checked: false,
         meta: {
           type: IMAGE,
           value: '',
@@ -212,7 +212,7 @@ const initialConfig = [
             return {
               label: `${index}`,
               value: `${index}`,
-              checked: index === 5,
+              checked: index === 3,
               meta: {
                 type: SWATCH,
                 value: item,
@@ -227,7 +227,7 @@ const initialConfig = [
 const BumBumMaker: FunctionComponent = () => {
   const captureRef = useRef()
 
-  const [config, setConfig] = useState(initialConfig)
+  const [config, setConfig] = useState(bumBumConfig)
 
   const handleCapture = () => {
     // htmlToImage.toCanvas(node).then((canvas) => {
@@ -499,7 +499,6 @@ const BumBumMaker: FunctionComponent = () => {
                       </Text>
                     </Flex>
                   </Box>
-
                   <Flex
                     sx={{
                       justifyContent: 'flex-start',
