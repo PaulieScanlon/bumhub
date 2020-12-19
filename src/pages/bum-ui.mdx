@@ -1,3 +1,4 @@
+<Seo title="Bum UI" />
 <Container>
   <Box>
     <Heading as="h1" variant="styles.h1">
@@ -449,13 +450,13 @@ Button is of HTML type `<button />` Use the variant prop to change the button st
 
 <Grid sx={{gap: 4}}>
 
-Input is of HTML type `<input />`
+Input is of HTML type `<input type='text'/>`
 
 ```javascript
-<Input placeholder />
+<Input placeholder="Bums" />
 ```
 
-<Input placeholder="input" />
+<Input placeholder="Bums" />
 
 </Grid>
 
@@ -480,6 +481,26 @@ Select is of HTML type `<select />`
   <option>Option 2</option>
   <option>Option 3</option>
 </Select>
+
+</Grid>
+
+<Divider />
+
+#### [Radio](#radio)
+
+<Grid sx={{gap: 4}}>
+
+Radio is of HTML type `<input type='radio' />`
+
+```javascript
+<Radio id='radio2' name='radios' value='radio2' defaultChecked={true} />
+<Radio id='radio1' name='radios' value='radio1'  />
+```
+
+<Box>
+  <Radio id="radio2" name="radios" value="radio2" defaultChecked={true} />
+  <Radio id="radio1" name="radios" value="radio1" />
+</Box>
 
 </Grid>
 

@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 
 import { MrFetchy } from '../../components/mr-fetchy'
 import { BumHero } from '../../components/bum-hero/bum-hero'
+import { Seo } from '../../components/seo'
 
 const END_POINT = 'github-readme'
 interface IBumsPageProps {
@@ -27,6 +28,7 @@ const BumsPage: FunctionComponent<IBumsPageProps> = ({ data }) => {
 
   return (
     <>
+      <Seo title="README" />
       <BumHero
         name={name}
         login={login}

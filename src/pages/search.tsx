@@ -4,6 +4,7 @@ import filesize from 'filesize'
 
 import { TableContainer, TableWrapper, Table, Thead, Tbody, Tr, Th, Td } from '../components/table'
 import { Icon } from '../components/icon'
+import { Seo } from '../components/seo'
 import { useAllBums } from '../hooks/useAllBums'
 
 const ASC = 'asc'
@@ -43,6 +44,7 @@ const SearchPage: FunctionComponent = () => {
 
   return (
     <>
+      <Seo title="Search" />
       <Container>
         <Box>
           <Heading as="h1" variant="styles.h1">

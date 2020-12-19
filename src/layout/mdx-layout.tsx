@@ -4,6 +4,7 @@ import Prism from '@theme-ui/prism'
 
 import * as themeUiComponents from 'theme-ui'
 
+import { Seo } from '../components/seo'
 import { AdventCard } from '../components/advent-card'
 import { LogoIcon } from '../components/logo-icon'
 import { LogoBrand } from '../components/logo-brand'
@@ -25,6 +26,7 @@ const components = {
   pre: ({ children }) => <Fragment>{children}</Fragment>,
   code: Prism,
   ...themeUiComponents,
+  Seo,
   AdventCard,
   LogoIcon,
   LogoBrand,

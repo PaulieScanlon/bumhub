@@ -1,12 +1,14 @@
-import React, { Fragment, FunctionComponent } from 'react'
+import React, { FunctionComponent } from 'react'
 import { Location } from '@reach/router'
 import { Box } from 'theme-ui'
 
 import { Header } from '../components/header'
+import { Seo } from '../components/seo/seo'
 
 const PageLayout: FunctionComponent = ({ children }) => {
   return (
     <>
+      <Seo />
       <Header />
       <Location>
         {({ location }) => {
