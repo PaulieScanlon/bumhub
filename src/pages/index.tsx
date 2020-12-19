@@ -172,7 +172,11 @@ const IndexPage: FunctionComponent = () => {
                 </Link>
               </Text>
               <Text sx={{ color: 'midGrey', fontSize: 0, fontStyle: 'italic', textAlign: 'center' }}>
-                BumHub uses client-side API requests to hit the EcoPing servers
+                BumHub uses{' '}
+                <Link href="https://www.gatsbyjs.com/plugins/gatsby-plugin-preact/" rel="noopener">
+                  gatsby-plugin-preact
+                </Link>{' '}
+                so it's as lightweight and eco-friendly as it can be
               </Text>
             </Box>
             <Box
