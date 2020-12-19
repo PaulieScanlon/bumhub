@@ -165,6 +165,7 @@ const IndexPage: FunctionComponent = () => {
               <Heading as="h2" variant="styles.h2" sx={{ textAlign: 'center' }}>
                 EcoBum
               </Heading>
+
               <Text sx={{ textAlign: 'center' }}>
                 Website carbon usage calculated by{' '}
                 <Link href="http://ecoping.earth/" target="_blank" rel="noopener">
