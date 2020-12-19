@@ -26,4 +26,6 @@ export interface IMakerConfigItem {
   name: string
   /** Array container config options */
   options: IMakerConfigOption[]
+  /** The color of the config group */
+  color: string
 }

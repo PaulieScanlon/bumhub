@@ -56,7 +56,8 @@ export const BumHero: FunctionComponent<IBumHeroProps> = ({
           backgroundColor: 'accent',
           borderRadius: 0,
           boxShadow: 'surface',
-          p: 4,
+          px: 4,
+          py: 5,
           position: 'relative',
           zIndex: 'hero',
         }}
@@ -64,7 +65,7 @@ export const BumHero: FunctionComponent<IBumHeroProps> = ({
         <Grid
           sx={{
             position: 'relative',
-            gridTemplateColumns: ['1fr', '1fr', '1fr 0.8fr'],
+            gridTemplateColumns: ['1fr', '1fr', '2.5fr 1fr'],
             zIndex: 1,
           }}
         >

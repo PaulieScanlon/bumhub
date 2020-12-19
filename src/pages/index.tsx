@@ -272,7 +272,6 @@ const IndexPage: FunctionComponent = () => {
                 }}
               >
                 <LogoBrand sx={{ position: 'absolute', left: '16px', bottom: '8px', width: '75px' }} />
-
                 <Starburst />
               </Box>
             </Box>
