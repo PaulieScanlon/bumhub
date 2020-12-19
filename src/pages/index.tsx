@@ -18,6 +18,7 @@ import { SearchBum } from '../components/search-bum'
 import { Starburst } from '../components/starburst'
 import { MakerBum } from '../components/maker-bum'
 import { bumBumConfig } from './bum-bum-maker'
+import { Seo } from '../components/seo/seo'
 
 const DATE_END_POINT = 'get-date'
 const ECO_END_POINT = 'get-eco-ping'
@@ -70,6 +71,7 @@ const IndexPage: FunctionComponent = () => {
 
   return (
     <>
+      <Seo />
       <IndexHero />
 
       <Box as="section">

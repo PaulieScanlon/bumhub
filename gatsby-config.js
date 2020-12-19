@@ -5,13 +5,15 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     name: 'BumHub',
-    description: 'A #SillySiteChallgen by @PaulieScanlon',
+    description: 'A #SillySiteChallenge by @PaulieScanlon',
     keywords: ['bums', 'silly', 'gatsby'],
     siteUrl: 'https://bumhub.netlify.app/',
-    ogImage: 'bumhub-og-image.jpg',
+    ogImage: 'images/bumhub-og-image.jpg',
     lang: 'eng',
+    type: 'website',
   },
   plugins: [
+    'gatsby-plugin-react-helmet',
     'gatsby-plugin-preact',
     'gatsby-plugin-theme-ui',
     {

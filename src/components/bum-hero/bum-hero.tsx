@@ -104,7 +104,7 @@ export const BumHero: FunctionComponent<IBumHeroProps> = ({
           >
             <Grid
               sx={{
-                mx: '-45px',
+                ml: '-45px',
                 rowGap: 3,
               }}
             >
