@@ -392,7 +392,7 @@ const BumBumMaker: FunctionComponent = () => {
                                       p: 1,
                                     }}
                                   >
-                                    <Image src={`/images/${value}-bumnail.png`} alt={value} />
+                                    <Image src={`/images/${value}-bumnail.png`} alt={value} width={34} height={34} />
                                   </Box>
                                 )}
                               </Box>
