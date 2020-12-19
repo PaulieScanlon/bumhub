@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "develop": "gatsby develop",
-    "build": "gatsby build",
+    "build": "gatsby build && yarn robots",
     "clean": "gatsby clean",
     "serve": "gatsby serve",
     "start": "npm run develop",
     "prettier": "prettier --config ./.prettierrc.js --ignore-path ./.prettierignore --write \"**/*.{json,js,ts,tsx,mdx}\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "netlify-lambda install"
+    "postinstall": "netlify-lambda install",
+    "robots": "cp robots.txt public/"
   },
   "husky": {
     "hooks": {

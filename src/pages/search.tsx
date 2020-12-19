@@ -55,7 +55,7 @@ const SearchPage: FunctionComponent = () => {
               Gatsby is React.
             </Text>{' '}
             If you can build it with React, you can build it with Gatsby{' '}
-            <Box as="span" role="image" aria-label="Index Pointing Up">
+            <Box as="span" role="img" aria-label="Index Pointing Up">
               ☝️
             </Box>
           </Text>
@@ -188,7 +188,7 @@ const SearchPage: FunctionComponent = () => {
                                 }}
                               >
                                 {body[key].friendly === 'repository name' ? (
-                                  <Link href={body.html_url.value} target="_blank">
+                                  <Link href={body.html_url.value} target="_blank" rel="noopener">
                                     {body[key].value}
                                   </Link>
                                 ) : body[key].friendly === 'size' ? (

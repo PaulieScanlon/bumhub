@@ -298,7 +298,7 @@ const BumBumMaker: FunctionComponent = () => {
             </Heading>
             <Text as="span" sx={{ fontWeight: 'bold' }}>
               Pick your bum. Download your bum. Share with the world.{' '}
-              <Link href="https://twitter.com/search?q=%23SillySiteChallenge" target="_blank">
+              <Link href="https://twitter.com/search?q=%23SillySiteChallenge" target="_blank" rel="noopener">
                 #SillySiteChallenge
               </Link>
             </Text>

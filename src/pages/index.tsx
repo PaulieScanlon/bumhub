@@ -91,19 +91,19 @@ const IndexPage: FunctionComponent = () => {
             >
               <Text sx={{ color: 'midGrey', fontSize: 0, fontStyle: 'italic', textAlign: 'center' }}>
                 BumHub uses{' '}
-                <Link href="https://www.netlify.com/products/functions/" target="_blank">
+                <Link href="https://www.netlify.com/products/functions/" target="_blank" rel="noopener">
                   Netlify functions
                 </Link>{' '}
                 to hit the GitHub{' '}
-                <Link href="https://developer.github.com/v3/" target="_blank">
+                <Link href="https://developer.github.com/v3/" target="_blank" rel="noopener">
                   REST API
                 </Link>{' '}
                 at build time to create a page for each day of advent using Gatsby's new{' '}
-                <Link href="https://www.gatsbyjs.com/docs/file-system-route-api/" target="_blank">
+                <Link href="https://www.gatsbyjs.com/docs/file-system-route-api/" target="_blank" rel="noopener">
                   Routes API
                 </Link>{' '}
                 -{' '}
-                <Box as="span" role="image" aria-label="Man Dancing">
+                <Box as="span" role="img" aria-label="Man Dancing">
                   🕺
                 </Box>
               </Text>
@@ -294,7 +294,7 @@ const IndexPage: FunctionComponent = () => {
                     html-to-image
                   </Link>{' '}
                   even lets you export your bum to .jpeg so you can download and share! -{' '}
-                  <Box as="span" role="image" aria-label=" Man Dancing">
+                  <Box as="span" role="img" aria-label=" Man Dancing">
                     🕺
                   </Box>
                 </Text>
@@ -404,15 +404,15 @@ const IndexPage: FunctionComponent = () => {
                 <Text sx={{ textAlign: 'right' }}>BumHub has retrieved all the GitHub bums so you don't have to!</Text>
                 <Text sx={{ color: 'midGrey', fontSize: 0, fontStyle: 'italic', textAlign: 'right' }}>
                   BumHub uses{' '}
-                  <Link href="https://www.netlify.com/products/functions/" target="_blank">
+                  <Link href="https://www.netlify.com/products/functions/" target="_blank" rel="noopener">
                     Netlify functions
                   </Link>{' '}
                   to hit the GitHub{' '}
-                  <Link href="https://developer.github.com/v3/" target="_blank">
+                  <Link href="https://developer.github.com/v3/" target="_blank" rel="noopener">
                     REST API
                   </Link>{' '}
                   at build time so all bum data is statically rendered by Gatsby -{' '}
-                  <Box as="span" role="image" aria-label="Kiss Mark">
+                  <Box as="span" role="img" aria-label="Kiss Mark">
                     💋
                   </Box>
                 </Text>

@@ -27,13 +27,13 @@ export const Dropdown: FunctionComponent<IDropdownProps> = ({ trigger, items, sx
         ...sx,
         '[data-reach-menu-button]': {
           alignItems: 'center',
+          backgroundColor: 'transparent',
+          border: 'none',
+          borderRadius: 0,
           display: 'inline-flex',
-
-          button: {
-            ':focus': {
-              outline: 'none',
-              boxShadow: 'focus',
-            },
+          ':focus': {
+            outline: 'none',
+            boxShadow: 'focus',
           },
         },
         '[data-reach-menu][data-reach-menu-popover]': {
@@ -58,14 +58,14 @@ export const Dropdown: FunctionComponent<IDropdownProps> = ({ trigger, items, sx
       }}
     >
       <Menu>
-        <MenuButton as={NavLink}>{trigger}</MenuButton>
+        <MenuButton>{trigger}</MenuButton>
         <MenuList portal={false}>
           {items.map((item: INavigationItem, index: number) => {
             const { name, url, to } = item
             return (
               <Fragment key={index}>
                 {url ? (
-                  <MenuLink href={url} target="_blank">
+                  <MenuLink href={url} target="_blank" rel="noopener">
                     {name}
                   </MenuLink>
                 ) : (
