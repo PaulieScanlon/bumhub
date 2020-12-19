@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState, useRef, Fragment } from 'react'
-import { Container, Divider, Grid, Flex, Box, Heading, Text, Button, Radio, Label, Image } from 'theme-ui'
+import { Container, Divider, Grid, Flex, Box, Heading, Text, Button, Radio, Label, Image, Link } from 'theme-ui'
 
 import * as htmlToImage from 'html-to-image'
 
@@ -38,6 +38,7 @@ import {
 export const bumBumConfig = [
   {
     name: FACE,
+    color: colors.secondary,
     options: [
       {
         label: 'none',
@@ -45,7 +46,7 @@ export const bumBumConfig = [
         checked: false,
         meta: {
           type: SWATCH,
-          value: colors.text,
+          value: colors.secondary,
         },
       },
       {
@@ -79,6 +80,7 @@ export const bumBumConfig = [
   },
   {
     name: MISCELLANEOUS,
+    color: colors.accent,
     options: [
       {
         label: 'none',
@@ -86,7 +88,7 @@ export const bumBumConfig = [
         checked: true,
         meta: {
           type: SWATCH,
-          value: colors.text,
+          value: colors.accent,
         },
       },
       {
@@ -111,6 +113,7 @@ export const bumBumConfig = [
   },
   {
     name: HEAD,
+    color: colors.midRed,
     options: [
       {
         label: 'none',
@@ -118,7 +121,7 @@ export const bumBumConfig = [
         checked: false,
         meta: {
           type: SWATCH,
-          value: colors.text,
+          value: colors.midRed,
         },
       },
       {
@@ -162,6 +165,7 @@ export const bumBumConfig = [
 
   {
     name: ACCESSORIES,
+    color: colors.green,
     options: [
       {
         label: 'none',
@@ -169,7 +173,7 @@ export const bumBumConfig = [
         checked: false,
         meta: {
           type: SWATCH,
-          value: colors.text,
+          value: colors.green,
         },
       },
       {
@@ -204,6 +208,7 @@ export const bumBumConfig = [
 
   {
     name: TONE,
+    color: colors.background,
     options: [
       ...colors.tone
         .map((item): string => item.mid)
@@ -212,7 +217,7 @@ export const bumBumConfig = [
             return {
               label: `${index}`,
               value: `${index}`,
-              checked: index === 3,
+              checked: index === 4,
               meta: {
                 type: SWATCH,
                 value: item,
@@ -230,11 +235,6 @@ const BumBumMaker: FunctionComponent = () => {
   const [config, setConfig] = useState(bumBumConfig)
 
   const handleCapture = () => {
-    // htmlToImage.toCanvas(node).then((canvas) => {
-    //   console.log(canvas)
-    //   document.body.appendChild(canvas)
-    // })
-
     const date = new Date()
     const minutes = date.getMinutes()
     const miliseconds = date.getMilliseconds()
@@ -258,6 +258,7 @@ const BumBumMaker: FunctionComponent = () => {
         if (item.name === name) {
           item.options.map((option) => option)
           return {
+            ...item,
             name,
             options: [
               ...item.options.map((option) => {
@@ -293,7 +294,10 @@ const BumBumMaker: FunctionComponent = () => {
             Bum Bum Maker
           </Heading>
           <Text as="span" sx={{ fontWeight: 'bold' }}>
-            Pick your bum, share with friends.
+            Pick your bum. Download your bum. Share with the world.{' '}
+            <Link href="https://twitter.com/search?q=%23SillySiteChallenge" target="_blank">
+              #SillySiteChallenge
+            </Link>
           </Text>
         </Box>
         <Flex
@@ -317,22 +321,25 @@ const BumBumMaker: FunctionComponent = () => {
         }}
       >
         <Box
+          as="ul"
           sx={{
             backgroundColor: 'text',
             borderRadius: 0,
             px: 2,
             py: 3,
             ml: [2, 0],
+            listStyle: 'none',
           }}
         >
           {config.map((item: IMakerConfigItem, index: number) => {
-            const { name, options } = item
+            const { name, color, options } = item
             return (
               <Fragment key={index}>
                 {options.map((option: IMakerConfigOption, index: number) => {
                   const { label, value, checked, meta } = option
                   return (
                     <Box
+                      as="li"
                       sx={{
                         ml: '-40px',
                       }}
@@ -388,7 +395,7 @@ const BumBumMaker: FunctionComponent = () => {
                                 </Box>
                               )}
                             </Box>
-                            <Text sx={{ color: 'background', ml: 3 }}>{label}</Text>
+                            <Text sx={{ color: color, ml: 3 }}>{label}</Text>
                           </Flex>
                           <Radio
                             id={value}
@@ -509,7 +516,6 @@ const BumBumMaker: FunctionComponent = () => {
                 </Flex>
                 <Box
                   sx={{
-                    opacity: 0.6,
                     top: 0,
                     left: 0,
                     right: 0,
