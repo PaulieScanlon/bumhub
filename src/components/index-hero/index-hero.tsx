@@ -27,7 +27,7 @@ export const IndexHero: FunctionComponent = () => {
                 href="https://twitter.com/search?q=%23SillySiteChallenge"
                 target="_blank"
                 rel="noopener"
-                sx={{ fontWeight: 'bold', mr: 1 }}
+                sx={{ color: 'primary', fontWeight: 'bold', mr: 1 }}
               >
                 #SillySiteChallenge
               </Link>

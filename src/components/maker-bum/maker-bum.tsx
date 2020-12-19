@@ -845,7 +845,7 @@ const properties = (property: string, tone: number) => {
           d="M328.5,119.1l18-0.8c0,0,16,10.2,25.3,37.2c9.3,27,5.3,53.6,5.3,53.6l-19.2,10.3L328.5,119.1z"
         />
         <path
-          fill={colors.shadowSecondary}
+          fill={colors.secondaryDark}
           d="M358.3,164.9c8.1,27.7,6.3,57.1-1,55.1c-2.8-0.8-9.5-4.9-9.4-5.1c-1.9-37-9.6-54.4-20.2-76
         c0-0.1-5.6,0.3-5.6,0.3s0-3,0-4.4c0.4-8.7,2.5-14.5,6.3-15.6C336.8,116.6,350.1,137.1,358.3,164.9z"
         />
@@ -902,7 +902,7 @@ const properties = (property: string, tone: number) => {
         />
         <ellipse
           transform="matrix(0.9956 -9.408659e-02 9.408659e-02 0.9956 -17.8998 8.5762)"
-          fill={colors.shadowSecondary}
+          fill={colors.secondaryDark}
           cx="82"
           cy="194.1"
           rx="15.7"
@@ -939,7 +939,7 @@ const properties = (property: string, tone: number) => {
           c1.2,0-49.2-31.3-98.9-26.9S116.9,126.7,116.9,126.7z"
         />
         <path
-          fill={colors.shadowSecondary}
+          fill={colors.secondaryDark}
           d="M222.3,80.3c34.1,0,63.8,10.6,83.3,27.2c0.1,0,4.5-5.2,4.2-5.1c-21.1-16.8-52.1-27.5-87.6-27.5
           c-50,0-92.3,21-108,50.7c0.4,0.2,7.2,3,7.1,3C137.6,100.8,175.5,80.3,222.3,80.3z"
         />

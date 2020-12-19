@@ -6,8 +6,10 @@ export default {
     text: '#000000',
     background: '#f5f7fc',
     primary: '#e260d3',
+    primaryDark: '#BC26AB',
     secondary: '#00cfff',
-    darkRed: '#df3022',
+    secondaryDark: '#009FD8',
+    darkRed: '#d72314',
     midRed: '#ff4a4a',
     green: '#66cc4f',
     teal: '#29d6c6',
@@ -21,7 +23,6 @@ export default {
     highlight: '#fbc7f5',
     shadowBlue: '#dbe6fb',
     shadowAccent: '#c29e50',
-    shadowSecondary: '#009FD8',
     codeLineNumbers: '#5b68b3',
     codeBackground: '#282A36',
     oddTableRow: '#f7f7f7',
@@ -161,7 +162,7 @@ export default {
     a: {
       borderRadius: 0,
       cursor: 'pointer',
-      color: 'primary',
+      color: 'primaryDark',
       transition: '0.2s linear box-shadow',
       wordBreak: 'break-all',
       ':focus': {
@@ -202,13 +203,13 @@ export default {
     },
     primary: {
       variant: 'buttons.default',
-
       fontWeight: 'bold',
+      backgroundColor: 'primaryDark',
     },
     secondary: {
       variant: 'buttons.default',
       backgroundColor: 'secondary',
-      color: 'white',
+      color: 'text',
     },
     accent: {
       variant: 'buttons.default',
@@ -281,6 +282,8 @@ export default {
     },
     label: {
       cursor: 'pointer',
+      display: 'flex',
+      flexDirection: 'column',
       borderRadius: 0,
       textTransform: 'capitalize',
       transition: '.2s linear background-color',

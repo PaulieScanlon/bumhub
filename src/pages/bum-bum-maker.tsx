@@ -324,7 +324,6 @@ const BumBumMaker: FunctionComponent = () => {
           }}
         >
           <Box
-            as="ul"
             sx={{
               backgroundColor: 'text',
               borderRadius: 0,
@@ -342,14 +341,13 @@ const BumBumMaker: FunctionComponent = () => {
                     const { label, value, checked, meta } = option
                     return (
                       <Box
-                        as="li"
                         sx={{
                           ml: '-40px',
                         }}
                       >
                         <Label
                           key={index}
-                          htmlFor={value}
+                          htmlFor={`${name}-${value}`}
                           sx={{
                             display: 'block',
                             p: 2,
@@ -394,14 +392,14 @@ const BumBumMaker: FunctionComponent = () => {
                                       p: 1,
                                     }}
                                   >
-                                    <Image src={`/images/${value}-bumnail.png`} />
+                                    <Image src={`/images/${value}-bumnail.png`} alt={value} />
                                   </Box>
                                 )}
                               </Box>
                               <Text sx={{ color: color, ml: 3 }}>{label}</Text>
                             </Flex>
                             <Radio
-                              id={value}
+                              id={`${name}-${value}`}
                               name={name}
                               value={value}
                               checked={checked}

@@ -86,7 +86,7 @@ export const AdventCard: FunctionComponent<IAdventCardProps> = ({ day, repoName,
               </Text>
               <Flex
                 sx={{
-                  color: isToday ? 'background' : 'midRed',
+                  color: isToday ? 'text' : 'darkRed',
                   justifyContent: 'center',
                 }}
               >

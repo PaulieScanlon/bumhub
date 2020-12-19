@@ -6,7 +6,7 @@
     </Heading>
     <Text>
       The BumHub styles are created with the brills{' '}
-      <Link href="https://theme-ui.com/getting-started" target="_blank">
+      <Link href="https://theme-ui.com/getting-started" target="_blank" rel="noopener">
         Theme-UI
       </Link>
       . The full theme object used in BumHub can be seen <Link
@@ -23,13 +23,13 @@
 
 <Container>
 
-<Heading as="h3" variant="styles.h3" sx={{ color: 'secondary' }}>
+<Heading as="h2" variant="styles.h2" sx={{ color: 'secondaryDark' }}>
   BumHub Components
 </Heading>
 
 Components specific to BumHub
 
-#### [LogoBrand](#logo-brand)
+### [LogoBrand](#logo-brand)
 
 <Grid sx={{gap: 4}}>
 
@@ -45,7 +45,7 @@ LogoBrand is the big logo used in the hero section
 
 <Divider />
 
-#### [LogoIcon](#logo-icon)
+### [LogoIcon](#logo-icon)
 
 <Grid sx={{gap: 4}}>
 
@@ -61,7 +61,7 @@ LogoIcon is the little icon that lives in the navigation
 
 <Divider />
 
-#### [Dropdown](#dropdown)
+### [Dropdown](#dropdown)
 
 <Grid sx={{ gap: 4}}>
 
@@ -113,7 +113,7 @@ render prop can compose any React component.
 
 <Divider />
 
-#### [Starburst](#starburst)
+### [Starburst](#starburst)
 
 <Grid sx={{gap: 4}}>
 
@@ -131,7 +131,7 @@ Starburst
 
 <Divider />
 
-#### [Theme UI Bum](#theme-ui-bum)
+### [Theme UI Bum](#theme-ui-bum)
 
 <Grid sx={{gap: 4}}>
 
@@ -149,7 +149,7 @@ ThemeUIBum is used in the Bum UI section
 
 <Divider />
 
-#### [Search Bum](#search-bum)
+### [Search Bum](#search-bum)
 
 <Grid sx={{gap: 4}}>
 
@@ -167,7 +167,7 @@ SearchBum is used in the Search section
 
 <Divider />
 
-#### [Laptop Bum](#laptop-bum)
+### [Laptop Bum](#laptop-bum)
 
 <Grid sx={{gap: 4}}>
 
@@ -185,7 +185,7 @@ LaptopBum is used in the Hero section on `/bums/name-of-repo`
 
 <Divider />
 
-#### [PantsUp](#pants-up)
+### [PantsUp](#pants-up)
 
 <Grid sx={{gap: 4}}>
 
@@ -203,7 +203,7 @@ PantsUp Bum is displayed when a calendar day is in the future
 
 <Divider />
 
-#### [PantsDown](#pants-down)
+### [PantsDown](#pants-down)
 
 <Grid sx={{gap: 4}}>
 
@@ -224,7 +224,7 @@ PantsDown Bum is displayed when a calendar day is in the past or is the current 
 
 <Divider />
 
-#### [Reef](#reef)
+### [Reef](#reef)
 
 <Grid sx={{gap: 4}}>
 
@@ -242,7 +242,7 @@ Reef is displayed when a calendar day is the current day
 
 <Divider />
 
-#### [Mistletoe](#mistletoe)
+### [Mistletoe](#mistletoe)
 
 <Grid sx={{gap: 4}}>
 
@@ -260,7 +260,7 @@ Mistletoe is displayed when a calendar day is in the past
 
 <Divider />
 
-#### [AdventCard](#advent-card)
+### [AdventCard](#advent-card)
 
 <Grid sx={{gap: 4}}>
 
@@ -282,7 +282,7 @@ Advent Card is of HTML `<a />` and `<div />` depending on states provided to det
 
 <Divider />
 
-#### [GitHubStat](#github-stat)
+### [GitHubStat](#github-stat)
 
 <Grid sx={{gap: 4}}>
 
@@ -311,7 +311,7 @@ GitHubStat is used on the `/bums/name-of-repo` page and is used to display GitHu
 
 <Divider />
 
-#### [EcoStat](#eco-stat)
+### [EcoStat](#eco-stat)
 
 <Grid sx={{gap: 4}}>
 
@@ -331,7 +331,7 @@ EcoStat is used in the EcoBum section
 
 <Divider />
 
-#### [FartBum](#fart-bum)
+### [FartBum](#fart-bum)
 
 <Grid sx={{gap: 4}}>
 
@@ -351,7 +351,7 @@ FartBum is used in the EcoBum section
 
 <Divider />
 
-#### [BumToneTester](#bum-tone-tester)
+### [BumToneTester](#bum-tone-tester)
 
 <Grid sx={{gap: 4}}>
 
@@ -379,13 +379,13 @@ BumToneTester is WIP and is being used to create different skin tones
 
 <Divider />
 
-<Heading as="h3" variant="styles.h3" sx={{ color: 'secondary' }}>
+<Heading as="h2" variant="styles.h2" sx={{ color: 'secondaryDark' }}>
   Theme UI Components
 </Heading>
 
 Themed versions of components from Theme UI
 
-#### [Heading](#heading)
+### [Heading](#heading)
 
 <Grid sx={{gap: 4}}>
 
@@ -425,7 +425,7 @@ Heading is of HTML type `<h(N) />` Use the variant prop to change the heading st
 
 <Divider />
 
-#### [Button](#button)
+### [Button](#button)
 
 <Grid sx={{gap: 4}}>
 
@@ -447,7 +447,7 @@ Button is of HTML type `<button />` Use the variant prop to change the button st
 
 <Divider />
 
-#### [Input](#input)
+### [Input](#input)
 
 <Grid sx={{gap: 4}}>
 
@@ -457,13 +457,16 @@ Input is of HTML type `<input type='text'/>`
 <Input placeholder="Bums" />
 ```
 
-<Input placeholder="Bums" />
+<Label htmlFor="bum-ui-input">
+  Input
+  <Input id="bum-ui-input" placeholder="Bums" />
+</Label>
 
 </Grid>
 
 <Divider />
 
-#### [Select](#select)
+### [Select](#select)
 
 <Grid sx={{gap: 4}}>
 
@@ -477,17 +480,20 @@ Select is of HTML type `<select />`
 </Select>
 ```
 
-<Select>
-  <option>Option 1</option>
-  <option>Option 2</option>
-  <option>Option 3</option>
-</Select>
+<Label htmlFor="bum-ui-select">
+  Select
+  <Select id="bum-ui-select">
+    <option>Option 1</option>
+    <option>Option 2</option>
+    <option>Option 3</option>
+  </Select>
+</Label>
 
 </Grid>
 
 <Divider />
 
-#### [Radio](#radio)
+### [Radio](#radio)
 
 <Grid sx={{gap: 4}}>
 
@@ -499,8 +505,14 @@ Radio is of HTML type `<input type='radio' />`
 ```
 
 <Box>
-  <Radio id="radio2" name="radios" value="radio2" defaultChecked={true} />
-  <Radio id="radio1" name="radios" value="radio1" />
+  <Label htmlFor="radio2">
+    Radio 2
+    <Radio id="radio2" name="radios" value="radio2" defaultChecked={true} />
+  </Label>
+  <Label htmlFor="radio2">
+    Radio 2
+    <Radio id="radio1" name="radios" value="radio1" />
+  </Label>
 </Box>
 
 </Grid>
