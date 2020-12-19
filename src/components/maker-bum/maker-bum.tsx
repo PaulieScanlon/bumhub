@@ -1505,13 +1505,7 @@ const properties = (property: string, tone: number) => {
   return config[property] ? config[property] : null
 }
 
-// thing = ['santa', 'beard', 'coffee', 'fart', '0]
-
 export const MakerBum: FunctionComponent<IMakerBumProps> = ({ config, sx }) => {
-  // console.log({ config })
-  // const tone = useTone()
-  // console.log(getCheckedProperties(config))
-
   const tone = getCheckedProperties(config).pop()
 
   return (
