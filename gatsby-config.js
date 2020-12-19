@@ -7,9 +7,9 @@ module.exports = {
     name: 'BumHub',
     description: 'A #SillySiteChallenge by @PaulieScanlon',
     keywords: ['bums', 'silly', 'gatsby'],
-    siteUrl: 'https://bumhub.netlify.app/',
+    siteUrl: 'https://bumhub.netlify.app',
     ogImage: 'images/bumhub-og-image.jpg',
-    lang: 'eng',
+    lang: 'en',
     type: 'website',
   },
   plugins: [

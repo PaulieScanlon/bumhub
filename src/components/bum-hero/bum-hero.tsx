@@ -77,7 +77,7 @@ export const BumHero: FunctionComponent<IBumHeroProps> = ({
               />
               <Box>
                 <Heading as="h1" variant="styles.h1" sx={{ mb: 2, textAlign: ['center', 'center', 'left'] }}>
-                  <Link href={html_url} target="_blank" sx={{ color: 'text' }}>
+                  <Link href={html_url} target="_blank" rel="noopener" sx={{ color: 'text' }}>
                     {name}
                   </Link>
                 </Heading>
