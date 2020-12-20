@@ -217,6 +217,11 @@ export default {
       fontWeight: 'heading',
       backgroundColor: 'accent',
     },
+    advent: {
+      variant: 'buttons.default',
+      color: 'white',
+      backgroundColor: 'midRed',
+    },
     ghost: {
       variant: 'buttons.default',
       color: 'secondary',

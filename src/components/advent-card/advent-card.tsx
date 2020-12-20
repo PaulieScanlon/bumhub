@@ -79,7 +79,6 @@ export const AdventCard: FunctionComponent<IAdventCardProps> = ({ day, repoName,
                   fontWeight: 'heading',
                   textAlign: 'center',
                   fontSize: 2,
-                  lineHeight: 'heading',
                 }}
               >
                 {repoName}
@@ -98,14 +97,17 @@ export const AdventCard: FunctionComponent<IAdventCardProps> = ({ day, repoName,
                 >
                   <Text
                     sx={{
+                      alignItems: 'center',
+                      display: 'flex',
                       color: 'inherit',
-                      fontSize: 0,
+                      fontWeight: 'heading',
                       textAlign: 'center',
+                      lineHeight: 'normal',
                     }}
                   >
                     Explore
                   </Text>
-                  <Icon name="keyboardRight" sx={{ widht: 18, height: 18 }} />
+                  <Icon name="keyboardRight" sx={{ widht: 22, height: 22 }} />
                 </Flex>
               </Flex>
             </>
