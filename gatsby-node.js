@@ -116,6 +116,12 @@ module.exports.sourceNodes = async ({ actions, createNodeId, createContentDigest
   adventFiltered.forEach((item, index) => {
     const { id } = item
 
+    let nodeData = {
+      ...item,
+      day_number: index + 1,
+      // path: `/bums/${item.name.replace(' ', '-').toLocaleLowerCase()}`,
+    }
+
     let nodeMeta = {
       id: createNodeId(`advent-bum-id-${id}`),
       parent: null,
@@ -127,7 +133,7 @@ module.exports.sourceNodes = async ({ actions, createNodeId, createContentDigest
         contentDigest: createContentDigest(item),
       },
     }
-    const node = Object.assign({}, item, nodeMeta)
+    const node = Object.assign({}, nodeData, nodeMeta)
     createNode(node)
   })
 

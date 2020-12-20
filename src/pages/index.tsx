@@ -1,6 +1,7 @@
-import React, { FunctionComponent } from 'react'
-import { Container, Grid, Divider, Heading, Text, Flex, Box, Link } from 'theme-ui'
+import React, { FunctionComponent, useEffect, useState } from 'react'
+import { Container, Grid, Divider, Heading, Text, Flex, Box, Link, Button } from 'theme-ui'
 import { useStaticQuery, graphql, Link as GatsbyLink } from 'gatsby'
+import fileSize from 'filesize'
 
 import { MrFetchy } from '../components/mr-fetchy'
 
@@ -9,8 +10,7 @@ import { IndexHero } from '../components/index-hero/index-hero'
 import { EcoStat } from '../components/eco-stat'
 import { FartBum } from '../components/fart-bum'
 import { ThemeUIBum } from '../components/theme-ui-bum'
-import fileSize from 'filesize'
-
+import { Icon } from '../components/icon'
 import { LogoBrand } from '../components/logo-brand'
 import { CodeBlock } from '../components/code-block'
 import { TableGraphic } from '../components/table-graphic/table-graphic'
@@ -19,6 +19,7 @@ import { Starburst } from '../components/starburst'
 import { MakerBum } from '../components/maker-bum'
 import { bumBumConfig } from './bum-bum-maker'
 import { Seo } from '../components/seo/seo'
+import { useLocalStorage } from '../hooks/useLocalStorage'
 
 const DATE_END_POINT = 'get-date'
 const ECO_END_POINT = 'get-eco-ping'
@@ -64,10 +65,13 @@ const IndexPage: FunctionComponent = () => {
           created_at
           stargazers_count
           language
+          day_number
         }
       }
     }
   `)
+
+  const [isAdventExpanded, setIsAdventExpanded] = useLocalStorage('isAdventExpanded', false)
 
   return (
     <>
@@ -110,32 +114,51 @@ const IndexPage: FunctionComponent = () => {
             </Box>
           </Box>
           <Divider />
+
           <MrFetchy endPoint={DATE_END_POINT}>
             {(response) => {
+              const min = isAdventExpanded ? 0 : Number(response.data.day) - 2
+              const max = isAdventExpanded ? data.allAdventBums.nodes.length : Number(response.data.day) + 2
+              const advent = data.allAdventBums.nodes.slice(min, max)
+
               return (
                 <Grid
                   sx={{
-                    gridTemplateColumns: ['1fr', '1fr 1fr', '1fr 1fr 1fr', '1fr 1fr 1fr 1fr'],
-                    rowGap: 4,
-                    columnGap: 3,
+                    gridGap: 4,
                   }}
                 >
-                  {data.allSitePage.nodes.map((node, index) => {
-                    const { path } = node
-                    const { name } = data.allAdventBums.nodes[index]
-                    let _index = index + 1
-
-                    return (
-                      <AdventCard
-                        key={_index}
-                        day={_index}
-                        to={path}
-                        repoName={name}
-                        isDisabled={isDisabled(response.data, _index)}
-                        isToday={isToday(response.data, _index)}
-                      />
-                    )
-                  })}
+                  <Grid
+                    sx={{
+                      gridTemplateColumns: ['1fr', '1fr 1fr', '1fr 1fr', '1fr 1fr 1fr 1fr'],
+                      rowGap: 4,
+                      columnGap: 3,
+                    }}
+                  >
+                    {advent.map((node, index: number) => {
+                      const { day_number, name } = node
+                      return (
+                        <AdventCard
+                          key={index}
+                          day={day_number}
+                          to={data.allSitePage.nodes[day_number - 1].path}
+                          repoName={name}
+                          isDisabled={isDisabled(response.data, day_number)}
+                          isToday={isToday(response.data, day_number)}
+                        />
+                      )
+                    })}
+                  </Grid>
+                  <Flex
+                    sx={{
+                      justifyContent: 'center',
+                      mx: 'auto',
+                    }}
+                  >
+                    <Button variant="advent" onClick={() => setIsAdventExpanded(!isAdventExpanded)}>
+                      {`${isAdventExpanded ? 'Collapse' : 'Expand'} Advent Bums`}
+                      <Icon name={isAdventExpanded ? 'expandLess' : 'expandMore'} sx={{ ml: 2 }} />
+                    </Button>
+                  </Flex>
                 </Grid>
               )
             }}
@@ -165,7 +188,6 @@ const IndexPage: FunctionComponent = () => {
               <Heading as="h2" variant="styles.h2" sx={{ textAlign: 'center' }}>
                 EcoBum
               </Heading>
-
               <Text sx={{ textAlign: 'center' }}>
                 Website carbon usage calculated by{' '}
                 <Link href="http://ecoping.earth/" target="_blank" rel="noopener">
@@ -283,28 +305,38 @@ const IndexPage: FunctionComponent = () => {
               </Box>
             </Box>
 
-            <Grid sx={{ gridRowGap: 1 }}>
+            <Grid sx={{ gridRowGap: 4 }}>
               <Box
                 sx={{
                   pl: [0, 0, 2, 4],
                 }}
               >
-                <Heading as="h2" variant="styles.h2" sx={{ textAlign: 'right' }}>
+                <Heading as="h2" variant="styles.h2" sx={{ textAlign: ['center', 'center', 'right'] }}>
                   Bum Bum Maker
                 </Heading>
-                <Text sx={{ textAlign: 'right' }}>So what else can you do with Gatsby?</Text>
-                <Text sx={{ color: 'midGrey', fontSize: 0, fontStyle: 'italic', textAlign: 'right' }}>
+                <Text sx={{ textAlign: ['center', 'center', 'right'], mb: 3 }}>
+                  So what else can you do with Gatsby?
+                </Text>
+                <Text
+                  sx={{ color: 'midGrey', fontSize: 0, fontStyle: 'italic', textAlign: ['center', 'center', 'right'] }}
+                >
                   Bum Bum Maker lets you customise your own bum and by using{' '}
                   <Link href="https://www.npmjs.com/package/html-to-image" target="_blank" rel="noopener">
                     html-to-image
                   </Link>{' '}
                   even lets you export your bum to .jpeg so you can download and share! -{' '}
-                  <Box as="span" role="img" aria-label=" Man Dancing">
+                  <Box as="span" role="img" aria-label="Man Dancing">
                     🕺
                   </Box>
                 </Text>
               </Box>
-              <Flex sx={{ alignItems: 'flex-end', justifyContent: 'flex-end', a: { variant: 'buttons.secondary' } }}>
+              <Flex
+                sx={{
+                  alignItems: 'flex-end',
+                  justifyContent: ['center', 'center', 'flex-end'],
+                  a: { variant: 'buttons.secondary' },
+                }}
+              >
                 <GatsbyLink to="/bum-bum-maker">Make your own bum</GatsbyLink>
               </Flex>
             </Grid>
@@ -326,27 +358,35 @@ const IndexPage: FunctionComponent = () => {
           }}
         >
           <Grid sx={{ gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'], rowGap: 4 }}>
-            <Grid sx={{ gridRowGap: 1 }}>
+            <Grid sx={{ gridRowGap: 4 }}>
               <Box
                 sx={{
                   pr: [0, 0, 2, 4],
                 }}
               >
-                <Heading as="h2" variant="styles.h2">
+                <Heading as="h2" variant="styles.h2" sx={{ textAlign: ['center', 'center', 'left'] }}>
                   Bum UI
                 </Heading>
-                <Text>
+                <Text sx={{ textAlign: ['center', 'center', 'left'], mb: 3 }}>
                   BumHub's UI was created using the super brill brills{' '}
                   <Link href="http://theme-ui.com/" target="_blank" rel="noopener">
                     Theme UI
                   </Link>
                 </Text>
-                <Text sx={{ color: 'midGrey', fontSize: 0, fontStyle: 'italic' }}>
+                <Text
+                  sx={{ color: 'midGrey', fontSize: 0, fontStyle: 'italic', textAlign: ['center', 'center', 'left'] }}
+                >
                   Theme UI is a library for creating themeable user interfaces based on constraint-based design
                   principles - Theme UI
                 </Text>
               </Box>
-              <Flex sx={{ alignItems: 'flex-end', a: { variant: 'buttons.secondary' } }}>
+              <Flex
+                sx={{
+                  alignItems: 'flex-end',
+                  justifyContent: ['center', 'center', 'flex-start'],
+                  a: { variant: 'buttons.secondary' },
+                }}
+              >
                 <GatsbyLink to="/bum-ui">Preview the styles</GatsbyLink>
               </Flex>
             </Grid>
@@ -397,17 +437,21 @@ const IndexPage: FunctionComponent = () => {
               </Flex>
             </Box>
 
-            <Grid sx={{ gridRowGap: 1 }}>
+            <Grid sx={{ gridRowGap: 4 }}>
               <Box
                 sx={{
                   pl: [0, 0, 2, 4],
                 }}
               >
-                <Heading as="h2" variant="styles.h2" sx={{ textAlign: 'right' }}>
+                <Heading as="h2" variant="styles.h2" sx={{ textAlign: ['center', 'center', 'right'] }}>
                   Bum Search
                 </Heading>
-                <Text sx={{ textAlign: 'right' }}>BumHub has retrieved all the GitHub bums so you don't have to!</Text>
-                <Text sx={{ color: 'midGrey', fontSize: 0, fontStyle: 'italic', textAlign: 'right' }}>
+                <Text sx={{ textAlign: ['center', 'center', 'right'], mb: 3 }}>
+                  BumHub has retrieved all the GitHub bums so you don't have to!
+                </Text>
+                <Text
+                  sx={{ color: 'midGrey', fontSize: 0, fontStyle: 'italic', textAlign: ['center', 'center', 'right'] }}
+                >
                   BumHub uses{' '}
                   <Link href="https://www.netlify.com/products/functions/" target="_blank" rel="noopener">
                     Netlify functions
@@ -422,7 +466,13 @@ const IndexPage: FunctionComponent = () => {
                   </Box>
                 </Text>
               </Box>
-              <Flex sx={{ alignItems: 'flex-end', justifyContent: 'flex-end', a: { variant: 'buttons.secondary' } }}>
+              <Flex
+                sx={{
+                  alignItems: 'flex-end',
+                  justifyContent: ['center', 'center', 'flex-end'],
+                  a: { variant: 'buttons.secondary' },
+                }}
+              >
                 <GatsbyLink to="/search">Search the bums</GatsbyLink>
               </Flex>
             </Grid>

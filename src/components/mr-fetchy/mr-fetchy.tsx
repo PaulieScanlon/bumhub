@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useEffect, useState } from 'react'
-import { Box, Text, Spinner } from 'theme-ui'
+import { Flex, Box, Text, Spinner } from 'theme-ui'
 
-interface MrFetchProps {
+interface IMrFetchyProps {
   /** The Netlify function to hit */
   endPoint: string
   /** POST body */
@@ -12,7 +12,7 @@ interface MrFetchProps {
   children: (res: any) => void
 }
 
-export const MrFetchy: FunctionComponent<MrFetchProps> = ({ endPoint, method = 'GET', body, children }) => {
+export const MrFetchy: FunctionComponent<IMrFetchyProps> = ({ endPoint, method = 'GET', body, children }) => {
   const [response, setResponse] = useState(null)
   const [isMounted, setIsMounted] = useState(true)
   const [isLoading, setIsLoading] = useState(true)
@@ -57,7 +57,11 @@ export const MrFetchy: FunctionComponent<MrFetchProps> = ({ endPoint, method = '
   return (
     <Box>
       {hasError ? <Text sx={{ textAlign: 'center', color: 'darkRed' }}>{hasError}</Text> : null}
-      {isLoading ? <Spinner /> : null}
+      {isLoading ? (
+        <Flex sx={{ justifyContent: 'center' }}>
+          <Spinner />
+        </Flex>
+      ) : null}
       {!hasError && !isLoading && response ? <>{children(response)}</> : null}
     </Box>
   )
