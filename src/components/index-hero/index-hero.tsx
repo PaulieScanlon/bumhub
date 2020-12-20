@@ -9,7 +9,7 @@ export const IndexHero: FunctionComponent = () => {
     <Box as="section" sx={{ backgroundColor: 'accent', position: 'relative', zIndex: 'hero' }}>
       <Container sx={{ position: 'relative', zIndex: 1 }}>
         <Flex sx={{ flexDirection: 'column', py: 5, justifyContent: 'center' }}>
-          <LogoBrand sx={{ width: ['45%', '35%', '25%'], mt: 4 }} />
+          <LogoBrand sx={{ width: ['45%', '35%', '25%'], mt: 4, mb: 3 }} />
           <Heading as="h1" variant="styles.h1" sx={{ textAlign: 'center' }}>
             The cheekiest way
             <br />
