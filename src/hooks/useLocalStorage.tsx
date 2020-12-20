@@ -1,12 +1,14 @@
 import { useState } from 'react'
+
 // https://usehooks.com/useLocalStorage/
 export const useLocalStorage = (key, initialValue) => {
   // State to store our value
   // Pass initial state function to useState so logic is only executed once
+  const windowGlobal = typeof window !== 'undefined' && window
   const [storedValue, setStoredValue] = useState(() => {
     try {
       // Get from local storage by key
-      const item = window.localStorage.getItem(key)
+      const item = windowGlobal ? windowGlobal.localStorage.getItem(key) : ''
       // Parse stored json or if none return initialValue
       return item ? JSON.parse(item) : initialValue
     } catch (error) {
@@ -25,7 +27,7 @@ export const useLocalStorage = (key, initialValue) => {
       // Save state
       setStoredValue(valueToStore)
       // Save to local storage
-      window.localStorage.setItem(key, JSON.stringify(valueToStore))
+      windowGlobal.localStorage.setItem(key, JSON.stringify(valueToStore))
     } catch (error) {
       // A more advanced implementation would handle the error case
       console.log(error)
