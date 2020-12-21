@@ -320,7 +320,7 @@ const BumBumMaker: FunctionComponent = () => {
         <Grid
           sx={{
             gridGap: 4,
-            gridTemplateColumns: ['1fr', '1fr', '3fr 1fr', '3fr 1fr'],
+            gridTemplateColumns: ['1fr', '1fr', '2.5fr 1fr', '3fr 1fr'],
           }}
         >
           <Box
@@ -329,7 +329,7 @@ const BumBumMaker: FunctionComponent = () => {
               borderRadius: 0,
               px: 2,
               py: 3,
-              ml: [2, 0],
+              ml: [3, 3, 0],
               listStyle: 'none',
             }}
           >
@@ -342,7 +342,7 @@ const BumBumMaker: FunctionComponent = () => {
                     return (
                       <Box
                         sx={{
-                          ml: '-40px',
+                          ml: ['-34px', '-40px'],
                         }}
                       >
                         <Label
@@ -368,8 +368,8 @@ const BumBumMaker: FunctionComponent = () => {
                                 sx={{
                                   backgroundColor: 'text',
                                   borderRadius: '100%',
-                                  width: '54px',
-                                  height: '54px',
+                                  width: [44, 54],
+                                  height: [44, 54],
                                   p: '6px',
                                 }}
                               >
@@ -504,6 +504,16 @@ const BumBumMaker: FunctionComponent = () => {
                           }}
                         >
                           https://bumhub.netlify.app
+                        </Text>
+                        <Text
+                          sx={{
+                            fontWeight: 'bold',
+                            textAlign: 'center',
+                            fontSize: ['0.5rem', 0],
+                            lineHeight: 1.4,
+                          }}
+                        >
+                          #SillySiteChallenge
                         </Text>
                       </Flex>
                     </Box>

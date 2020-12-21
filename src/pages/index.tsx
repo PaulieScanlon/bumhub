@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect, useState } from 'react'
+import React, { FunctionComponent } from 'react'
 import { Container, Grid, Divider, Heading, Text, Flex, Box, Link, Button } from 'theme-ui'
 import { useStaticQuery, graphql, Link as GatsbyLink } from 'gatsby'
 import fileSize from 'filesize'
