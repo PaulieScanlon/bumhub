@@ -157,6 +157,7 @@ export default {
         padding: 2,
         backgroundColor: 'shadowBlue',
         fontSize: '1.1rem',
+        whiteSpace: 'nowrap',
       },
     },
     a: {
@@ -164,7 +165,7 @@ export default {
       cursor: 'pointer',
       color: 'primaryDark',
       transition: '0.2s linear box-shadow',
-      wordBreak: 'break-all',
+      wordBreak: 'break-word',
       ':focus': {
         outline: 'none',
         boxShadow: 'focus',
@@ -210,12 +211,13 @@ export default {
       variant: 'buttons.default',
       backgroundColor: 'secondary',
       color: 'text',
+      fontWeight: 'heading',
     },
     accent: {
       variant: 'buttons.default',
       color: 'text',
-      fontWeight: 'heading',
       backgroundColor: 'accent',
+      fontWeight: 'heading',
     },
     advent: {
       variant: 'buttons.default',

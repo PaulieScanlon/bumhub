@@ -1,18 +1,39 @@
 import React, { FunctionComponent } from 'react'
-import { Container, Box, Heading, Text } from 'theme-ui'
+import { Link as GatsbyLink } from 'gatsby'
+import { Container, Grid, Box, Heading, Text } from 'theme-ui'
 
 import { Seo } from '../components/seo'
+import { FartBum } from '../components/fart-bum'
 
 const NotFoundPage: FunctionComponent = () => (
   <>
     <Seo title="Oh Bums!" />
     <Container>
-      <Box>
-        <Heading as="h1" variant="styles.h1">
+      <Grid
+        sx={{
+          textAlign: 'center',
+          a: { variant: 'buttons.accent' },
+        }}
+      >
+        <Heading as="h1" variant="styles.h1" sx={{ textAlign: 'center' }}>
           Oh Bums!
         </Heading>
-        <Text>This page can't be found</Text>
-      </Box>
+
+        <FartBum
+          sx={{
+            width: 220,
+          }}
+        />
+
+        <Text sx={{ textAlign: 'center' }}>This page can't be found</Text>
+        <Box
+          sx={{
+            mx: 'auto',
+          }}
+        >
+          <GatsbyLink to="/">Back to the Bums</GatsbyLink>
+        </Box>
+      </Grid>
     </Container>
   </>
 )

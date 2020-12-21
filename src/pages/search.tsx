@@ -76,7 +76,7 @@ const SearchPage: FunctionComponent = () => {
               borderRadius: [1, '0px'],
               boxShadow: ['surface', 'none'],
               gridTemplateColumns: ['1fr auto'],
-              p: 3,
+              p: [2, 3],
             }}
           >
             <Input
@@ -98,7 +98,7 @@ const SearchPage: FunctionComponent = () => {
               backgroundColor: ['white', 'transparent'],
               borderRadius: [1, '0px'],
               boxShadow: ['surface', 'none'],
-              p: 3,
+              p: [2, 3],
             }}
           >
             <Select
