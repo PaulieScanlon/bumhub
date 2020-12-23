@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import { Container, Grid, Divider, Heading, Text, Flex, Box, Link, Button } from 'theme-ui'
+import { Container, Grid, Divider, Heading, Text, Flex, Box, Link, Button, Image } from 'theme-ui'
 import { useStaticQuery, graphql, Link as GatsbyLink } from 'gatsby'
 import fileSize from 'filesize'
 
@@ -491,16 +491,50 @@ const IndexPage: FunctionComponent = () => {
             py: 5,
           }}
         >
-          <Heading as="h2" variant="styles.h2">
-            Blog (WIP)
-          </Heading>
-          <Text>Here's a blog post i'm regulary updating as I develop this site in public</Text>
-          <Link href="https://paulie.dev/posts/2020/11/silly-site-challenge/" target="_blank" rel="noopener">
-            https://paulie.dev/posts/2020/11/silly-site-challenge/
-          </Link>
+          <Grid sx={{ gridTemplateColumns: ['1fr', '1fr', '1.5fr 1fr'], rowGap: 4 }}>
+            <Grid sx={{ gridRowGap: 4 }}>
+              <Box
+                sx={{
+                  pr: [0, 0, 2, 4],
+                }}
+              >
+                <Heading as="h2" variant="styles.h2" sx={{ textAlign: ['center', 'center', 'left'] }}>
+                  paulie.dev
+                </Heading>
+                <Text>Bum Hub was developed in public and released feature by feature throughout December 2020</Text>
+                <Text
+                  sx={{ color: 'midGrey', fontSize: 0, fontStyle: 'italic', textAlign: ['center', 'center', 'left'] }}
+                >
+                  I've documented my plan of attack and thought process together with a detailed explanation about how I
+                  created each feature seen on Bum Hub in{' '}
+                  <Link href="https://paulie.dev/posts/2020/11/silly-site-challenge/" target="_blank" rel="noopener">
+                    this
+                  </Link>{' '}
+                  blog post -
+                  <Box as="span" role="img" aria-label="Man Dancing">
+                    🕺
+                  </Box>
+                </Text>
+              </Box>
+              <Flex
+                sx={{
+                  alignItems: 'flex-start',
+                  justifyContent: ['center', 'center', 'flex-start'],
+                  a: { variant: 'buttons.secondary' },
+                }}
+              >
+                <Link href="https://paulie.dev/" target="_blank" rel="noopener">
+                  Visit paulie.dev
+                </Link>
+              </Flex>
+            </Grid>
+            <Image
+              src="https://res.cloudinary.com/www-paulie-dev/image/upload/v1606306250/paulie.dev/2020/11/silly-site-challenge_g3fse9.jpg"
+              alt="Silly Site Challenge"
+            />
+          </Grid>
         </Container>
       </Box>
-      <Divider />
     </>
   )
 }

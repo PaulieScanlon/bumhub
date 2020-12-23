@@ -1,7 +1,7 @@
 {
   "name": "bah-bumhub",
   "version": "1.0.0",
-  "description": "An advent calendar of GitHub \"bums\" repos",
+  "description": "A #SillySiteChallenge for all the GitHub bums",
   "main": "index.js",
   "scripts": {
     "develop": "gatsby develop",

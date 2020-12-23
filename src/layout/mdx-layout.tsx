@@ -21,6 +21,7 @@ import { ThemeUIBum } from '../components/theme-ui-bum'
 import { SearchBum } from '../components/search-bum'
 import { Dropdown } from '../components/dropdown'
 import { BumToneTester } from '../components/bum-tone-tester'
+import { Footer } from '../components/footer'
 
 const components = {
   pre: ({ children }) => <Fragment>{children}</Fragment>,
@@ -43,6 +44,7 @@ const components = {
   SearchBum,
   Dropdown,
   BumToneTester,
+  Footer,
 }
 
 const MdxLayout: FunctionComponent = ({ children }) => {
