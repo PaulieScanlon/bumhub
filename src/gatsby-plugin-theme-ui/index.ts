@@ -15,7 +15,7 @@ export default {
     teal: '#29d6c6',
     lightBlue: '#c2d8ff',
     grey: '#cccccc',
-    midGrey: '#666666',
+    midGrey: '#999999',
     darkGrey: '#373737',
     white: '#ffffff',
     blueGreen: '#102738',
@@ -181,6 +181,16 @@ export default {
     hr: {
       my: 3,
       color: 'transparent',
+    },
+    ul: {
+      listStyle: 'none',
+      px: '1',
+      li: {
+        fontSize: 0,
+        a: {
+          color: 'shadowAccent',
+        },
+      },
     },
   },
 
