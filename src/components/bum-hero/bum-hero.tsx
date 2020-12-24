@@ -66,10 +66,15 @@ export const BumHero: FunctionComponent<IBumHeroProps> = ({
           sx={{
             position: 'relative',
             gridTemplateColumns: ['1fr', '1fr', '2.5fr 1fr'],
+            gridGap: [2, 4, 5],
             zIndex: 1,
           }}
         >
-          <Box>
+          <Grid
+            sx={{
+              gridGap: [3, 3, 5],
+            }}
+          >
             <Grid sx={{ alignItems: 'center', gridTemplateColumns: ['1fr', '1fr', '70px 1fr'] }}>
               <Image
                 src={avatar}
@@ -91,10 +96,10 @@ export const BumHero: FunctionComponent<IBumHeroProps> = ({
                 </Text>
               </Box>
             </Grid>
-            <Flex sx={{ width: ['50%', '50%', '70%'], mt: ['10%', '10%', '20%'], mx: ['auto', 'auto', 0] }}>
-              <LaptopBum />
+            <Flex sx={{ mx: ['auto', 'auto', 0] }}>
+              <LaptopBum sx={{ maxWidth: [230, 400] }} />
             </Flex>
-          </Box>
+          </Grid>
           <Box
             sx={{
               backgroundColor: 'text',
