@@ -88,7 +88,6 @@ export const BumHero: FunctionComponent<IBumHeroProps> = ({
                 </Heading>
                 <Text
                   sx={{
-                    lineHeight: 'normal',
                     textAlign: ['center', 'center', 'left'],
                   }}
                 >
