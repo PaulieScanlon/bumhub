@@ -8,7 +8,7 @@ import { FartBum } from '../components/fart-bum'
 const NotFoundPage: FunctionComponent = () => (
   <>
     <Seo title="Oh Bums!" />
-    <Container>
+    <Container sx={{ mb: 5 }}>
       <Grid
         sx={{
           textAlign: 'center',
