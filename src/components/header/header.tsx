@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState } from 'react'
-import { Container, Grid, Flex, Box, MenuButton } from 'theme-ui'
+import { Container, Grid, Flex, Box, MenuButton, Link } from 'theme-ui'
 import { Link as GatsbyLink } from 'gatsby'
 import { Location } from '@reach/router'
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
@@ -8,6 +8,7 @@ import theme from '../../gatsby-plugin-theme-ui'
 import { LogoIcon } from '../logo-icon/logo-icon'
 import { INavigationItem } from '../../types'
 import { Dropdown } from '../dropdown/dropdown'
+import { Icon } from '../icon'
 
 const navigationItems: INavigationItem[] = [
   {
@@ -60,7 +61,8 @@ export const Header: FunctionComponent = () => {
                   backgroundColor: isIndex ? headerColor : 'background',
                   borderRadius: 0,
                   boxShadow: 'header',
-                  gridTemplateColumns: 'auto auto',
+                  gridGap: [1, 3],
+                  gridTemplateColumns: 'auto auto 24px',
                   flexGrow: 1,
                   transition: '.5s linear background-color',
                   p: 2,
@@ -105,6 +107,21 @@ export const Header: FunctionComponent = () => {
                     )
                   })}
                 </Grid>
+                <Flex>
+                  <Link
+                    href="https://github.com/PaulieScanlon/bumhub"
+                    target="_blank"
+                    rel="noopener"
+                    sx={{
+                      alignItems: 'center',
+                      display: 'flex',
+                      mt: ['0px', '-3px'],
+                      p: '0px!important',
+                    }}
+                  >
+                    <Icon name="gitHub" />
+                  </Link>
+                </Flex>
               </Grid>
             </Container>
           </Flex>
