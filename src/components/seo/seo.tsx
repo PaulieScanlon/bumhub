@@ -15,6 +15,7 @@ export const Seo: FunctionComponent<ISeoProps> = ({ title }) => {
     <Helmet>
       <html lang={lang} />
       <title>{title ? `${name} | ${title}` : `${name}`}</title>
+      <link rel="canonical" href={siteUrl} />
       <meta name="description" content={description} />
       <meta name="image" content={`${siteUrl}/${ogImage}`} />
       <meta name="image:alt" content={description} />

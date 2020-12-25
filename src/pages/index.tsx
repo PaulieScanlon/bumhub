@@ -117,8 +117,8 @@ const IndexPage: FunctionComponent = () => {
 
           <MrFetchy endPoint={DATE_END_POINT}>
             {(response) => {
-              const min = isAdventExpanded ? 0 : Number(response.data.day) - 3
-              const max = isAdventExpanded ? data.allAdventBums.nodes.length : Number(response.data.day) + 1
+              const min = isAdventExpanded ? 0 : Number(response.data.day) - 4
+              const max = isAdventExpanded ? data.allAdventBums.nodes.length : Number(response.data.day)
               const advent = data.allAdventBums.nodes.slice(min, max)
 
               return (

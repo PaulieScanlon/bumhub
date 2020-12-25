@@ -107,6 +107,9 @@ export default {
       },
       // GitHub readme top level div
       '.markdown-body': {
+        code: {
+          variant: 'styles.code',
+        },
         pre: {
           variant: 'styles.pre',
         },
@@ -153,11 +156,7 @@ export default {
       mb: 2,
       // inline code
       code: {
-        borderRadius: 0,
-        padding: 2,
-        backgroundColor: 'shadowBlue',
-        fontSize: '1.1rem',
-        whiteSpace: 'nowrap',
+        variant: 'styles.code',
       },
     },
     a: {
@@ -170,6 +169,13 @@ export default {
         outline: 'none',
         boxShadow: 'focus',
       },
+    },
+    code: {
+      borderRadius: 0,
+      padding: 2,
+      backgroundColor: 'shadowBlue',
+      fontSize: '1.1rem',
+      whiteSpace: 'nowrap',
     },
     pre: {
       borderRadius: 0,
