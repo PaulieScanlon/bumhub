@@ -54,6 +54,6 @@ talented but an absolute sweetheart. Her portfolio of work can be seen on [dribb
 ### Everything else
 
 Front End, Back End, Design, Art Direction and Copy Writing has all been done by me:
-[@PaulieScanlon](https://twitter.com/PaulieScanlon) and if you'd like to read about my plan of attack thought process
+[@PaulieScanlon](https://twitter.com/PaulieScanlon) and if you'd like to read about my plan of attack, thought process
 and detailed explanations about how each section was created I kept a dev diary on my
 [blog](https://paulie.dev/posts/2020/11/silly-site-challenge/)

@@ -24,12 +24,12 @@ const leftLinks: ILinkObject[] = [
     link: 'https://twitter.com/PaulieScanlon',
   },
   {
-    title: 'Front End Develoer',
+    title: 'Front End Developer',
     child: ' @PaulieScanlon',
     link: 'https://twitter.com/PaulieScanlon',
   },
   {
-    title: 'Back End Develoer',
+    title: 'Back End Developer',
     child: ' @PaulieScanlon',
     link: 'https://twitter.com/PaulieScanlon',
   },
@@ -91,7 +91,7 @@ export const Footer: FunctionComponent<IFooterProps> = () => {
               </Box>{' '}
               Credits
             </Text>
-            <Text sx={{ fontSize: 0, color: 'midGrey' }}>Who made Bum UI and what they did</Text>
+            <Text sx={{ fontSize: 0, color: 'midGrey' }}>Who made Bum Hub and what they did</Text>
             <Box as="ul" variant="styles.ul">
               {leftLinks.map((item: ILinkObject, index: number) => {
                 const { title, child, link } = item
@@ -146,9 +146,15 @@ export const Footer: FunctionComponent<IFooterProps> = () => {
             px: 3,
           }}
         >
-          More of my work can be found{' '}
-          <Link href="https://paulie.dev/" target="_blank" rel="noopener" sx={{ color: 'shadowAccent' }}>
-            here
+          More of my work can be found on my{' '}
+          <Link
+            aria-label="Paul Scanlon Blog"
+            href="https://paulie.dev/"
+            target="_blank"
+            rel="noopener"
+            sx={{ color: 'shadowAccent' }}
+          >
+            blog
           </Link>
         </Text>
       </Container>

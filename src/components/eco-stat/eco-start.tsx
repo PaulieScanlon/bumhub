@@ -15,8 +15,8 @@ export const EcoStat: FunctionComponent<IEcoStatProps> = ({ statistic }) => {
         borderWidth: 14,
         borderColor: 'accent',
         borderStyle: 'solid',
-        width: 170,
-        height: 170,
+        width: 180,
+        height: 180,
       }}
     >
       <Flex
@@ -28,7 +28,7 @@ export const EcoStat: FunctionComponent<IEcoStatProps> = ({ statistic }) => {
       >
         <Text
           sx={{
-            fontSize: '2.2rem',
+            fontSize: '2rem',
             fontWeight: 'heading',
             color: 'background',
             mb: 1,

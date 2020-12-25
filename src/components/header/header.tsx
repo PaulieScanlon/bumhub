@@ -109,6 +109,7 @@ export const Header: FunctionComponent = () => {
                 </Grid>
                 <Flex>
                   <Link
+                    aria-label="GitHub"
                     href="https://github.com/PaulieScanlon/bumhub"
                     target="_blank"
                     rel="noopener"

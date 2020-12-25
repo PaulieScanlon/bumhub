@@ -507,10 +507,15 @@ const IndexPage: FunctionComponent = () => {
                 >
                   I've documented my plan of attack and thought process together with a detailed explanation about how I
                   created each feature seen on Bum Hub in{' '}
-                  <Link href="https://paulie.dev/posts/2020/11/silly-site-challenge/" target="_blank" rel="noopener">
-                    this
+                  <Link
+                    aria-label="Paul Scanlon Blog"
+                    href="https://paulie.dev/posts/2020/11/silly-site-challenge/"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    this blog post
                   </Link>{' '}
-                  blog post -
+                  -
                   <Box as="span" role="img" aria-label="Man Dancing">
                     🕺
                   </Box>
@@ -531,6 +536,8 @@ const IndexPage: FunctionComponent = () => {
             <Image
               src="https://res.cloudinary.com/www-paulie-dev/image/upload/v1606306250/paulie.dev/2020/11/silly-site-challenge_g3fse9.jpg"
               alt="Silly Site Challenge"
+              width={1024}
+              height={576}
             />
           </Grid>
         </Container>
