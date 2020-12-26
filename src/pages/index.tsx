@@ -21,27 +21,7 @@ import { bumBumConfig } from './bum-bum-maker'
 import { Seo } from '../components/seo/seo'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 
-const DATE_END_POINT = 'get-date'
 const ECO_END_POINT = 'get-eco-ping'
-
-const isDisabled = (data: any, index: number) => {
-  if (data.month === data.limited_month) {
-    if (index <= Number(data.day)) {
-      return false
-    }
-  }
-  return true
-}
-
-const isToday = (data: any, index: number) => {
-  if (data.month === data.limited_month) {
-    if (index === Number(data.day)) {
-      return true
-    }
-  }
-
-  return false
-}
 
 const IndexPage: FunctionComponent = () => {
   const data = useStaticQuery(graphql`
@@ -72,6 +52,9 @@ const IndexPage: FunctionComponent = () => {
   `)
 
   const [isAdventExpanded, setIsAdventExpanded] = useLocalStorage('isAdventExpanded', false)
+  const min = isAdventExpanded ? 0 : 21
+  const max = isAdventExpanded ? data.allAdventBums.nodes.length : 25
+  const advent = data.allAdventBums.nodes.slice(min, max)
 
   return (
     <>
@@ -115,54 +98,44 @@ const IndexPage: FunctionComponent = () => {
           </Box>
           <Divider />
 
-          <MrFetchy endPoint={DATE_END_POINT}>
-            {(response) => {
-              const min = isAdventExpanded ? 0 : Number(response.data.day) - 4
-              const max = isAdventExpanded ? data.allAdventBums.nodes.length : Number(response.data.day)
-              const advent = data.allAdventBums.nodes.slice(min, max)
-
-              return (
-                <Grid
-                  sx={{
-                    gridGap: 4,
-                  }}
-                >
-                  <Grid
-                    sx={{
-                      gridTemplateColumns: ['1fr', '1fr 1fr', '1fr 1fr', '1fr 1fr 1fr 1fr'],
-                      rowGap: 4,
-                      columnGap: 3,
-                    }}
-                  >
-                    {advent.map((node, index: number) => {
-                      const { day_number, name } = node
-                      return (
-                        <AdventCard
-                          key={index}
-                          day={day_number}
-                          to={data.allSitePage.nodes[day_number - 1].path}
-                          repoName={name}
-                          isDisabled={isDisabled(response.data, day_number)}
-                          isToday={isToday(response.data, day_number)}
-                        />
-                      )
-                    })}
-                  </Grid>
-                  <Flex
-                    sx={{
-                      justifyContent: 'center',
-                      mx: 'auto',
-                    }}
-                  >
-                    <Button variant="advent" onClick={() => setIsAdventExpanded(!isAdventExpanded)}>
-                      {`${isAdventExpanded ? 'Collapse' : 'Expand'} Advent Bums`}
-                      <Icon name={isAdventExpanded ? 'expandLess' : 'expandMore'} sx={{ ml: 2 }} />
-                    </Button>
-                  </Flex>
-                </Grid>
-              )
+          <Grid
+            sx={{
+              gridGap: 4,
             }}
-          </MrFetchy>
+          >
+            <Grid
+              sx={{
+                gridTemplateColumns: ['1fr', '1fr 1fr', '1fr 1fr', '1fr 1fr 1fr 1fr'],
+                rowGap: 4,
+                columnGap: 3,
+              }}
+            >
+              {advent.map((node, index: number) => {
+                const { day_number, name } = node
+                return (
+                  <AdventCard
+                    key={index}
+                    day={day_number}
+                    to={data.allSitePage.nodes[day_number - 1].path}
+                    repoName={name}
+                    isDisabled={false}
+                    isToday={false}
+                  />
+                )
+              })}
+            </Grid>
+            <Flex
+              sx={{
+                justifyContent: 'center',
+                mx: 'auto',
+              }}
+            >
+              <Button variant="advent" onClick={() => setIsAdventExpanded(!isAdventExpanded)}>
+                {`${isAdventExpanded ? 'Collapse' : 'Expand'} Advent Bums`}
+                <Icon name={isAdventExpanded ? 'expandLess' : 'expandMore'} sx={{ ml: 2 }} />
+              </Button>
+            </Flex>
+          </Grid>
         </Container>
       </Box>
 
